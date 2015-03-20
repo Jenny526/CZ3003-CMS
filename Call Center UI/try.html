@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<script src= "http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+</head>
+
+<body>
+
+<div ng-app="CallCenter" ng-controller="eventsCtrl"> 
+
+<table>
+  <tr ng-repeat="x in events">
+    <td>{{ x.Serial }}</td>
+    <td>{{ x.Type }}</td>
+  </tr>
+</table>
+
+<table>
+				<tr ng-repeat="x in events">
+				<td>{{x.Serial}}</td>
+				<td>{{x.Type + '@' + x.Location}}</td>
+				<td>{{x.Status}}</td>
+				</tr>
+				</table>
+
+</div>
+<script src="try.js"></script>
+
+</body>
+</html>
