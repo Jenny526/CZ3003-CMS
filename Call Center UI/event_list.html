@@ -1,0 +1,99 @@
+<!doctype html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <script src="http://code.angularjs.org/angular-1.0.0rc3.min.js"></script>
+    <script src="http://documentcloud.github.com/underscore/underscore-min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Event List</title>
+
+<link rel="stylesheet" href="CSS/Main.css" type="text/css" />
+<!--[if lt IE 9]>
+<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+
+<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0" />
+</head>
+
+<body>
+	<div id="sitename">
+		<h1>Crisis Management System</h1>
+	</div>
+	<section id="body" class="width">
+		<aside id="sidebar" class="column-left">
+
+			
+			<header>
+				
+				<h1>CMS</h1>
+
+				<h2>Call Center</h2>
+			
+			</header>
+
+			
+			<nav id="mainnav">
+  				
+				<ul>
+					<li><a href="new_event.html">New Event</a></li>
+					<li class="selected-item"><a href="event_list.html">Event List</a></li>
+					<li><a href="login.html">Logout</a></li>
+				</ul>
+			
+			</nav>
+
+			
+		</aside>
+		<section id="content" class="column-right">
+			<h3>Current Events Happening</h3>
+			</br>
+		
+			<div ng-app="CallCenter" ng-controller="eventsCtrl">
+				<table>
+					<tbody>
+						<tr>
+							<th width="350" align = "left" scope="row">&nbsp; Total Events Currently Happening:</th>
+							<th width="50" align = "center">&nbsp;{{getTotalEvents()}}</th>
+						</tr>
+					</tbody>
+				</table>
+		
+				<table>
+					<tbody>
+						<tr>
+						  <th width="60" align = "center" scope="row">&nbsp; Serial</th>
+						  <th width="280" align = "left" scope="row">&nbsp; Type & Location</th>
+						  <th width="80" align = "center" scope="row">&nbsp; Status</th>
+						  <th width="80" align = "center" scope="row">&nbsp; Option</th>
+						</tr>
+					</tbody>
+				</table>
+				<table>
+					<tr ng-repeat="x in events">
+					<td width="60" align = "center" scope="row">{{x.Serial}}</td>
+					<td width="280" align = "left" scope="row"> &nbsp; <a href="event_detail.html">{{x.Type + '@' + x.Location}}</td>
+					<td width="80" align = "center" scope="row">&nbsp; {{x.Status}}</td>
+					<td width="80" align = "center" ng-click="clearCompleted()" scope="row">&nbsp; {{x.Option}}</td>
+					</tr>
+				</table>
+			</div>
+			<script src="try.js"></script>
+			<footer class="clear">
+				<p>&copy; 2015 CZ3003. by <a href="http://zypopwebtemplates.com/">Lemon Tee</a></p>
+			</footer>
+
+		</section>
+
+		
+		<div class="clear"></div>
+
+	
+	</section>
+</body>
+</html>
+
+
+
+

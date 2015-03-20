@@ -1,0 +1,81 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>New Event</title>
+<link rel="stylesheet" href="CSS/Main.css" type="text/css" />
+
+
+<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0" />
+</head>
+
+<body>
+	<div id="sitename">
+		<h1>Crisis Management System</h1>
+	</div>
+	<section id="body" class="width">
+		<aside id="sidebar" class="column-left">
+
+
+			<header>
+
+				<h1>CMS</h1>
+
+				<h2>Call Center</h2>
+			
+			</header>
+
+			
+			<nav id="mainnav">
+  				
+				<ul>
+					<li class="selected-item"><a href="new_event.html">New Event</a></li>
+					<li><a href="event_list.html">Event List</a></li>
+					<li><a href="login.html">Logout</a></li>
+				</ul>
+
+			</nav>
+			
+		</aside>
+		<section id="content" class="column-right">
+			<h3>Create New Event</h3>
+				<fieldset>
+					<legend>Crisis Information:</legend>
+					<form action="#" method="get">
+						<p><label for="name">Reporter Name:</label>
+						<input type="text" name="name" id="name" placeholder="eg: John Lee (Last name)" value="" /><br /></p>		
+						<p><label for="number">Mobile Number:</label>
+						<input type="text" name="number" id="number" placeholder="eg: +65 12345678" value="" /><br /></p>
+						<p><label for="location">Location:</label>
+						<input type="text" name="location" placeholder="eg: Jurong Point" value="" /><br /></p>
+						<p><label for="type">Type:</label>	
+							<select class="form-control">
+								<option selected>Select Event Type</option>
+                            	<option>Emergency Ambulance</option>
+                            	<option>Rescue and Evacuation</option>
+                            	<option>Fire-Fighting</option>
+                            	<option>Gas Leak Control</option>
+                        	</select><br />
+						<p><label for="message">Details:</label>
+						<textarea cols="60" rows="11" name="detail" id="detail"></textarea><br /></p>
+						<p><input type="submit" name="submit" class="formbutton" value="Submit" /></p>
+					</form>
+	
+				</fieldset>
+		
+				<footer class="clear">
+				
+				<p>&copy; 2015 CZ3003. by <a href="http://zypopwebtemplates.com/">Lemon Tee</a></p>
+				</footer>
+
+		</section>
+
+		
+		<div class="clear"></div>
+
+	
+	</section>
+
+
+</body>
+</html>
