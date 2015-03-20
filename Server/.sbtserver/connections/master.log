@@ -1,0 +1,7 @@
+New log file opened at Mon Mar 16 20:16:17 SGT 2015 by 11068@AsusPC
+Taking next connection to: 54275
+New client attempting to connect on port: 54276-54275
+  Address = /10.27.139.129:54275
+This client on port 54276 has uuid 449d8d52-8a04-4850-8b97-fd04e0444023 configName activator humanReadableName Activator protocolVersion 1 featureTags Vector()
+Connected Clients: activator-449d8d52-8a04-4850-8b97-fd04e0444023
+Taking next connection to: 54275
