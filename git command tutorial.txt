@@ -1,0 +1,8 @@
+Hi all, since we are using the master branch, pls be aware everyone's modification will affect other sub-group.
+As a result, pls remember the following command.
+
+Before making your own change, use "git pull" to pull out other's change.
+
+After making your own change, use "git status" to check.
+"git add" to add the file to commit.
+"git push/commit" to commit ur change.
