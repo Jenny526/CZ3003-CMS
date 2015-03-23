@@ -5,4 +5,5 @@ Before making your own change, use "git pull" to pull out other's change.
 
 After making your own change, use "git status" to check.
 "git add" to add the file to commit.
-"git push/commit" to commit ur change.
+"git commit" to commit ur change.
+"git push" to publish ur change.
