@@ -10,6 +10,25 @@
   <link rel='stylesheet' href='http://codepen.io/assets/libs/fullpage/jquery-ui.css'>
 
     <link rel="stylesheet" href="css/Login.css">
+	
+	<script>
+
+
+      function validateForm() {
+		
+		var userID = document.forms["myForm"]["ID"].value;
+		var password = document.forms["myForm"]["password"].value;
+     
+		if (userID != "CC47" || password != "4747"){
+			alert("The username or the password is not valid. \n" 
+				  + "Please go back and input a valid quantity.");
+		return false;
+		}
+
+      } 
+	  
+	  
+    </script>
 
 </head>
 
@@ -19,20 +38,17 @@
   </div>
   <div class="login-card">
     <h1>Call Center</h1>
-    <form>
-    <input type="text" name="ID" placeholder="ID">
-    <input type="password" name="pass" placeholder="Password">
-    <input type="submit" name="login" class="login login-submit" value="Login">
-
-    </form>
+   <form name = "myForm" action="new_event.html" onsubmit = "return validateForm()" method = "post">
+    <input type="text" id = "ID" name="ID" placeholder="ID">
+    <input type="text" id = "password" name="password" placeholder="Password">
+    <input type="submit" name="login" id = "submit" class="login login-submit" value="Login">
+   </form>
     <footer class="clear">
 				
-		<p>&copy; 2015 CZ3003. by <a href="http://zypopwebtemplates.com/">Lemon Tee</a></p>
+		<p>&copy; 2015 CZ3003. by <a href="http://zypopwebtemplates.com/">Lemon Tea</a></p>
 	</footer>
 
   </div>
-
-<!-- <div id="error"><img src="https://dl.dropboxusercontent.com/u/23299152/Delete-icon.png" /> Your caps-lock is on.</div> -->
 
   <script src='http://codepen.io/assets/libs/fullpage/jquery_and_jqueryui.js'></script>
 

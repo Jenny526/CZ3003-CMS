@@ -10,6 +10,7 @@
 </head>
 
 <body>
+	<br/>
 	<div id="sitename">
 		<h1>Crisis Management System</h1>
 	</div>
@@ -30,8 +31,10 @@
   				
 				<ul>
 					<li class="selected-item"><a href="new_event.html">New Event</a></li>
-					<li><a href="event_list.html">Event List</a></li>
-					<li><a href="login.html">Logout</a></li>
+					<li><a href="event_list.html">Current Event</a></li>
+					<li><a href="history.html">History Event</a></li>
+					<li><a href="login.html" onCLick="return confirm('Confirm LOGOUT?')">Logout</a></li>
+					
 				</ul>
 
 			</nav>
@@ -41,31 +44,34 @@
 			<h3>Create New Event</h3>
 				<fieldset>
 					<legend>Crisis Information:</legend>
-					<form action="#" method="get">
+					
+					<form action="#" method="post" >
 						<p><label for="name">Reporter Name:</label>
 						<input type="text" name="name" id="name" placeholder="eg: John Lee (Last name)" value="" /><br /></p>		
 						<p><label for="number">Mobile Number:</label>
-						<input type="text" name="number" id="number" placeholder="eg: +65 12345678" value="" /><br /></p>
+						<input type="text" name="number" id="number" placeholder="eg: 88888888" value="" /><br /></p>
 						<p><label for="location">Location:</label>
-						<input type="text" name="location" placeholder="eg: Jurong Point" value="" /><br /></p>
+						<input type="text" name="location" id="location" placeholder="eg: Jurong Point" value="" /><br /></p>
 						<p><label for="type">Type:</label>	
-							<select class="form-control">
-								<option selected>Select Event Type</option>
-                            	<option>Emergency Ambulance</option>
-                            	<option>Rescue and Evacuation</option>
-                            	<option>Fire-Fighting</option>
-                            	<option>Gas Leak Control</option>
+							<select class="form-control" name = "type">
+								<option value = "" selected="selected">Select Event Type</option>
+                            	<option value = "Emergency Ambulance">Emergency Ambulance</option>
+                            	<option value = "Rescue and Evacuation">Rescue and Evacuation</option>
+                            	<option value = "Fire-Fighting">Fire-Fighting</option>
+                            	<option value = "Gas Leak Control">Gas Leak Control</option>
                         	</select><br />
 						<p><label for="message">Details:</label>
 						<textarea cols="60" rows="11" name="detail" id="detail"></textarea><br /></p>
-						<p><input type="submit" name="submit" class="formbutton" value="Submit" /></p>
+						<p><input type="submit" name="submit" class="formbutton" value="Submit" onclick='return window.confirm("Confirm submit?");'/></p>
+						
 					</form>
 	
 				</fieldset>
 		
+				<br/>
 				<footer class="clear">
 				
-				<p>&copy; 2015 CZ3003. by <a href="http://zypopwebtemplates.com/">Lemon Tee</a></p>
+				<p>&copy; 2015 CZ3003. by <a href="http://zypopwebtemplates.com/">Lemon Tea</a></p>
 				</footer>
 
 		</section>
@@ -75,7 +81,6 @@
 
 	
 	</section>
-
-
+	<br/>
 </body>
 </html>
