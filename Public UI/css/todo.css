@@ -1,0 +1,52 @@
+/**
+ * Created by Boss on 18/3/15.
+ */
+.done-true {
+    text-decoration: line-through;
+    color: green;
+}
+
+.done-false {
+    color: red;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    /* Margin bottom by footer height */
+    margin-bottom: 0px;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    height: 40px;
+    background-color: #f5f5f5;
+}
+
+.container {
+    width: auto;
+    max-width: 680px;
+    padding: 10px 0 0 0;
+}
+
+.container.text-muted {
+    margin: 0px;
+}
+
+/*.angular-google-map-container{*/
+/*height: 400px;*/
+/*}*/
+
+.angular-google-map-container{
+    height:400px;
+}
+.page-header{
+    color:white;
+}
