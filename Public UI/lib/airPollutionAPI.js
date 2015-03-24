@@ -1,18 +1,19 @@
 $(function(){
-	var lastHour = getLastHour();
+	var hour = getHour();
 	var tr;
 
-	if(lastHour <= 12){
+	if(hour <= 12){
 		tr = 7;
 	}else{
 		tr = 14;
-		lastHour = lastHour - 12;
+		hour = hour - 12;
 	}
-	td = lastHour+1;
-
+	td = hour;
+	
 	var getUrl = "https://query.yahooapis.com/v1/public/yql?q=Select * from html where url='http://www.nea.gov.sg/anti-pollution-radiation-protection/air-pollution-control/psi/psi-readings-over-the-last-24-hours' and xpath='//*[@id=\"main\"]/div[1]/div/div[2]/table/tbody/tr[" + tr + "]/td[" + td + "]/strong'&format=json&diagnostics=true&callback=";
 
 	$.get(getUrl, function(data){
+		console.log(getUrl);
 		var results = data.query.results.strong.content;
 		var PSI = results;
 		PSI = PSI.trim();
@@ -46,9 +47,12 @@ function getAirQualityDescriptor(PSIValue){
 	return descriptor;
 }
 
-function getLastHour(){
+function getHour(){
 	var today = new Date();
 	var hour = today.getHours();
+	var minutes = today.getMinutes();
 
-	return hour-1;
+	hour += 1;
+
+	return hour;
 }
