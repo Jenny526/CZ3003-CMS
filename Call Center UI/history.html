@@ -6,20 +6,19 @@
     <script src="http://code.angularjs.org/angular-1.0.0rc3.min.js"></script>
     <script src="http://documentcloud.github.com/underscore/underscore-min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
-	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-	
-<title>Event List</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>History Events</title>
 
 <link rel="stylesheet" href="CSS/Main.css" type="text/css" />
-<link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,900' rel='stylesheet' type='text/css'>
-<link rel="stylesheet" href="http://fontawesome.io/assets/font-awesome/css/font-awesome.css">
-
+<!--[if lt IE 9]>
+<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
 
 <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0" />
 </head>
 
 <body>
-	<br/>
+<br/>
 	<div id="sitename">
 		<h1>Crisis Management System</h1>
 	</div>
@@ -40,10 +39,9 @@
   				
 				<ul>
 					<li><a href="new_event.html">New Event</a></li>
-					<li class="selected-item"><a href="event_list.html">Current Event</a></li>
-					<li><a href="history.html">History Event</a></li>
+					<li><a href="event_list.html">Current Event</a></li>
+					<li class="selected-item"><a href="history.html">History Event</a></li>
 					<li><a href="login.html" onCLick="return confirm('Confirm LOGOUT?')">Logout</a></li>
-					
 				</ul>
 			
 			</nav>
@@ -51,23 +49,22 @@
 			
 		</aside>
 		<section id="content" class="column-right">
-			<h3>Current Events Happening</h3>
+			<h3>History Events</h3>
 			<h4><label for="type">Select Event Type:</label>
 			  <select name="one" class= "dropdown">
-				<option value="0">All</option>
+				<option value="">All</option>
 				<option value="1">Fire-Fighting</option>
 				<option value="2">Gas Leak Control</option>
 				<option value="3">Rescue and Evacuation</option>
 				<option value="4">Emergency Ambulance</option>
-			  </select></h4>
-
-			
+			  </select>
+			</h4>
 			
 			<div ng-app="CallCenter" ng-controller="eventsCtrl">
 				<table>
 					<tbody>
 						<tr>
-							<th width="350" align = "left" scope="row">&nbsp; Total Events Currently Happening:</th>
+							<th width="350" align = "left" scope="row">&nbsp; Total Events Solved:</th>
 							<th width="50" align = "center">&nbsp;{{getTotalEvents()}}</th>
 						</tr>
 					</tbody>
@@ -90,10 +87,12 @@
 					<td width="140" align = "left" scope="row"> &nbsp; {{x.Type}}</a></td>
 					<td width="140" align = "left" scope="row"> &nbsp; {{x.Location}}</a></td>
 					<td width="80" align = "center" scope="row">&nbsp; {{x.Status}}</td>
-					<td width="80" align = "center" scope="row">&nbsp; <a class = "button" href="#detail">Update</a></td>
+					<td width="80" align = "center" scope="row">&nbsp; <a class = "button" href="#detail">Review</a></td>
 					</tr>
 				</table>
 			</div>
+			<script src="try.js"></script>
+			
 			<div id="detail" class="overlay">
 				<div class="popup">
 					<h2>Event Detail</h2>
@@ -101,34 +100,26 @@
 					<div class="content">
 						<fieldset>
 							<legend>Crisis Information:</legend>
-					
-							<form action="#" method="post" >
+							
 								<p><label for="name">Reporter Name:</label>
-								<input type="text" name="name" id="name" placeholder="eg: John Lee (Last name)" value="" /><br /></p>		
+								<br /></p>		
 								<p><label for="number">Mobile Number:</label>
-								<input type="text" name="number" id="number" placeholder="eg: 88888888" value="" /><br /></p>
+								<br /></p>
 								<p><label for="location">Location:</label>
-								<input type="text" name="location" id="location" placeholder="eg: Jurong Point" value="" /><br /></p>
+								<br /></p>
 								<p><label for="type">Type:</label>	
-									<select name = "type">
-										<option value = "" selected="selected">Select Event Type</option>
-										<option value = "Emergency Ambulance">Emergency Ambulance</option>
-										<option value = "Rescue and Evacuation">Rescue and Evacuation</option>
-										<option value = "Fire-Fighting">Fire-Fighting</option>
-										<option value = "Gas Leak Control">Gas Leak Control</option>
-									</select><br />
+								<br />
 								<p><label for="message">Details:</label>
-								<textarea cols="60" rows="11" name="detail" id="detail"></textarea><br /></p>
-								<p><input type="submit" name="submit" class="formbutton" value="Update" onclick='return window.confirm("Confirm change and update?");'/></p>
+								<br /></p>
 						
-							</form>
+							
 	
 						</fieldset>
 	
 					</div>
 				</div>
 			</div>
-			<script src="try.js"></script>
+			
 			<br/>
 			<footer class="clear">
 				<p>&copy; 2015 CZ3003. by <a href="http://zypopwebtemplates.com/">Lemon Tea</a></p>
