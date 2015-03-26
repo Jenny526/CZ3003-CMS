@@ -19,7 +19,7 @@ import play.data.validation.Constraints;
 
 public class CallOperatorController extends Controller{
     // Call Operator Log In Method
-    public static Result LogIn(){
+    /*public static Result LogIn(){
         DynamicForm requestData = Form.form().bindFromRequest();
         String ID = requestData.get("COID");
         String password = requestData.get("password");
@@ -82,7 +82,7 @@ public class CallOperatorController extends Controller{
             }
 
         return ok("Event " + eventID + " has been successfully updated.");
-    }
+    }*/
 }
 
 
