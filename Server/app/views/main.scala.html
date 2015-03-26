@@ -1,15 +1,70 @@
 @(title: String)(content: Html)
 
-<!DOCTYPE html>
 
+<!doctype html>
 <html>
-    <head>
-        <title>@title</title>
-        <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/main.css")">
-        <link rel="shortcut icon" type="image/png" href="@routes.Assets.at("images/favicon.png")">
-        <script src="@routes.Assets.at("javascripts/hello.js")" type="text/javascript"></script>
-    </head>
-    <body>
-        @content
-    </body>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+    <title>New Event</title>
+    <link rel="stylesheet" href="assets/CSS/Main.css" type="text/css" />
+
+
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0" />
+</head>
+
+<body>
+<br/>
+<div id="sitename">
+    <h1>Crisis Management System</h1>
+</div>
+<section id="body" class="width">
+    <aside id="sidebar" class="column-left">
+
+
+        <header>
+
+            <h1>CMS</h1>
+
+            <h2>Call Center</h2>
+
+        </header>
+
+
+        <nav id="mainnav">
+
+            <ul>
+                <li class="selected-item"><a href="new_event.html">New Event</a></li>
+                <li><a href="event_list.html">Current Event</a></li>
+                <li><a href="history.html">History Event</a></li>
+                <li><a href="login.html" onCLick="return confirm('Confirm LOGOUT?')">Logout</a></li>
+
+            </ul>
+
+        </nav>
+
+    </aside>
+    <section id="content" class="column-right">
+        <h3>Create New Event</h3>
+        <fieldset>
+            <legend>Crisis Information:</legend>
+
+            @content
+
+        </fieldset>
+
+        <br/>
+        <footer class="clear">
+
+            <p>&copy; 2015 CZ3003. by <a href="http://zypopwebtemplates.com/">Lemon Tea</a></p>
+        </footer>
+
+    </section>
+
+
+    <div class="clear"></div>
+
+
+</section>
+<br/>
+</body>
 </html>
