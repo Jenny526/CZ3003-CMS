@@ -15,7 +15,7 @@ import java.util.List;
 import static play.libs.Json.toJson;
 
 public class Application extends Controller {
-
+/*
     public static Result index() {
         return ok(index.render("Hello World."));
     }
@@ -39,6 +39,6 @@ public class Application extends Controller {
     public static Result getEvents(){
         List<Event> events = new Model.Finder(String.class, Event.class).all();
         return ok(toJson(events));
-    }
+    }*/
 
 }
