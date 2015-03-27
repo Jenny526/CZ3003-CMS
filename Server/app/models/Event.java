@@ -21,5 +21,27 @@ public class Event extends Model {
     public String postalCode;
     public String serviceOperatorID;
 
+    public void setId(){
+        this.id= "1";
+    }
+    public void setReporterName(String name){
+        this.reporterName = name;
 
+    }
+
+    public void setMobileNumber(String number){
+        this.mobileNumber = number;
+
+    }
+    public void setType(String type){
+        this.type = type;
+
+    }
+    public void setDescription(String des){
+        this.description = des;
+    }
+
+    public void setLocation(String location){
+        this.location = location;
+    }
 }
