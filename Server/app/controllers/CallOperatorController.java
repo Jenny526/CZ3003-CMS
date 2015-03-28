@@ -39,7 +39,7 @@ public class CallOperatorController extends Controller{
         return ok("Logged in as Call Operator " + COID + "!");
     }*/
     public static Result index() {
-        return ok(index.render("Hello World."));
+        return ok(index.render("yes"));
     }
 
 
@@ -52,10 +52,10 @@ public class CallOperatorController extends Controller{
 
         //CallOperator callOperator = Ebean.find(CallOperator.class,Long.parseLong(requestData.get("COID")));// get call operator ID
 
-        String reporterName = requestData.get("reporterName");
-        String priority = requestData.get("priority");
+       String reporterName = requestData.get("reporterName");
+        //String priority = requestData.get("priority");
 
-        String postalCode = requestData.get("postalCode");
+        //String postalCode = requestData.get("postalCode");
 
         String location = requestData.get("location");
 
@@ -65,18 +65,18 @@ public class CallOperatorController extends Controller{
 
         Event newEvent = new Event();
 
-        // newEvent.setId();// unfinished, to generate eventID
+        newEvent.setId();// unfinished, to generate eventID
         //newEvent.setEventType(eventType);
         //newEvent.setCallOperator(callOperator);
         newEvent.setReporterName(reporterName);
-        newEvent.setMobileNumber(callerPhone);
+        newEvent.setCallerNumber(callerPhone);
         //newEvent.setCallingTime();// unfinished, to get current time
         newEvent.setDescription(description);
         newEvent.setLocation(location);
        // newEvent.setPostalCode(postalCode);
         //newEvent.setPriority(Integer.parseInt(priority));
-
-        return ok(toJson(newEvent));
+        newEvent.save();
+        return redirect(routes.CallOperatorController.index());
 
         //postedEvent.save();
         //return redirect(routes.CallOperatorController.index());

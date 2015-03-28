@@ -2,6 +2,7 @@ package models;
 
 import play.db.ebean.Model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 /**
@@ -11,6 +12,7 @@ import javax.persistence.Id;
 public class Event extends Model {
     @Id
     public String id;
+   // @Column (name= "reporterName")
     public String reporterName;
     public String callerNumber;
     public String type;

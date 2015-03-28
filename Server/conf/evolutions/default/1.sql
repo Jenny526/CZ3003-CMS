@@ -6,7 +6,7 @@
 create table event (
   id                        varchar(255) not null,
   reporter_name             varchar(255),
-  mobile_number             varchar(255),
+  caller_number             varchar(255),
   type                      varchar(255),
   description               varchar(255),
   priority                  integer,
@@ -30,30 +30,28 @@ create table person (
   constraint pk_person primary key (id))
 ;
 
-create sequence event_seq;
-
-create sequence event_type_seq;
-
-create sequence person_seq;
+create table reporter (
+  id                        varchar(255) not null,
+  name                      varchar(255),
+  contact_number            varchar(255),
+  nric                      varchar(255),
+  constraint pk_reporter primary key (id))
+;
 
 
 
 
 # --- !Downs
 
-SET REFERENTIAL_INTEGRITY FALSE;
+SET FOREIGN_KEY_CHECKS=0;
 
-drop table if exists event;
+drop table event;
 
-drop table if exists event_type;
+drop table event_type;
 
-drop table if exists person;
+drop table person;
 
-SET REFERENTIAL_INTEGRITY TRUE;
+drop table reporter;
 
-drop sequence if exists event_seq;
-
-drop sequence if exists event_type_seq;
-
-drop sequence if exists person_seq;
+SET FOREIGN_KEY_CHECKS=1;
 
