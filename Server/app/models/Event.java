@@ -12,7 +12,7 @@ public class Event extends Model {
     @Id
     public String id;
     public String reporterName;
-    public String mobileNumber;
+    public String callerNumber;
     public String type;
     public String description;
     public int priority;
@@ -29,8 +29,8 @@ public class Event extends Model {
 
     }
 
-    public void setMobileNumber(String number){
-        this.mobileNumber = number;
+    public void setCallerNumber(String number){
+        this.callerNumber = number;
 
     }
     public void setType(String type){
