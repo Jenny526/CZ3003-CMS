@@ -76,10 +76,9 @@ public class CallOperatorController extends Controller{
        // newEvent.setPostalCode(postalCode);
         //newEvent.setPriority(Integer.parseInt(priority));
         newEvent.save();
+       // return ok(newEvent.size());
         return redirect(routes.CallOperatorController.index());
 
-        //postedEvent.save();
-        //return redirect(routes.CallOperatorController.index());
     }
 
     //get event
