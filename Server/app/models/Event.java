@@ -46,4 +46,8 @@ public class Event extends Model {
     public void setLocation(String location){
         this.location = location;
     }
+
+    public String getLocation(){
+        return this.location;
+    }
 }
