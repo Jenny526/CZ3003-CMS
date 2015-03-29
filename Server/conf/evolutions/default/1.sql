@@ -38,20 +38,36 @@ create table reporter (
   constraint pk_reporter primary key (id))
 ;
 
+create sequence event_seq;
+
+create sequence event_type_seq;
+
+create sequence person_seq;
+
+create sequence reporter_seq;
+
 
 
 
 # --- !Downs
 
-SET FOREIGN_KEY_CHECKS=0;
+SET REFERENTIAL_INTEGRITY FALSE;
 
-drop table event;
+drop table if exists event;
 
-drop table event_type;
+drop table if exists event_type;
 
-drop table person;
+drop table if exists person;
 
-drop table reporter;
+drop table if exists reporter;
 
-SET FOREIGN_KEY_CHECKS=1;
+SET REFERENTIAL_INTEGRITY TRUE;
+
+drop sequence if exists event_seq;
+
+drop sequence if exists event_type_seq;
+
+drop sequence if exists person_seq;
+
+drop sequence if exists reporter_seq;
 
