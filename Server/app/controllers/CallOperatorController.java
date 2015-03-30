@@ -3,8 +3,9 @@ package controllers;
 /**
  * Created by Yiko on 2015-03-17.
  */
+
+import com.itextpdf.text.Document;
 import com.avaje.ebean.Ebean;
-import com.sun.java.accessibility.util.EventID;
 import models.Event;
 import models.EventType;
 import play.*;
