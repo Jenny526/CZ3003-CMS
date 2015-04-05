@@ -40,15 +40,15 @@ public class SubscribeController extends Controller{
         String subscriberLocation = requestData.get("subscriberLocation");
         String subscriberEmail = requestData.get("subscriberEmail");
 
-        Event newEvent = new Event();
+        Subscriber newSubscriber = new Subscriber();
 
-        newEvent.setId();// unfinished, to generate eventID
+        newSubscriber.setId();// unfinished, to generate eventID
 
-        newEvent.setSubscriberName(subscriberName);
-        newEvent.setSubscriberPhoneNumber(subscriberPhoneNumber);
-        newEvent.setSubscriberLocation(subscriberLocation);
-        newEvent.setSubscriberEmail(subscriberEmail);
-        newEvent.save();
+        newSubscriber.setSubscriberName(subscriberName);
+        newSubscriber.setSubscriberPhoneNumber(subscriberPhoneNumber);
+        newSubscriber.setSubscriberLocation(subscriberLocation);
+        newSubscriber.setSubscriberEmail(subscriberEmail);
+        newSubscriber.save();
 
         return redirect(routes.SubscribeController.index());
 
