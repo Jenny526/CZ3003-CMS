@@ -12,6 +12,7 @@ import javax.persistence.*;
 @Entity
 public class Event extends Model {
     @Id
+    @Column(name = "event_id")
     public Integer id;
 
    // @Column (name= "reporterName")

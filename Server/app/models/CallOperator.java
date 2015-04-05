@@ -6,9 +6,6 @@ import play.data.validation.Constraints;
 import javax.persistence.*;
 import java.util.List;
 
-import play.db.ebean.Model;
-import javax.persistence.Id;
-
 
 
 /**
