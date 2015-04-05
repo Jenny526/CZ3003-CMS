@@ -1,5 +1,6 @@
 package models;
 
+<<<<<<< HEAD
 import play.data.validation.Constraints;
 
 import javax.persistence.CascadeType;
@@ -21,5 +22,3 @@ public class CallOperator {
     @OneToMany(mappedBy = "callOperator",cascade = CascadeType.PERSIST)
     private List<Event> events;
 
-
-}

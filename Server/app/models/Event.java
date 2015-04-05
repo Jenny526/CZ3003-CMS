@@ -12,6 +12,7 @@ import javax.persistence.*;
 public class Event extends Model {
     @Id
     public Integer id;
+
    // @Column (name= "reporterName")
     //@Constraints.Required
     //public String reporterName;
@@ -43,14 +44,13 @@ public class Event extends Model {
 
     public void setId(){
 
-    }
    // public void setReporterName(String name){
     //    this.reporterName = name;
 
     //}
 
 
-    public EventType getEventType() {
+    public EventType getEventType(){
         return eventType;
     }
 
