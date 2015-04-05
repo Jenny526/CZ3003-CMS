@@ -3,7 +3,8 @@
 # ~~~~
 
 # Home page
-GET    /                           controller.CallOperatorController.login()
+GET    /login.html                  controllers.CallOperatorController.login()
+POST   /LogIn                      controllers.CallOperatorController.LogIn()
 
 GET    /new_event.html             controllers.CallOperatorController.index()
 GET    /public_CMS.html            controllers.SubscribeController.index()

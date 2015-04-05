@@ -37,8 +37,9 @@ public class CallOperator {
         this.password = password;
     }
 
-    public CallOperator authenticate(String id, String password){
+    public static CallOperator authenticate(String id, String password){
         CallOperator callOperator = Ebean.find(CallOperator.class, id);
+        if (callOperator == null) return null;
         if (callOperator.getPassword() == password){
             return callOperator;
         }
