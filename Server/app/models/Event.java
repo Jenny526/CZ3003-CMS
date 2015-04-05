@@ -1,42 +1,65 @@
 package models;
 
+import play.data.validation.Constraints;
 import play.db.ebean.Model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
+
 /**
  * Created by Yiko on 2015-03-20.
  */
 @Entity
 public class Event extends Model {
     @Id
-    public String id;
+    public Integer id;
    // @Column (name= "reporterName")
-    public String reporterName;
+    //@Constraints.Required
+    //public String reporterName;
+    @Constraints.Required
     public String callerNumber;
-    public String type;
     public String description;
+    @Constraints.Required
     public int priority;
+    @Constraints.Required
     public String callingTime;
+    @Constraints.Required
     public String location;
+    @Constraints.Required
     public String postalCode;
-    public String serviceOperatorID;
+    @OneToOne
+    @JoinColumn(name = "reporter_id")
+    public Reporter reporter;
+    @ManyToOne
+    @JoinColumn(name="callOperator_id")
+    private CallOperator callOperator;
+    @ManyToOne
+    @JoinColumn(name="eventType_id")
+    private EventType eventType;
+    /*@OneToMany(mappedBy="event",cascade = CascadeType.REMOVE)
+    private List<Dispatch> dispatches;
+
+    @OneToMany(mappedBy="event", cascade = CascadeType.REMOVE)
+    private List<Notification> notifications;*/
 
     public void setId(){
-        this.id= "1";
-    }
-    public void setReporterName(String name){
-        this.reporterName = name;
 
+    }
+   // public void setReporterName(String name){
+    //    this.reporterName = name;
+
+    //}
+
+
+    public EventType getEventType() {
+        return eventType;
+    }
+
+    public void setEventType(EventType eventType) {
+        this.eventType = eventType;
     }
 
     public void setCallerNumber(String number){
         this.callerNumber = number;
-
-    }
-    public void setType(String type){
-        this.type = type;
 
     }
     public void setDescription(String des){
@@ -51,3 +74,5 @@ public class Event extends Model {
         return this.location;
     }
 }
+
+
