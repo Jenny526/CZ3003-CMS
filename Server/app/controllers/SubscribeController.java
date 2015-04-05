@@ -50,7 +50,7 @@ public class CallOperatorController extends Controller{
         newEvent.setSubscriberEmail(subscriberEmail);
         newEvent.save();
 
-        return redirect(routes.CallOperatorController.index());
+        return redirect(routes.SubscribeController.index());
 
     }
 
