@@ -1,18 +1,16 @@
 package models;
 
-package models;
-
 import play.db.ebean.Model;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
 /**
  * Created by mersin on 5/4/15.
  */
+@Entity
 public class Subscriber extends Model{
-    @id
+    @Id
     public int id;
     public String subscriberName;
     public String subscriberPhoneNumber;

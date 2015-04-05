@@ -4,23 +4,17 @@ package controllers;
  * Created by Yiko on 2015-03-17.
  */
 
-import com.itextpdf.text.Document;
-import com.avaje.ebean.Ebean;
+
 import models.Event;
-import models.EventType;
-import play.*;
+import models.Subscriber;
 import play.data.DynamicForm;
 import play.data.Form;
 import play.db.ebean.Model;
-import play.mvc.*;
+import play.mvc.Controller;
+import play.mvc.Result;
+import views.html.index;
 
-import java.security.*;
 import java.util.List;
-
-import play.mvc.Security;
-import views.html.*;
-
-import play.data.validation.Constraints;
 
 import static play.libs.Json.toJson;
 
