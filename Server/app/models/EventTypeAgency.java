@@ -7,6 +7,7 @@ import javax.persistence.*;
 /**
  * Created by mersin on 5/4/15.
  */
+@Entity
 public class EventTypeAgency extends Model {
   @Id
   @Column(name = "eventTypeAgency_id")
