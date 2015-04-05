@@ -21,6 +21,6 @@ public class Notification extends Model {
     public Date sendTime;
 
     @ManyToOne
-    @JoinColumn(name ="eventid")
+    @JoinColumn(name ="event_id")
     public int eventID;
 }
