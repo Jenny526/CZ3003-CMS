@@ -18,4 +18,6 @@ public class EventType extends Model{
 
     public String eventName;
     public String description;
+
+
 }
