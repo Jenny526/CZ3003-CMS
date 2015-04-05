@@ -7,6 +7,7 @@ import javax.persistence.*;
 /**
  * Created by mersin on 5/4/15.
  */
+@Entity
 public class ServiceOperator extends Model {
   @Id
   @Column(name = "serviceOperator_id")
