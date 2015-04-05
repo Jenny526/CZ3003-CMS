@@ -14,6 +14,7 @@ import javax.persistence.OneToOne;
 @Entity
 public class Reporter extends Model{
     @Id
+
     public String contactNumber;
     @Constraints.Required
     public String name;
