@@ -1,9 +1,9 @@
 package controllers;
 
-import models.Person;
+
 import play.mvc.*;
 import models.Event;
-import models.Person;
+
 import play.*;
 import play.data.Form;
 import play.db.ebean.Model;

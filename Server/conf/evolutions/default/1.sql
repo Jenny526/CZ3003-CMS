@@ -3,6 +3,14 @@
 
 # --- !Ups
 
+create table agency (
+  agency_id                 integer auto_increment not null,
+  name                      varchar(255),
+  phone                     varchar(255),
+  mail                      varchar(255),
+  constraint pk_agency primary key (agency_id))
+;
+
 create table call_operator (
   callOperator_id           varchar(255) not null,
   name                      varchar(255),
@@ -11,8 +19,19 @@ create table call_operator (
   constraint pk_call_operator primary key (callOperator_id))
 ;
 
+create table dispatch (
+  dispatch_id               integer auto_increment not null,
+  status                    varchar(255),
+  dispatch_time             datetime,
+  read_time                 datetime,
+  solve_time                datetime,
+  event_id                  integer,
+  agency_id                 integer,
+  constraint pk_dispatch primary key (dispatch_id))
+;
+
 create table event (
-  id                        integer auto_increment not null,
+  event_id                  integer auto_increment not null,
   caller_number             varchar(255),
   description               varchar(255),
   priority                  integer,
@@ -22,7 +41,7 @@ create table event (
   reporter_id               integer,
   callOperator_id           varchar(255),
   eventType_id              integer,
-  constraint pk_event primary key (id))
+  constraint pk_event primary key (event_id))
 ;
 
 create table event_type (
@@ -32,10 +51,19 @@ create table event_type (
   constraint pk_event_type primary key (eventType_id))
 ;
 
-create table person (
-  person_id                 varchar(255) not null,
-  name                      varchar(255),
-  constraint pk_person primary key (person_id))
+create table event_type_agency (
+  eventTypeAgency_id        integer auto_increment not null,
+  agency_id                 integer,
+  event_type_id             integer,
+  constraint pk_event_type_agency primary key (eventTypeAgency_id))
+;
+
+create table notification (
+  notification_id           integer auto_increment not null,
+  media_type                varchar(255),
+  send_time                 datetime,
+  event_id                  integer,
+  constraint pk_notification primary key (notification_id))
 ;
 
 create table reporter (
@@ -44,6 +72,14 @@ create table reporter (
   name                      varchar(255),
   nric                      varchar(255),
   constraint pk_reporter primary key (reporter_id))
+;
+
+create table service_operator (
+  serviceOperator_id        integer auto_increment not null,
+  name                      varchar(255),
+  password                  varchar(255),
+  phone                     varchar(255),
+  constraint pk_service_operator primary key (serviceOperator_id))
 ;
 
 create table subscriber (
@@ -68,15 +104,23 @@ create index ix_event_eventType_3 on event (eventType_id);
 
 SET FOREIGN_KEY_CHECKS=0;
 
+drop table agency;
+
 drop table call_operator;
+
+drop table dispatch;
 
 drop table event;
 
 drop table event_type;
 
-drop table person;
+drop table event_type_agency;
+
+drop table notification;
 
 drop table reporter;
+
+drop table service_operator;
 
 drop table subscriber;
 

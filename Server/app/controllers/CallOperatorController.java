@@ -48,7 +48,7 @@ public class  CallOperatorController extends Controller{
 
         DynamicForm requestData = Form.form().bindFromRequest();
 
-        //EventType eventType = Ebean.find(EventType.class,Long.parseLong(requestData.get("ETID"))); //get event type ID
+        EventType eventType = Ebean.find(EventType.class,Long.parseLong(requestData.get("ETID"))); //get event type ID
 
         //CallOperator callOperator = Ebean.find(CallOperator.class,Long.parseLong(requestData.get("COID")));// get call operator ID
 
@@ -62,11 +62,14 @@ public class  CallOperatorController extends Controller{
         String callerPhone = requestData.get("mobileNumber");
 
         String description = requestData.get("description");
+        String NRIC = requestData.get("NRIC");
 
         Event newEvent = new Event();
         Reporter reporter =  new Reporter();
 
         reporter.setContactNumber(callerPhone);
+        reporter.setName(reporterName);
+        reporter.setNRIC(NRIC);
 
 
         //newEvent.setId();// unfinished, to generate eventID
