@@ -42,18 +42,18 @@ public class Event extends Model {
     @OneToMany(mappedBy="event", cascade = CascadeType.REMOVE)
     private List<Notification> notifications;*/
 
-    public void setId(){
+    public void setId() {
 
-   // public void setReporterName(String name){
-    //    this.reporterName = name;
+        // public void setReporterName(String name){
+        //    this.reporterName = name;
 
-    //}
-
-
-    public EventType getEventType(){
-        return eventType;
+        //}
     }
 
+
+    public EventType getEventType() {
+        return eventType;
+    }
     public void setEventType(EventType eventType) {
         this.eventType = eventType;
     }

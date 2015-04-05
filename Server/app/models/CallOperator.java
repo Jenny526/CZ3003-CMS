@@ -3,9 +3,7 @@ package models;
 
 import play.data.validation.Constraints;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.util.List;
 
 import play.db.ebean.Model;
@@ -16,7 +14,7 @@ import javax.persistence.Id;
 /**
  * Created by Yiko on 2015-04-05.
  */
-
+@Entity
 public class CallOperator {
     @Id
     public String id;
