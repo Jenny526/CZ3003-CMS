@@ -4,8 +4,7 @@
 # --- !Ups
 
 create table event (
-  id                        varchar(255) not null,
-  reporter_name             varchar(255),
+  id                        integer auto_increment not null,
   caller_number             varchar(255),
   type                      varchar(255),
   description               varchar(255),
@@ -13,7 +12,8 @@ create table event (
   calling_time              varchar(255),
   location                  varchar(255),
   postal_code               varchar(255),
-  service_operator_id       varchar(255),
+  call_operator_id          varchar(255),
+  reporter_id               integer,
   constraint pk_event primary key (id))
 ;
 
@@ -31,43 +31,29 @@ create table person (
 ;
 
 create table reporter (
-  id                        varchar(255) not null,
+  reporter_id               integer auto_increment not null,
   name                      varchar(255),
   contact_number            varchar(255),
   nric                      varchar(255),
-  constraint pk_reporter primary key (id))
+  constraint pk_reporter primary key (reporter_id))
 ;
 
-create sequence event_seq;
-
-create sequence event_type_seq;
-
-create sequence person_seq;
-
-create sequence reporter_seq;
-
+alter table event add constraint fk_event_reporter_1 foreign key (reporter_id) references reporter (reporter_id) on delete restrict on update restrict;
+create index ix_event_reporter_1 on event (reporter_id);
 
 
 
 # --- !Downs
 
-SET REFERENTIAL_INTEGRITY FALSE;
+SET FOREIGN_KEY_CHECKS=0;
 
-drop table if exists event;
+drop table event;
 
-drop table if exists event_type;
+drop table event_type;
 
-drop table if exists person;
+drop table person;
 
-drop table if exists reporter;
+drop table reporter;
 
-SET REFERENTIAL_INTEGRITY TRUE;
-
-drop sequence if exists event_seq;
-
-drop sequence if exists event_type_seq;
-
-drop sequence if exists person_seq;
-
-drop sequence if exists reporter_seq;
+SET FOREIGN_KEY_CHECKS=1;
 

@@ -8,6 +8,7 @@ import com.itextpdf.text.Document;
 import com.avaje.ebean.Ebean;
 import models.Event;
 import models.EventType;
+import models.Reporter;
 import play.*;
 import play.data.DynamicForm;
 import play.data.Form;
@@ -65,12 +66,16 @@ public class CallOperatorController extends Controller{
         String description = requestData.get("description");
 
         Event newEvent = new Event();
+        Reporter reporter =  new Reporter();
+
+        reporter.setContactNumber(callerPhone);
+        reporter;
 
         newEvent.setId();// unfinished, to generate eventID
         //newEvent.setEventType(eventType);
         //newEvent.setCallOperator(callOperator);
-        newEvent.setReporterName(reporterName);
-        newEvent.setCallerNumber(callerPhone);
+
+        //newEvent.setCallerNumber(callerPhone);
         //newEvent.setCallingTime();// unfinished, to get current time
         newEvent.setDescription(description);
         newEvent.setLocation(location);

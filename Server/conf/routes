@@ -5,6 +5,7 @@
 # Home page
 GET     /new_event.html                           controllers.CallOperatorController.index()
 
+
 POST    /event                     controllers.CallOperatorController.addEvent()
 
 GET     /events                    controllers.CallOperatorController.getEvents()
