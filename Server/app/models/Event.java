@@ -11,7 +11,7 @@ import javax.persistence.Id;
 @Entity
 public class Event extends Model {
     @Id
-    public String id;
+    public int id;
    // @Column (name= "reporterName")
     public String reporterName;
     public String callerNumber;
@@ -21,10 +21,10 @@ public class Event extends Model {
     public String callingTime;
     public String location;
     public String postalCode;
-    public String serviceOperatorID;
+    public int serviceOperatorID;
 
     public void setId(){
-        this.id= "1";
+        this.id= 1;
     }
     public void setReporterName(String name){
         this.reporterName = name;
