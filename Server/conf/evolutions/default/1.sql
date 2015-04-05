@@ -4,11 +4,11 @@
 # --- !Ups
 
 create table call_operator (
-  id                        varchar(255) not null,
+  callOperator_id           varchar(255) not null,
   name                      varchar(255),
   password                  varchar(255),
   phone                     varchar(255),
-  constraint pk_call_operator primary key (id))
+  constraint pk_call_operator primary key (callOperator_id))
 ;
 
 create table event (
@@ -19,37 +19,47 @@ create table event (
   calling_time              varchar(255),
   location                  varchar(255),
   postal_code               varchar(255),
-  reporter_id               varchar(255),
+  reporter_id               integer,
   callOperator_id           varchar(255),
   eventType_id              integer,
   constraint pk_event primary key (id))
 ;
 
 create table event_type (
-  id                        integer auto_increment not null,
+  eventType_id              integer auto_increment not null,
   event_name                varchar(255),
   description               varchar(255),
-  constraint pk_event_type primary key (id))
+  constraint pk_event_type primary key (eventType_id))
 ;
 
 create table person (
-  id                        varchar(255) not null,
+  person_id                 varchar(255) not null,
   name                      varchar(255),
-  constraint pk_person primary key (id))
+  constraint pk_person primary key (person_id))
 ;
 
 create table reporter (
-  contact_number            varchar(255) not null,
+  reporter_id               integer auto_increment not null,
+  contact_number            varchar(255),
   name                      varchar(255),
   nric                      varchar(255),
-  constraint pk_reporter primary key (contact_number))
+  constraint pk_reporter primary key (reporter_id))
 ;
 
-alter table event add constraint fk_event_reporter_1 foreign key (reporter_id) references reporter (contact_number) on delete restrict on update restrict;
+create table subscriber (
+  id                        integer auto_increment not null,
+  subscriber_name           varchar(255),
+  subscriber_phone_number   varchar(255),
+  subscriber_location       varchar(255),
+  subscriber_email          varchar(255),
+  constraint pk_subscriber primary key (id))
+;
+
+alter table event add constraint fk_event_reporter_1 foreign key (reporter_id) references reporter (reporter_id) on delete restrict on update restrict;
 create index ix_event_reporter_1 on event (reporter_id);
-alter table event add constraint fk_event_callOperator_2 foreign key (callOperator_id) references call_operator (id) on delete restrict on update restrict;
+alter table event add constraint fk_event_callOperator_2 foreign key (callOperator_id) references call_operator (callOperator_id) on delete restrict on update restrict;
 create index ix_event_callOperator_2 on event (callOperator_id);
-alter table event add constraint fk_event_eventType_3 foreign key (eventType_id) references event_type (id) on delete restrict on update restrict;
+alter table event add constraint fk_event_eventType_3 foreign key (eventType_id) references event_type (eventType_id) on delete restrict on update restrict;
 create index ix_event_eventType_3 on event (eventType_id);
 
 
@@ -67,6 +77,8 @@ drop table event_type;
 drop table person;
 
 drop table reporter;
+
+drop table subscriber;
 
 SET FOREIGN_KEY_CHECKS=1;
 

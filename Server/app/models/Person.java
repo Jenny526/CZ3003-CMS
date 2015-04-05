@@ -7,10 +7,12 @@ package models;
 import play.db.ebean.Model;
 
 import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 @Entity
 public class Person extends Model{
     @Id
+    @Column(name = "person_id")
     public String id;
+
     public String name;
 }

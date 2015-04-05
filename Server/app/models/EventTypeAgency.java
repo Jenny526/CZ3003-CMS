@@ -9,6 +9,10 @@ import javax.persistence.*;
  */
 public class EventTypeAgency extends Model {
   @Id
+  @Column(name = "eventTypeAgency_id")
+  public int id;
+
+
   public int agencyID;
 
   public int eventTypeID;
