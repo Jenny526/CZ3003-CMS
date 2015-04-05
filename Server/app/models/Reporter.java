@@ -6,6 +6,7 @@ import play.db.ebean.Model;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
+import javax.validation.Constraint;
 
 /**
  * Created by Yiko on 2015-03-28.
@@ -14,7 +15,9 @@ import javax.persistence.OneToOne;
 @Entity
 public class Reporter extends Model{
     @Id
+    public int id;
 
+    @Constraints.Required
     public String contactNumber;
     @Constraints.Required
     public String name;
