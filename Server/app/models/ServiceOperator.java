@@ -9,7 +9,9 @@ import javax.persistence.*;
  */
 public class ServiceOperator extends Model {
   @Id
+  @Column(name = "serviceOperator_id")
   public int id;
+
   public String name;
   public String password;
   public String phone;
