@@ -24,7 +24,7 @@ import play.data.validation.Constraints;
 
 import static play.libs.Json.toJson;
 
-public class CallOperatorController extends Controller{
+public class  CallOperatorController extends Controller{
     private static Result redirect;
     // Call Operator Log In Method
     /*public static Result LogIn(){

@@ -13,7 +13,7 @@ import javax.persistence.Id;
 public class Reporter extends Model{
     @Id
 
-    public String id;
+    public int id;
     public String name;
     public String contactNumber;
     public String NRIC;
