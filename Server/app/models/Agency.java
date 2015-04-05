@@ -1,6 +1,8 @@
 package models;
 
 import play.db.ebean.Model;
+
+import javax.persistence.Column;
 import javax.persistence.Id;
 
 
@@ -9,6 +11,7 @@ import javax.persistence.Id;
  */
 public class Agency extends Model {
   @Id
+  @Column(name = "agency_id")
   public int id;
 
   public String name;

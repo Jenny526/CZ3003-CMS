@@ -3,6 +3,7 @@ package models;
 import play.data.validation.Constraints;
 import play.db.ebean.Model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
@@ -15,6 +16,7 @@ import javax.validation.Constraint;
 @Entity
 public class Reporter extends Model{
     @Id
+    @Column(name = "reporter_id")
     public int id;
 
     @Constraints.Required
