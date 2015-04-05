@@ -6,15 +6,12 @@ import play.data.validation.Constraints;
 import javax.persistence.*;
 import java.util.List;
 
-import play.db.ebean.Model;
-import javax.persistence.Id;
-
 
 
 /**
  * Created by Yiko on 2015-04-05.
  */
-
+@Entity
 public class CallOperator {
     @Id
     @Column(name = "callOperator_id")
