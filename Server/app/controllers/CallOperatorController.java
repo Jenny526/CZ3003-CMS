@@ -4,11 +4,9 @@ package controllers;
  * Created by Yiko on 2015-03-17.
  */
 
-<<<<<<< Updated upstream
 
-=======
 //import com.itextpdf.text.Document;
->>>>>>> Stashed changes
+
 import com.avaje.ebean.Ebean;
 import models.*;
 import play.*;
@@ -36,15 +34,15 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 public class  CallOperatorController extends Controller{
-<<<<<<< Updated upstream
+
     public static Result login(){
         return ok(views.html.login.render("ok"));
     };
-=======
+
 
 
     private static Result redirect;
->>>>>>> Stashed changes
+
     // Call Operator Log In Method
     public static Result LogIn(){
         DynamicForm requestData = Form.form().bindFromRequest();
