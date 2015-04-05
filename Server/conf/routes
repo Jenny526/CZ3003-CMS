@@ -3,8 +3,9 @@
 # ~~~~
 
 # Home page
-GET     /new_event.html                           controllers.CallOperatorController.index()
-GET     /public_CMS.html  						  controllers.SubscribeController.index()
+
+GET    /new_event.html             controllers.CallOperatorController.index()
+GET    /public_CMS.html            controllers.SubscribeController.index()
 
 
 POST    /event                     controllers.CallOperatorController.addEvent()

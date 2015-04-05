@@ -10,6 +10,7 @@ import play.data.format.*;
  */
 public class Notification extends Model {
   @Id
+  @Column(name = "notification_id")
   public int id;
 
   public String mediaType;
