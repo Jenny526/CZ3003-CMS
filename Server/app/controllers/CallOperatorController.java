@@ -4,7 +4,11 @@ package controllers;
  * Created by Yiko on 2015-03-17.
  */
 
+<<<<<<< Updated upstream
 
+=======
+//import com.itextpdf.text.Document;
+>>>>>>> Stashed changes
 import com.avaje.ebean.Ebean;
 import models.*;
 import play.*;
@@ -13,20 +17,34 @@ import play.data.Form;
 import play.db.ebean.Model;
 import play.mvc.*;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 import java.security.*;
 import java.util.List;
 
 import play.mvc.Security;
+import scala.util.parsing.json.JSONObject$;
 import views.html.*;
 
 import play.data.validation.Constraints;
+import java.net.*;
+import java.io.BufferedOutputStream;
+import java.io.OutputStream;
 
 import static play.libs.Json.toJson;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 public class  CallOperatorController extends Controller{
+<<<<<<< Updated upstream
     public static Result login(){
         return ok(index.render("ok"));
     };
+=======
+
+
+    private static Result redirect;
+>>>>>>> Stashed changes
     // Call Operator Log In Method
     public static Result LogIn(){
         DynamicForm requestData = Form.form().bindFromRequest();
@@ -90,6 +108,53 @@ public class  CallOperatorController extends Controller{
         return redirect(routes.CallOperatorController.index());
 
     }
+
+ // country = "Singapore"
+    public static String geoConverter(String zipcode) {
+
+        String data = "";
+        String lantitute="", longtitute="";
+        try {
+            URL url = new URL("http://maps.googleapis.com/maps/api/geocode/json?address=santa+cruz&components=postal_code:"+zipcode+"&sensor=false");
+
+            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+
+            conn.setRequestMethod("GET");
+            conn.connect();
+
+            BufferedReader input = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+            StringBuilder stringBuilder = new StringBuilder();
+
+            String line;
+            while((line = input.readLine()) != null){
+                stringBuilder.append(line);
+            }
+
+            JSONObject jsonData = new JSONObject(stringBuilder.toString());
+            JSONArray results = (JSONArray) jsonData.get("results");
+            String formattedAddress =  "Singapore " + zipcode;
+            for (int i = 0; i < results.length(); i++) {
+                JSONObject singleResult = results.getJSONObject(i);
+                String address = singleResult.getString("formatted_address");
+                if(address.equalsIgnoreCase(formattedAddress)){
+                    JSONObject geometry = singleResult.getJSONObject("geometry");
+                    JSONObject location = geometry.getJSONObject("location");
+                    lantitute = Double.toString(location.getDouble("lat"));
+                    longtitute = Double.toString(location.getDouble("lng"));
+                }
+            }
+
+            data = lantitute + " " + longtitute;
+            System.out.println("result: =============");
+            System.out.println(data);
+
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+
+        return data;
+    }
+
 
     //get event
     public static Result getEvents(){
