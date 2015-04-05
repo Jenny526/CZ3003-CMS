@@ -10,7 +10,7 @@ import play.data.format.*;
  */
 public class Dispatch extends Model {
   @Id
-  @Column(name = "despatch_id")
+  @Column(name = "dispatch_id")
   public int id;
 
   public String status;
