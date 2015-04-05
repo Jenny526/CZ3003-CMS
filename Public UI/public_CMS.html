@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app>
+<html ng-app="">
 <head lang="en">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -104,32 +104,36 @@
                     <h4 class="modal-title">Subscribe</h4>
                 </div>
                 <div class="modal-body">
-                    <form class="form-horizontal" action="@routes.SubscribeController.addEvent()" method="post">
+                    <form class="form-horizontal" name="subscribeForm" action="@routes.SubscribeController.addEvent()" method="post">
                         <div class="form-group">
                             <label class="col-sm-4 control-label">Name:</label>
                             <div class="col-sm-10 col-md-5">
-                                <input type="text" name="subscriberName" class="form-control" ng-model="rName" placeholder="Name">
+                                <input type="text" name="subscriberName" class="form-control" ng-model="rName" placeholder="Name" required>
                             </div>
                         </div>
 
                         <div class="form-group">
                             <label class="col-sm-4 control-label">Mobile Number:</label>
                             <div class="col-sm-10 col-md-5">
-                                <input type="text" name="subscriberMobileNumber" class="form-control" ng-model="mNumber" placeholder="Mobile Number">
+                                <input type="text" name="subscriberMobileNumber" class="form-control" ng-model="subscriberMobileNumber" ng-pattern="/^(\d)+$/" placeholder="Mobile Number" ng-minlength="8" ng-maxlength="8" required>
+                                <span class="error" ng-show="subscribeForm.subscriberMobileNumber.$error.pattern">Not valid mobile Number</span>
+                                <span class="error" ng-show="subscribeForm.subscriberMobileNumber.$error.minlength">Not valid mobile Number</span>
+                                <span class="error" ng-show="subscribeForm.subscriberMobileNumber.$error.maxlength">Not valid mobile Number</span>
                             </div>
                         </div>
 
                         <div class="form-group">
                             <label class="col-sm-4 control-label">Location:</label>
                             <div class="col-sm-10 col-md-5">
-                                <input type="text" name="subscriberLocation" class="form-control" ng-model="location" placeholder="Location">
+                                <input type="text" name="subscriberLocation" class="form-control" ng-model="location" placeholder="Location" required>
                             </div>
                         </div>
 
                         <div class="form-group">
                             <label class="col-sm-4 control-label">Email address:</label>
                             <div class="col-sm-10 col-md-5">
-                                <input type="text" name="subscriberEmail" class="form-control" ng-model="types" placeholder="Email Address">
+                                <input type="email" name="subscriberEmail" class="form-control" ng-model="types" placeholder="Email Address" required>
+                                <span class="error" ng-show="subscribeForm.subscriberEmail.$error.email">Input email is not valid!</span>
                             </div>
                         </div>
 
@@ -138,11 +142,11 @@
                             <a href="https://www.facebook.com/pages/Crisis-Management-System/823016391097525"><img src="image/followOnFacebook.png" class="img-thumbnail" id="facebookIcon"></a>
                             <a href="https://twitter.com/system_cm"><img src="image/followOnTwitter.jpeg" class="img-thumbnail" id="twitterIcon"></a>
                         </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary" ng-disabled="subscribeForm.$invalid">Submit</button>
+                        </div>
                     </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Submit</button>
                 </div>
             </div>
         </div>
