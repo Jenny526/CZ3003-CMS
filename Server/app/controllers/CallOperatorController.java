@@ -25,7 +25,7 @@ import static play.libs.Json.toJson;
 
 public class  CallOperatorController extends Controller{
     public static Result login(){
-        return ok(index.render("ok"));
+        return ok(views.html.login.render("ok"));
     };
     // Call Operator Log In Method
     public static Result LogIn(){
@@ -38,7 +38,7 @@ public class  CallOperatorController extends Controller{
             return ok("Login Failure: Call Operator ID or Password is not correct.");
         }
         session("connected","COID"); // create new session for call operator
-        return ok("Logged in as Call Operator " + COID + "!");
+        return ok("Logged in as Call Operator " + id + "!");
     }
     public static Result index() {return ok(index.render("yes"));}
 
