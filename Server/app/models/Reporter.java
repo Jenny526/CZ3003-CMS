@@ -12,8 +12,8 @@ import javax.persistence.Id;
 @Entity
 public class Reporter extends Model{
     @Id
-
     public int id;
+
     public String name;
     public String contactNumber;
     public String NRIC;
