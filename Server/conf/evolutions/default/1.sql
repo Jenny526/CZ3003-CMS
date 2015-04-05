@@ -5,6 +5,10 @@
 
 create table event (
   id                        integer auto_increment not null,
+<<<<<<< Updated upstream
+=======
+  reporter_name             varchar(255),
+>>>>>>> Stashed changes
   caller_number             varchar(255),
   type                      varchar(255),
   description               varchar(255),
@@ -38,8 +42,11 @@ create table reporter (
   constraint pk_reporter primary key (reporter_id))
 ;
 
+<<<<<<< Updated upstream
 alter table event add constraint fk_event_reporter_1 foreign key (reporter_id) references reporter (reporter_id) on delete restrict on update restrict;
 create index ix_event_reporter_1 on event (reporter_id);
+=======
+>>>>>>> Stashed changes
 
 
 

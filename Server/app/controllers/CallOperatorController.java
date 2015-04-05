@@ -4,7 +4,7 @@ package controllers;
  * Created by Yiko on 2015-03-17.
  */
 
-import com.itextpdf.text.Document;
+
 import com.avaje.ebean.Ebean;
 import models.Event;
 import models.EventType;
@@ -40,9 +40,7 @@ public class  CallOperatorController extends Controller{
         session("connected","COID"); // create new session for call operator
         return ok("Logged in as Call Operator " + COID + "!");
     }*/
-    public static Result index() {
-        return ok(index.render("yes"));
-    }
+    public static Result index() {return ok(index.render("yes"));}
 
 
     public static Result addEvent(){
@@ -69,9 +67,8 @@ public class  CallOperatorController extends Controller{
         Reporter reporter =  new Reporter();
 
         reporter.setContactNumber(callerPhone);
-        reporter;
 
-        newEvent.setId();// unfinished, to generate eventID
+        //newEvent.setId();// unfinished, to generate eventID
         //newEvent.setEventType(eventType);
         //newEvent.setCallOperator(callOperator);
 

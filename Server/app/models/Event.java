@@ -3,6 +3,7 @@ package models;
 import play.data.validation.Constraints;
 import play.db.ebean.Model;
 
+
 import javax.persistence.*;
 
 /**
@@ -42,12 +43,6 @@ public class Event extends Model {
     @OneToMany(mappedBy="event", cascade = CascadeType.REMOVE)
     private List<Notification> notifications;*/
 
-    public void setId(){
-
-   // public void setReporterName(String name){
-    //    this.reporterName = name;
-
-    //}
 
 
     public EventType getEventType(){
