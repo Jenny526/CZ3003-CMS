@@ -6,9 +6,7 @@ package controllers;
 
 
 import com.avaje.ebean.Ebean;
-import models.Event;
-import models.EventType;
-import models.Reporter;
+import models.*;
 import play.*;
 import play.data.DynamicForm;
 import play.data.Form;
@@ -26,20 +24,22 @@ import play.data.validation.Constraints;
 import static play.libs.Json.toJson;
 
 public class  CallOperatorController extends Controller{
-    private static Result redirect;
+    public static Result login(){
+        return ok(index.render("ok"));
+    };
     // Call Operator Log In Method
-    /*public static Result LogIn(){
+    public static Result LogIn(){
         DynamicForm requestData = Form.form().bindFromRequest();
-        String ID = requestData.get("COID");
+        String id = requestData.get("COID");
         String password = requestData.get("password");
-        CallOperator callOperator = CallOperator.authenticate(COID, password); // method to be declared in Model CallOperator
+        CallOperator callOperator = CallOperator.authenticate(id, password); // method to be declared in Model CallOperator
         if (callOperator == null){
             session().clear();
             return ok("Login Failure: Call Operator ID or Password is not correct.");
         }
         session("connected","COID"); // create new session for call operator
         return ok("Logged in as Call Operator " + COID + "!");
-    }*/
+    }
     public static Result index() {return ok(index.render("yes"));}
 
 
@@ -67,6 +67,8 @@ public class  CallOperatorController extends Controller{
         Event newEvent = new Event();
         Reporter reporter =  new Reporter();
 
+        newEvent.setEventType(eventType);
+
         reporter.setContactNumber(callerPhone);
         reporter.setName(reporterName);
         reporter.setNRIC(NRIC);
@@ -83,6 +85,7 @@ public class  CallOperatorController extends Controller{
        // newEvent.setPostalCode(postalCode);
         //newEvent.setPriority(Integer.parseInt(priority));
         newEvent.save();
+        reporter.save();
        // return ok(newEvent.size());
         return redirect(routes.CallOperatorController.index());
 

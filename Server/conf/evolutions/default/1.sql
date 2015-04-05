@@ -51,13 +51,6 @@ create table event_type (
   constraint pk_event_type primary key (eventType_id))
 ;
 
-create table event_type_agency (
-  eventTypeAgency_id        integer auto_increment not null,
-  agency_id                 integer,
-  event_type_id             integer,
-  constraint pk_event_type_agency primary key (eventTypeAgency_id))
-;
-
 create table notification (
   notification_id           integer auto_increment not null,
   media_type                varchar(255),
@@ -113,8 +106,6 @@ drop table dispatch;
 drop table event;
 
 drop table event_type;
-
-drop table event_type_agency;
 
 drop table notification;
 

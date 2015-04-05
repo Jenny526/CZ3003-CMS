@@ -1,6 +1,7 @@
 package models;
 
 
+import com.avaje.ebean.Ebean;
 import play.data.validation.Constraints;
 
 import javax.persistence.*;
@@ -27,5 +28,23 @@ public class CallOperator {
 
     @OneToMany(mappedBy = "callOperator", cascade = CascadeType.PERSIST)
     private List<Event> events;
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public CallOperator authenticate(String id, String password){
+        CallOperator callOperator = Ebean.find(CallOperator.class, id);
+        if (callOperator.getPassword() == password){
+            return callOperator;
+        }
+        else return null;
+    }
+
 }
+
 
