@@ -13,8 +13,9 @@ import javax.persistence.Id;
 @Entity
 public class EventType extends Model{
     @Id
-    public String id;
-    @Constraints.Required
+
+    public int id;
+
     public String eventName;
     public String description;
 }
