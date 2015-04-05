@@ -1,4 +1,3 @@
-package models;
 
 package models;
 
@@ -12,7 +11,7 @@ import javax.persistence.Id;
  * Created by mersin on 5/4/15.
  */
 public class Subscriber extends Model{
-    @id
+    @Id
     public int id;
     public String subscriberName;
     public String subscriberPhoneNumber;
@@ -20,7 +19,7 @@ public class Subscriber extends Model{
     public String subscriberEmail;
     
     public void setId(){
-        this.id = 1;
+
     }
     public void setSubscriberName(String subscriberName){
         this.subscriberName = subscriberName;

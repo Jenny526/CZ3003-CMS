@@ -57,7 +57,7 @@ public class  CallOperatorController extends Controller{
        String reporterName = requestData.get("reporterName");
         //String priority = requestData.get("priority");
 
-        //String postalCode = requestData.get("postalCode");
+        String postalCode = requestData.get("postalCode");
 
         String location = requestData.get("location");
 
@@ -69,7 +69,7 @@ public class  CallOperatorController extends Controller{
         Reporter reporter =  new Reporter();
 
         reporter.setContactNumber(callerPhone);
-        reporter;
+        //reporter;
 
         newEvent.setId();// unfinished, to generate eventID
         //newEvent.setEventType(eventType);

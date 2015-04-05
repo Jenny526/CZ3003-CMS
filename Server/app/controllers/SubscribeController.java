@@ -8,6 +8,7 @@ import com.itextpdf.text.Document;
 import com.avaje.ebean.Ebean;
 import models.Event;
 import models.EventType;
+import models.Subscriber;
 import play.*;
 import play.data.DynamicForm;
 import play.data.Form;
@@ -50,7 +51,7 @@ public class SubscribeController extends Controller{
         newSubscriber.setSubscriberEmail(subscriberEmail);
         newSubscriber.save();
 
-        return redirect(routes.SubscribeController.index());
+        return redirect(routes.CallOperatorController.index());
 
     }
 

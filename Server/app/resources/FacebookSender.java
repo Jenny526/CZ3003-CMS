@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package facebookpublish;
+package resources;
 
 import static java.lang.String.format;
 import static java.lang.System.currentTimeMillis;
@@ -22,14 +22,12 @@ import com.restfb.types.FacebookType;
  * 
  * @author <a href="http://restfb.com">Mark Allen</a>
  */
-public class GraphPublisherExample {
+public class FacebookSender {
   /**
    * RestFB Graph API client.
    */
-  private final FacebookClient facebookClient;
-  private int counter = 0;
-  private static String arg = "CAACEdEose0cBALvvTQ8qoBBW4bTyC0p0FvT3oecfMsHW1zDLQGyfrC4mJUWvIY9wwrGi9CZCMOxHOyrGZATsKFi5GQfDlcnKFw74rt6uZAZBT5kwYwSswjdaYNN6wuy4t3BmU0m0p8wrHt2hcZChuSJzcovPE8zG2zJbjOG6cI9ZBFP3JOMezAlR0ZA5hZAWs3GngIGwiIaVyAZDZD";
-  /**
+  private FacebookClient facebookClient;
+  /**=
    * Entry point. You must provide a single argument on the command line: a valid Graph API access token. In order for
    * publishing to succeed, you must use an access token for an application that has been granted stream_publish and
    * create_event rights.
@@ -39,24 +37,12 @@ public class GraphPublisherExample {
    * @throws IllegalArgumentException
    *           If no command-line arguments are provided.
    */
-  public static void main(String[] args) {
-//    if (args.length == 0)
-//      throw new IllegalArgumentException("You must provide an OAuth access token parameter. "
-//          + "See README for more information.");
-
-    new GraphPublisherExample(arg).runEverything();
+  public FacebookSender(String accessToken) {
+      facebookClient = new DefaultFacebookClient(accessToken);
   }
-
-  GraphPublisherExample(String accessToken) {
-    facebookClient = new DefaultFacebookClient(accessToken);
-  }
-
-  void runEverything() {
-    makeTestPost();
-  }
-  public void makeTestPost() {
-        facebookClient.publish("/feed", FacebookType.class, Parameter.with("message", " 你好啊哥们"));
-        counter++;
+  public void makeTestPost(String message) {
+        facebookClient.publish("/feed", FacebookType.class, Parameter.with("message", message));
+        System.out.println("Post Successful");
     }
 
  }

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package twitter;
+package resources;
 
 import static java.lang.System.out;
 import twitter4j.Status;
@@ -38,24 +38,16 @@ public class TwitterSender {
 	 * @return boolean whether the operation is successful or not
 	 */
 	public boolean postMessage(String message) {
-		// TODO Auto-generated method stub
-		twitter4j.Twitter tw = tf.getInstance();
-		try {
-			Status st = tw.updateStatus(message);
-		} catch (TwitterException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			return false;
-		}			
-		System.out.println("Twitter updated");
-		return true;
-	}
-        
-        public static void main(String[] args) {
-              TwitterSender twitt = new TwitterSender();
-              out.println("this");
-              twitt.postMessage("你好，这是一个测试。");
-              out.println("New test post");
-              return;
-       }
+        // TODO Auto-generated method stub
+        twitter4j.Twitter tw = tf.getInstance();
+        try {
+            Status st = tw.updateStatus(message);
+        } catch (TwitterException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+            return false;
+        }
+        System.out.println("Twitter updated");
+        return true;
+    }
 }
