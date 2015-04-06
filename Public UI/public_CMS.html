@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html ng-app="">
+<html ng-app="cmsApp">
 <head lang="en">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script type="text/javascript" src="resource/angular-1.0.0rc3.min.js"></script>
+    <script type="text/javascript" src="bower_components/angular/angular.js"></script>
 
     <script type="text/javascript" src="bootstrap-3.3.4-dist/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="bootstrap-3.3.4-dist/css/bootstrap.min.css">
@@ -16,9 +16,10 @@
 
     <script type="text/javascript" src="js/todo.js"></script>
     <script type="text/javascript" src="js/googleMap.js"></script>
+    <script type="text/javascript" src="js/controllers.js"></script>
     <link rel="stylesheet" href="css/googleMap.css">
     <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="lib/weather-icons/css/weather-icons.css">
+    <!--<link rel="stylesheet" href="lib/weather-icons/css/weather-icons.css">-->
 
     <script type="text/javascript" src="lib/weatherAPI.js"></script>
     <script type="text/javascript" src="lib/airPollutionAPI.js"></script>
@@ -27,7 +28,7 @@
 
 </head>
 
-<body>
+<body >
 <nav class="navbar navbar-inverse">
     <div class="container">
         <div class="page-header">
@@ -58,15 +59,16 @@
         </div>
     </div>
 </nav>
-<div class="container-fluid">
+<div class="container-fluid" ng-controller="CrisisListCtrl">
     <div class="row">
         <div class="col-md-1">
         </div>
-        <div class="col-md-8">
+        <div class="col-md-9">
             <div id="map-canvas" align="center"></div>
 
+
         </div>
-        <div class="col-md-3">
+        <div class="col-md-2" >
             <div class="well">
                     <div class="weatherInfo" id="weather">
                         <i id="weatherDescription"> </i>
@@ -81,6 +83,24 @@
                         <label id="airPollutionText"></label>
                     </div>
             </div>
+
+            Search: <input ng-model="query">
+            Sort by:
+            <select ng-model="orderProp">
+                <option value="name">Alphabetical</option>
+                <option value="age">Newest</option>
+            </select>
+
+            <ul class="phones">
+                <li ng-repeat="crisis in crises | filter:query | orderBy:orderProp">
+                    <span>{{crisis.name}}</span>
+                    <p>{{crisis.snippet}}</p>
+                </li>
+            </ul>
+
+            <!--<ul class="phones">-->
+
+            <!--</ul>-->
 
         </div>
     </div>

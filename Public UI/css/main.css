@@ -40,6 +40,26 @@ body {
 .container.text-muted {
     margin: 0px;
 }
+/* app css stylesheet */
+
+.phones {
+    list-style: none;
+    margin: 0cm 0cm 0cm -50%;
+}
+
+.thumb {
+    float: left;
+    margin: -0.5em 1em 1.5em 0;
+    padding-bottom: 1em;
+    height: 20px;
+    width: 20px;
+}
+
+.phones li {
+    clear: both;
+    height: 50px;
+    padding-top: 15px;
+}
 
 /*.angular-google-map-container{*/
 /*height: 400px;*/
