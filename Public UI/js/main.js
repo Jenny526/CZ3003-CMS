@@ -7,15 +7,14 @@
 
 var cmsApp = angular.module('cmsApp', [
     'ngRoute',
-    'cmsControllers'
+    'cmsControllers',
+    'cmsFilters',
+    'cmsServices'
 ]);
 
 cmsApp.config(['$routeProvider',
     function($routeProvider) {
         $routeProvider.
-            when('/#',{
-                templateUrl:'partials/nav-bar.html'
-            }).
             when('/crises', {
                 templateUrl: 'partials/crisis-list.html',
                 controller: 'CrisisListCtrl'
