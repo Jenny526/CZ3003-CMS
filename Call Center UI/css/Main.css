@@ -197,6 +197,33 @@ fieldset form input, fieldset form select {
 	border:1px solid #ddd;
 
 }
+
+
+.ui-autocomplete {
+    list-style-type: none;
+	width: 150px;
+	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    background: #fff;
+    border-radius: 3px;
+    font-size:10px;
+    height: 200px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    opacity: 0.8;
+}
+.ui-autocomplete.source:hover {
+    background: #fff;
+}
+
+.ui-menu .ui-menu-item a{
+    list-style-type: none;
+    height:10px;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;}
+	
+.ui-menu .ui-menu-item a:hover{
+    background-color: #000;}
+
+
 fieldset form textarea{
 	padding:5px;
 	
