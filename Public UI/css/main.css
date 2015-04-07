@@ -64,17 +64,31 @@ body {
     height: 50px;
     padding-top: 5px;
 }
+/*for animation purpose*/
+.crisis-images {
+  background-color: white;
+  width: 450px;
+  height: 450px;
+  overflow: hidden;
+  position: relative;
+  float: left;
+}
 
 /** Detail View **/
 img.crisis {
     float: left;
-    border: 1px solid black;
+    /*border: 1px solid black;*/
     margin-right: 3em;
     margin-bottom: 2em;
     background-color: white;
     padding: 2em;
     height: 400px;
     width: 400px;
+    display: none;
+}
+
+img.crisis:first-child{
+    display: block;
 }
 
 ul.crisis-thumbs {

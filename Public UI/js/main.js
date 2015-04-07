@@ -7,6 +7,7 @@
 
 var cmsApp = angular.module('cmsApp', [
     'ngRoute',
+    'cmsAnimations',
     'cmsControllers',
     'cmsFilters',
     'cmsServices'

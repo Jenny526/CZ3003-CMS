@@ -4,10 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script type="text/javascript" src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/angular-route/angular-route.js"></script>
     <script src="bower_components/angular-resource/angular-resource.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
 
     <script type="text/javascript" src="bootstrap-3.3.4-dist/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="bootstrap-3.3.4-dist/css/bootstrap.min.css">
@@ -21,8 +22,11 @@
     <script type="text/javascript" src="js/controllers.js"></script>
     <script src="js/filters.js"></script>
     <script src="js/services.js"></script>
+    <script src="js/animations.js"></script>
     <link rel="stylesheet" href="css/googleMap.css">
     <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/animations.css">
+
     <!--<link rel="stylesheet" href="lib/weather-icons/css/weather-icons.css">-->
 
     <script type="text/javascript" src="lib/weatherAPI.js"></script>
@@ -97,7 +101,9 @@
             <!--{{ {foo: "bar", baz: 23} | json }}-->
 
             <!--<input ng-model="userInput"> Uppercased: {{ userInput | uppercase }}-->
-            <div ng-view> </div>
+            <div class="view-container">
+                <div ng-view class="view-frame"></div>
+            </div>
 
         </div>
     </div>
