@@ -1,4 +1,10 @@
-<img ng-src="{{mainImageUrl}}" class="crisis">
+<!--<img ng-src="{{mainImageUrl}}" class="crisis">-->
+<div class="crisis-images">
+    <img ng-src="{{img}}"
+         class="crisis"
+         ng-repeat="img in crisis.images"
+         ng-class="{active: mainImageUrl==img}">
+</div>
 
 <h1>{{crisis.name}}</h1>
 

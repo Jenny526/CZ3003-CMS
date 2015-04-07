@@ -8,7 +8,7 @@
     </select>
 
     <ul class="crises">
-        <li ng-repeat="crisis in crises | filter:query | orderBy:orderProp" class="thumbnail">
+        <li ng-repeat="crisis in crises | filter:query | orderBy:orderProp" class="thumbnail crisis-listing">
             <a href="#/crises/{{crisis.id}}" class="thumb"><img ng-src="{{crisis.imageUrl}}"> </a>
             <a href="#/crises/{{crisis.id}}">{{crisis.name}}</a>
             <p>{{crisis.carrier}}</p>
