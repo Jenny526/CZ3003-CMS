@@ -1,7 +1,34 @@
-// /**
-//  * Created by Boss on 24/3/15.
-//  */
-// 'use strict';
+/**
+  * Created by Boss on 24/3/15.
+  */
+'use strict';
+
+/* App Module */
+
+var cmsApp = angular.module('cmsApp', [
+    'ngRoute',
+    'cmsControllers'
+]);
+
+cmsApp.config(['$routeProvider',
+    function($routeProvider) {
+        $routeProvider.
+            when('/#',{
+                templateUrl:'partials/nav-bar.html'
+            }).
+            when('/crises', {
+                templateUrl: 'partials/crisis-list.html',
+                controller: 'CrisisListCtrl'
+            }).
+            when('/crises/:crisisId', {
+                templateUrl: 'partials/crisis-detail.html',
+                controller: 'CrisisDetailCtrl'
+            }).
+            otherwise({
+                redirectTo: '/crises'
+            });
+    }]);
+
 
 // //angular
 // //    .module('angularMapsTutorialApp',[
