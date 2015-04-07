@@ -1,10 +1,113 @@
-<!DOCTYPE html>
-<html>
-<head lang="en">
-    <meta charset="UTF-8">
-    <title></title>
-</head>
-<body>
-TBD: detail view for <span>{{phoneId}}</span>
-</body>
-</html>
+<img ng-src="{{mainImageUrl}}" class="crisis">
+
+<h1>{{crisis.name}}</h1>
+
+<p>{{crisis.description}}</p>
+
+<ul class="crisis-thumbs">
+    <li ng-repeat="img in crisis.images">
+        <img ng-src="{{img}}" ng-click="setImage(img)">
+    </li>
+</ul>
+
+<ul class="specs">
+    <li>
+        <span>Availability and Networks</span>
+        <dl>
+            <dt>Availability</dt>
+            <dd ng-repeat="availability in crisis.availability">{{availability}}</dd>
+        </dl>
+    </li>
+    <li>
+        <span>Battery</span>
+        <dl>
+            <dt>Type</dt>
+            <dd>{{crises.battery.type}}</dd>
+            <dt>Talk Time</dt>
+            <dd>{{crisis.battery.talkTime}}</dd>
+            <dt>Standby time (max)</dt>
+            <dd>{{crisis.battery.standbyTime}}</dd>
+        </dl>
+    </li>
+    <li>
+        <span>Storage and Memory</span>
+        <dl>
+            <dt>RAM</dt>
+            <dd>{{crisis.storage.ram}}</dd>
+            <dt>Internal Storage</dt>
+            <dd>{{crisis.storage.flash}}</dd>
+        </dl>
+    </li>
+    <li>
+        <span>Connectivity</span>
+        <dl>
+            <dt>Network Support</dt>
+            <dd>{{crisis.connectivity.cell}}</dd>
+            <dt>WiFi</dt>
+            <dd>{{crisis.connectivity.wifi}}</dd>
+            <dt>Bluetooth</dt>
+            <dd>{{crisis.connectivity.bluetooth}}</dd>
+            <dt>Infrared</dt>
+            <dd>{{crisis.connectivity.infrared}}</dd>
+            <dt>GPS</dt>
+            <dd>{{crisis.connectivity.gps | checkmark}}</dd>
+        </dl>
+    </li>
+    <li>
+        <span>Android</span>
+        <dl>
+            <dt>OS Version</dt>
+            <dd>{{crisis.android.os}}</dd>
+            <dt>UI</dt>
+            <dd>{{crisis.android.ui}}</dd>
+        </dl>
+    </li>
+    <li>
+        <span>Size and Weight</span>
+        <dl>
+            <dt>Dimensions</dt>
+            <dd ng-repeat="dim in crisis.sizeAndWeight.dimensions">{{dim}}</dd>
+            <dt>Weight</dt>
+            <dd>{{crisis.sizeAndWeight.weight}}</dd>
+        </dl>
+    </li>
+    <li>
+        <span>Display</span>
+        <dl>
+            <dt>Screen size</dt>
+            <dd>{{crisis.display.screenSize}}</dd>
+            <dt>Screen resolution</dt>
+            <dd>{{crisis.display.screenResolution}}</dd>
+            <dt>Touch screen</dt>
+            <dd>{{crisis.display.touchScreen}}</dd>
+        </dl>
+    </li>
+    <li>
+        <span>Hardware</span>
+        <dl>
+            <dt>CPU</dt>
+            <dd>{{crisis.hardware.cpu}}</dd>
+            <dt>USB</dt>
+            <dd>{{crisis.hardware.usb}}</dd>
+            <dt>Audio / headphone jack</dt>
+            <dd>{{crisis.hardware.audioJack}}</dd>
+            <dt>FM Radio</dt>
+            <dd>{{crisis.hardware.fmRadio}}</dd>
+            <dt>Accelerometer</dt>
+            <dd>{{crisis.hardware.accelerometer}}</dd>
+        </dl>
+    </li>
+    <li>
+        <span>Camera</span>
+        <dl>
+            <dt>Primary</dt>
+            <dd>{{crisis.camera.primary}}</dd>
+            <dt>Features</dt>
+            <dd>{{crisis.camera.features.join(', ')}}</dd>
+        </dl>
+    </li>
+    <li>
+        <span>Additional Features</span>
+        <dd>{{crisis.additionalFeatures}}</dd>
+    </li>
+</ul>

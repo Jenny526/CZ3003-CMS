@@ -65,6 +65,67 @@ body {
     padding-top: 5px;
 }
 
+/** Detail View **/
+img.crisis {
+    float: left;
+    border: 1px solid black;
+    margin-right: 3em;
+    margin-bottom: 2em;
+    background-color: white;
+    padding: 2em;
+    height: 400px;
+    width: 400px;
+}
+
+ul.crisis-thumbs {
+    margin: 0;
+    list-style: none;
+}
+
+ul.crisis-thumbs li {
+    border: 1px solid black;
+    display: inline-block;
+    margin: 1em;
+    background-color: white;
+}
+
+ul.crisis-thumbs img {
+    height: 100px;
+    width: 100px;
+    padding: 1em;
+}
+
+ul.crisis-thumbs img:hover {
+    cursor: pointer;
+}
+
+
+ul.specs {
+    clear: both;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+ul.specs > li{
+    display: inline-block;
+    width: 200px;
+    vertical-align: top;
+}
+
+ul.specs > li > span{
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+ul.specs dt {
+    font-weight: bold;
+}
+
+h1 {
+    border-bottom: 1px solid gray;
+}
+
 /*.angular-google-map-container{*/
 /*height: 400px;*/
 /*}*/
