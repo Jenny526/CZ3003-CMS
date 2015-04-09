@@ -29,7 +29,7 @@ import play.mvc.Controller;
 public class PublicViewController {
     public static Result getEvents() throws IOException {
         List<Event> events = new Model.Finder(String.class, Event.class).all();
-        FileWriter file = new FileWriter("E:\\test.json");
+        FileWriter file = new FileWriter("//localhost:9000/test.json");
         int i =0;
        while (i < events.size()) {
            file.write(toJson(events.get(i)).toString());
