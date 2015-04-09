@@ -14,10 +14,24 @@ import javax.persistence.*;
 public class EventType extends Model{
     @Id
     @Column(name = "eventType_id")
-    public int id;
+    public Integer id;
 
     public String eventName;
     public String description;
 
+    public String getEventName() {
+        return eventName;
+    }
 
+    public void setEventName(String eventName) {
+        this.eventName = eventName;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
 }

@@ -4,11 +4,6 @@ package controllers;
  * Created by Yiko on 2015-03-17.
  */
 
-<<<<<<< Updated upstream
-
-=======
-//import com.itextpdf.text.Document;
->>>>>>> Stashed changes
 import com.avaje.ebean.Ebean;
 import models.*;
 import play.*;
@@ -16,6 +11,10 @@ import play.data.DynamicForm;
 import play.data.Form;
 import play.db.ebean.Model;
 import play.mvc.*;
+import play.libs.Json;
+import com.fasterxml.jackson.databind.node.ArrayNode;
+import com.fasterxml.jackson.databind.node.JsonNodeFactory;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -36,15 +35,9 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 public class  CallOperatorController extends Controller{
-<<<<<<< Updated upstream
-    public static Result login(){
-        return ok(views.html.login.render("ok"));
-    };
-=======
+    /*
+    public static Result login() {return ok(login.render("yes"));}
 
-
-    private static Result redirect;
->>>>>>> Stashed changes
     // Call Operator Log In Method
     public static Result LogIn(){
         DynamicForm requestData = Form.form().bindFromRequest();
@@ -57,7 +50,7 @@ public class  CallOperatorController extends Controller{
         }
         session("connected","COID"); // create new session for call operator
         return ok("Logged in as Call Operator " + id + "!");
-    }
+    }*/
     public static Result index() {return ok(index.render("yes"));}
 
 
@@ -66,7 +59,7 @@ public class  CallOperatorController extends Controller{
 
         DynamicForm requestData = Form.form().bindFromRequest();
 
-        EventType eventType = Ebean.find(EventType.class,Integer.parseInt(requestData.get("ETID"))); //get event type ID
+      EventType eventType = Ebean.find(EventType.class,1); //get event type ID
 
         //CallOperator callOperator = Ebean.find(CallOperator.class,Long.parseLong(requestData.get("COID")));// get call operator ID
 
@@ -105,11 +98,13 @@ public class  CallOperatorController extends Controller{
         newEvent.save();
         reporter.save();
        // return ok(newEvent.size());
-        return redirect(routes.CallOperatorController.index());
-
+        //return redirect(routes.CallOperatorController.index());
+       // return ok(ControllerUtil.jsonNodeForSuccess("Uploading succeeded..."));
+       // return ok(ControllerUtil.getEventJsonNode(newEvent));
+        return ok(eventType.getEventName());
     }
-
- // country = "Singapore"
+/*
+ //country = "Singapore"
     public static String geoConverter(String zipcode) {
 
         String data = "";
@@ -154,7 +149,7 @@ public class  CallOperatorController extends Controller{
 
         return data;
     }
-
+*/
 
     //get event
     public static Result getEvents(){
