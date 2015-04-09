@@ -4,6 +4,27 @@
 
 var cmsControllers = angular.module('cmsControllers', []);
 
+//RESTful client
+cmsControllers.controller('CrisisListCtrl', ['$scope','Crisis',
+    function ($scope, Crisis) {
+
+        $scope.crises = Crisis.query();
+
+        $scope.orderProp = 'age';
+    }]);
+
+
+cmsControllers.controller('CrisisDetailCtrl',['$scope','$routeParams', 'Crisis',
+    function($scope, $routeParams, Crisis){
+        $scope.crisis = Crisis.get({crisisId: $routeParams.crisisId}, function(crisis){
+            $scope.mainImageUrl = crisis.images[0];
+        });
+        $scope.setImage = function(imageUrl) {
+            $scope.mainImageUrl = imageUrl;
+        }
+    }
+]);
+
 //http get
 //cmsControllers.controller('CrisisListCtrl', ['$scope','$http',
 //    function ($scope, $http) {
@@ -26,25 +47,3 @@ var cmsControllers = angular.module('cmsControllers', []);
 //        }
 //    }
 //]);
-
-
-//RESTful client
-cmsControllers.controller('CrisisListCtrl', ['$scope','Crisis',
-    function ($scope, Crisis) {
-
-        $scope.crises = Crisis.query();
-
-        $scope.orderProp = 'age';
-    }]);
-
-
-cmsControllers.controller('CrisisDetailCtrl',['$scope','$routeParams', 'Crisis',
-    function($scope, $routeParams, Crisis){
-        $scope.crisis = Crisis.get({crisisId: $routeParams.crisisId}, function(crisis){
-            $scope.mainImageUrl = crisis.images[0];
-        });
-        $scope.setImage = function(imageUrl) {
-            $scope.mainImageUrl = imageUrl;
-        }
-    }
-]);
