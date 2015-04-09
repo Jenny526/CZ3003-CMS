@@ -4,6 +4,7 @@
     height: 400px;
 }
 .angular-google-map-container{
-    height:400px;
-    width:500px;
+    margin-top: 50px;
+    height:600px;
+    width:100%;
 }
