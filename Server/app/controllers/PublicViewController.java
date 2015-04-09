@@ -31,12 +31,15 @@ public class PublicViewController {
         List<Event> events = new Model.Finder(String.class, Event.class).all();
         FileWriter file = new FileWriter("C:/Users/Yiko/Documents/GitHub/CZ3003-CMS/test.json");
         int i =0;
+        file.write("[");
        while (i < events.size()) {
            file.write(toJson(events.get(i)).toString());
+           file.write(",");
            System.out.println("Successfully Copied JSON Object to File...");
            System.out.println("\nJSON Object: " + events.get(i));
            i++;
        }
+            file.write("]");
             file.flush();
             file.close();
 
