@@ -5,5 +5,9 @@
     <content url="file://$MODULE_DIR$" />
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="html5shiv" level="application" />
+    <orderEntry type="library" name="json3" level="application" />
+    <orderEntry type="library" name="es5-shim" level="application" />
+    <orderEntry type="library" name="eventShim" level="application" />
   </component>
 </module>
