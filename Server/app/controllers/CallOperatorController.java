@@ -35,21 +35,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 public class  CallOperatorController extends Controller{
-<<<<<<< HEAD
-    /*
-    public static Result login() {return ok(login.render("yes"));}
 
-=======
-
-    public static Result login(){
-        return ok(views.html.login.render("ok"));
-    };
-
-
-
-    private static Result redirect;
-
->>>>>>> 98999bcf350967e1c762a04796dc6dfa20276429
     // Call Operator Log In Method
     public static Result LogIn(){
         DynamicForm requestData = Form.form().bindFromRequest();
@@ -62,7 +48,7 @@ public class  CallOperatorController extends Controller{
         }
         session("connected","COID"); // create new session for call operator
         return ok("Logged in as Call Operator " + id + "!");
-    }*/
+    }
     public static Result index() {return ok(index.render("yes"));}
 
 
