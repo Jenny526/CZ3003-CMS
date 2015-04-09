@@ -44,7 +44,17 @@ public class Event extends Model {
     @OneToMany(mappedBy="event", cascade = CascadeType.REMOVE)
     private List<Notification> notifications;*/
 
+    public Integer getId() {
+        return id;
+    }
 
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public void setPriority(int priority) {
+        this.priority = priority;
+    }
 
     public EventType getEventType() {
         return eventType;
@@ -57,6 +67,11 @@ public class Event extends Model {
         this.callerNumber = number;
 
     }
+
+    public String getDescription() {
+        return description;
+    }
+
     public void setDescription(String des){
         this.description = des;
     }
@@ -67,6 +82,14 @@ public class Event extends Model {
 
     public String getLocation(){
         return this.location;
+    }
+
+    public String getPostalCode() {
+        return postalCode;
+    }
+
+    public void setPostalCode(String postalCode) {
+        this.postalCode = postalCode;
     }
 }
 

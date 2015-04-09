@@ -3,17 +3,12 @@
 # ~~~~
 
 # Home page
-GET    /login.html                  controllers.CallOperatorController.login()
-POST   /LogIn                      controllers.CallOperatorController.LogIn()
 
 GET    /new_event.html             controllers.CallOperatorController.index()
-GET    /public_CMS.html            controllers.SubscribeController.index()
-
 
 POST    /event                     controllers.CallOperatorController.addEvent()
-POST    /subscribe				   controllers.SubscribeController.addEvent()
 
-GET     /events                    controllers.CallOperatorController.getEvents()
+GET     /events                    controllers.PublicViewController.getEvents()
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)
