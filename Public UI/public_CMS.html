@@ -1,24 +1,33 @@
 <!DOCTYPE html>
-<html ng-app="">
+<html >
 <head lang="en">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script type="text/javascript" src="resource/angular-1.0.0rc3.min.js"></script>
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
 
     <script type="text/javascript" src="bootstrap-3.3.4-dist/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="bootstrap-3.3.4-dist/css/bootstrap.min.css">
 
-    <script src="https://maps.googleapis.com/maps/api/js"></script>
-    <script src="bower_components/lodash/dist/lodash.compat.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+    <script src="bower_components/lodash/dist/lodash.js"></script>
     <script src="bower_components/angular-google-maps/dist/angular-google-maps.js"></script>
 
-    <script type="text/javascript" src="js/todo.js"></script>
-    <script type="text/javascript" src="js/googleMap.js"></script>
+    <script src="js/main.js"></script>
+    <!--<script src="js/googleMap.js"></script>-->
+    <script src="js/controllers.js"></script>
+    <script src="js/filters.js"></script>
+    <script src="js/services.js"></script>
+    <script src="js/animations.js"></script>
+    <script src="js/mapApp.js"></script>
     <link rel="stylesheet" href="css/googleMap.css">
     <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="lib/weather-icons/css/weather-icons.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <!--<link rel="stylesheet" href="lib/weather-icons/css/weather-icons.css">-->
 
     <script type="text/javascript" src="lib/weatherAPI.js"></script>
     <script type="text/javascript" src="lib/airPollutionAPI.js"></script>
@@ -27,14 +36,15 @@
 
 </head>
 
-<body>
-<nav class="navbar navbar-inverse">
+<body >
+<nav class="navbars navbar-inverse">
     <div class="container">
-        <div class="page-header">
-            <h1>Crisis Management System </h1>
+        <!--<div class="page-header">-->
+            <!--<h1>Crisis Management System </h1>-->
 
-            <h2 align="right">-- by Lemon Tea</h2>
-        </div>
+            <!--<h2 align="right">-- by Lemon Tea</h2>-->
+        <!--</div>-->
+
         <div class="navbar-header">
             <!--<a class="navbar-brand" href="#">Map</a>-->
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
@@ -49,40 +59,63 @@
 
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Crisis</a></li>
+                <li class="active"><a href="#crises">Crisis</a></li>
                 <li><a href="#report">Report</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#contact">Contact Us</a></li>
-                <!--<li><a href="#" id="subscribe" data-toggle="modal" data-target="#subscribeModal">Subscribe</a></li>-->
             </ul>
         </div>
+
     </div>
 </nav>
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-md-1">
-        </div>
-        <div class="col-md-8">
-            <div id="map-canvas" align="center"></div>
 
-        </div>
-        <div class="col-md-3">
+<div class="container-fluid" ng-app="cmsApp">
+    <div class="row">
+        <div class="col-lg-2">
+            {{ 1304375948024 | date }}
+            {{ 1304375948024 | date:"MM/dd/yyyy @ h:mma" }}
             <div class="well">
-                    <div class="weatherInfo" id="weather">
-                        <i id="weatherDescription"> </i>
-                        <label id="weatherText"></label>
-                        <label id="celsius"></label>
-                        <label class="wi wi-celsius" id="celsiusIcon"></label>
-                        <label id="fahrenheit"></label>
-                        <label class="wi wi-fahrenheit" id="fahrenheitIcon"></label>
-                    </div>
-                    <div class="airPollutionInfo" id="airPollution">
-                        <label id="PSI"></label>
-                        <label id="airPollutionText"></label>
-                    </div>
+                <div class="weatherInfo" id="weather">
+                    <i id="weatherDescription"> </i>
+                    <label id="weatherText"></label>
+                    <label id="celsius"></label>
+                    <label class="wi wi-celsius" id="celsiusIcon"></label>
+                    <label id="fahrenheit"></label>
+                    <label class="wi wi-fahrenheit" id="fahrenheitIcon"></label>
+                </div>
+                <div class="airPollutionInfo" id="airPollution">
+                    <label id="PSI"></label>
+                    <label id="airPollutionText"></label>
+                </div>
             </div>
 
+            <!--{{ {foo: "bar", baz: 23} | json }}-->
+            <!--<input ng-model="userInput"> Uppercased: {{ userInput | uppercase }}-->
+            <div class="view-container">
+                <div ng-view class="view-frame"></div>
+            </div>
+            <!--<div class="box box-default">-->
+                <!--<div class="box-header with-border">-->
+                    <!--<h3 class="box-title">Collapsable</h3>-->
+                    <!--<div class="box-tools pull-right">-->
+                        <!--<button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>-->
+                    <!--</div>&lt;!&ndash; /.box-tools &ndash;&gt;-->
+                <!--</div>&lt;!&ndash; /.box-header &ndash;&gt;-->
+                <!--<div class="box-body">-->
+                    <!--The body of the box-->
+                <!--</div>&lt;!&ndash; /.box-body &ndash;&gt;-->
+            <!--</div>&lt;!&ndash; /.box &ndash;&gt;-->
         </div>
+        <div class="col-lg-10" >
+            <!--<div id="map-canvas" align="center"></div>-->
+            <div class="angular-google-map-container" ng-controller="mapInstanceCtrl">
+                <ui-gmap-google-map center="map.center" zoom="map.zoom" draggable="true" options="options">
+                <ui-gmap-marker coords="marker.coords" options="marker.options" events="marker.events" idkey="marker.id">
+                </ui-gmap-marker>
+            </ui-gmap-google-map>
+            </div>
+        </div>
+
     </div>
 </div>
 
