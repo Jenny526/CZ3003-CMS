@@ -21,6 +21,14 @@ cmsApp.config(['$routeProvider',
                 templateUrl: 'partials/crisis-detail.html',
                 controller: 'CrisisDetailCtrl'
             }).
+            when('/report',{
+                templateUrl:'partials/report.html'
+                //controller:'reportCtrl'
+            }).
+            when('/about',{
+                templateUrl:'partials/aboutUs.html'
+                //controller:'aboutCtrl'
+            }).
             otherwise({
                 redirectTo: '/crises'
             });
