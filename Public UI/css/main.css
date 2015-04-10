@@ -18,9 +18,16 @@ html {
     min-height: 100%;
 }
 .logo{
-    width:100px;
+    width:80px;
     height:50px;
+    background-color: #000000;
+    color: #00ca6d;
 }
+.label{
+    background-color: #000000;
+    color:#ffffff;
+}
+
 body {
     /* Margin bottom by footer height */
     margin-bottom: 0px;
@@ -36,8 +43,8 @@ body {
 
 .container {
     width: auto;
-    max-width: 680px;
-    padding: 10px 0 0 0;
+    max-width: 100%;
+    padding: 0 0 0 0;
 }
 
 .container.text-muted {
@@ -47,7 +54,7 @@ body {
 
 .crises {
     list-style: none;
-    margin: 0cm 0cm 0cm -50%;
+    margin: 0cm 0cm 0cm 0%;
 }
 .crises-data{
     background-color: #b2dba1;

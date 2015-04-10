@@ -1,0 +1,25 @@
+
+[
+  {
+    "id": 1,
+    "callerNumber": null,
+    "description": "test type",
+    "priority": 0,
+    "callingTime": null,
+    "location": "NTU",
+    "postalCode": null,
+    "reporter": null,
+    "eventType": null
+  },
+  {
+    "id": 2,
+    "callerNumber": null,
+    "description": "test type",
+    "priority": 1,
+    "callingTime": null,
+    "location": "NTU",
+    "postalCode": null,
+    "reporter": null,
+    "eventType": null
+  }
+  ]
