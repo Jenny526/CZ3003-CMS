@@ -14,126 +14,126 @@
     <title></title>
 </head>
 <body>
-<div id="top_left_ctrl" data-ng-class="{ztoggle: profile_hid!=null}">
-    <div class="top_bar">
-        <div class="sort_filters" ng-init="filters.InMap.InitWithView(view)" ng-class="{covered: profile_hid!=null}">
-            <ul ng-controller="TopNCtrl" id="topn_list" class="sort_list ng-scope" ng-init="Init()">
-                <li r77-tourtip="topn" r77-tourtip-condition="!show_search_form &amp;&amp; !(suggest.visibility &amp;&amp; suggest.suggestions.length)">
-                    <div r77-recompile="" r77-recompile-watch="ranks" bindonce="" class="ng-scope">
-                        <a bo-show="ShouldShow()" class="serp_graphics dropdown-toggle drop_arrow ng-scope" data-toggle="dropdown" ng-class="{selected: applied_topn.val}" ng-click="build.val=true" log-on="click" log-category="Top N" log-action="Dropdown Opened" log-data-topn="{ranks: ranks}" log-config-no_ga="">
-                            Hotel Types
-                        </a>
-                        <ul class="dropdown-menu sort_ul topnlist ng-scope">
-                            <li>
-                                <div>
-                                    <ul>
-                                        <li ng-class="{checked: !applied_topn.val}" class="checked">
-                                            <a class="serp_graphics sorter" ng-click="UseDefault(); Sort('R77');" log-on="click" log-category="Top N" log-action="Category Selected" log-data-topn="{ranks: ranks, applied: applied_topn, topn: top_ns}" log-any-source="&quot;dropdown&quot;" log-any-categoryposition="0" log-ga-label="{top: applied_topn.val, name: top_ns[applied_topn.val].category, position: 0}">
-                                                All Results
-                                            </a>
-                                        </li>
+<!--<div id="top_left_ctrl" data-ng-class="{ztoggle: profile_hid!=null}">-->
+    <!--<div class="top_bar">-->
+        <!--<div class="sort_filters" ng-init="filters.InMap.InitWithView(view)" ng-class="{covered: profile_hid!=null}">-->
+            <!--<ul ng-controller="TopNCtrl" id="topn_list" class="sort_list ng-scope" ng-init="Init()">-->
+                <!--<li r77-tourtip="topn" r77-tourtip-condition="!show_search_form &amp;&amp; !(suggest.visibility &amp;&amp; suggest.suggestions.length)">-->
+                    <!--<div r77-recompile="" r77-recompile-watch="ranks" bindonce="" class="ng-scope">-->
+                        <!--<a bo-show="ShouldShow()" class="serp_graphics dropdown-toggle drop_arrow ng-scope" data-toggle="dropdown" ng-class="{selected: applied_topn.val}" ng-click="build.val=true" log-on="click" log-category="Top N" log-action="Dropdown Opened" log-data-topn="{ranks: ranks}" log-config-no_ga="">-->
+                            <!--Hotel Types-->
+                        <!--</a>-->
+                        <!--<ul class="dropdown-menu sort_ul topnlist ng-scope">-->
+                            <!--<li>-->
+                                <!--<div>-->
+                                    <!--<ul>-->
+                                        <!--<li ng-class="{checked: !applied_topn.val}" class="checked">-->
+                                            <!--<a class="serp_graphics sorter" ng-click="UseDefault(); Sort('R77');" log-on="click" log-category="Top N" log-action="Category Selected" log-data-topn="{ranks: ranks, applied: applied_topn, topn: top_ns}" log-any-source="&quot;dropdown&quot;" log-any-categoryposition="0" log-ga-label="{top: applied_topn.val, name: top_ns[applied_topn.val].category, position: 0}">-->
+                                                <!--All Results-->
+                                            <!--</a>-->
+                                        <!--</li>-->
 
-                                        <!-- ngRepeat: type in ranks --><li ng-repeat="type in ranks" bindonce="" ng-class="{checked: applied_topn.val===type.name}" class="ng-scope">
-                                        <a class="serp_graphics sorter ng-binding" ng-click="Apply(type.name); Sort('TOPN', top_ns[type.name]); ClosePanel();" log-on="click" log-category="Top N" log-action="Category Selected" log-data-topn="{ranks: ranks, applied: applied_topn, topn: top_ns}" log-any-source="&quot;dropdown&quot;" log-any-categoryposition="$index + 1" log-ga-label="{top: applied_topn.val, name: top_ns[applied_topn.val].category, position: $index+1}">
-                                            Luxury
-                                        </a>
-                                    </li><li ng-repeat="type in ranks" bindonce="" ng-class="{checked: applied_topn.val===type.name}" class="ng-scope">
-                                        <a class="serp_graphics sorter ng-binding" ng-click="Apply(type.name); Sort('TOPN', top_ns[type.name]); ClosePanel();" log-on="click" log-category="Top N" log-action="Category Selected" log-data-topn="{ranks: ranks, applied: applied_topn, topn: top_ns}" log-any-source="&quot;dropdown&quot;" log-any-categoryposition="$index + 1" log-ga-label="{top: applied_topn.val, name: top_ns[applied_topn.val].category, position: $index+1}">
-                                            Family
-                                        </a>
-                                    </li>
-                                    </ul>
-                                    <span class="close_toggle dropdown-toggle"></span>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </li>
-            </ul>
-            <!-- r77RenderIf: !dateless -->
-            <ul class="sort_list slider_panel">
-                <li bindonce="" class="">
-                    <a class="serp_graphics dropdown-toggle" data-toggle="dropdown" href="javascript:void(0);" dropdown-multiselect="true" ng-class="{selected: filters.StarMin.text || filters.RatingMin.text}" ng-click="build_ratings_dropdown=true">
-                        Rating
-                    </a>
-                    <ul class="dropdown-menu sort_ul" style="width:280px;">
-                        <li log-when="filters.StarMin.text" log-category="Filter" log-action="Star Rating" log-data-filter="{name: &quot;StarMin&quot;}" log-data-all_filters="" log-ga-label="filters.StarMin.selected">
-                            <div style="padding:0 8px;">
-                                <h4>Star-Rating <span class="ng-binding">0-Star minimum</span></h4>
-                                <span slider="" class="slider hotel_classes ng-isolate-scope ng-scope ng-pristine ng-valid" floor="0" ceiling="5" step="1" precision="0" ng-model="filters.StarMin.selected" slide-update="Filter();"><span class="bar" style="background-size: 0% 100%;"></span><span class="pointer" style="left: 0px;"></span><span ng-bind-html-unsafe="translate({value: floor})" class="bubble limit ng-binding" style="opacity: 0;">0</span><span ng-bind-html-unsafe="translate({value: ceiling})" class="bubble limit ng-binding" style="left: 244px; opacity: 1;">5</span><span class="bubble ng-binding" ng-bind-html-unsafe="translate({value: ngModel})" style="left: 10px;">0</span></span>
-                                <div class="rating_scale">
-                                    <span>0-Star</span>
-                                    <span>1-Star</span>
-                                    <span>2-Star</span>
-                                    <span>3-Star</span>
-                                    <span>4-Star</span>
-                                    <span>5-Star</span>
-                                </div>
-                                <div class="filter_div"></div>
-                                <h4>Minimum Guest Rating <span class="ng-binding">0 out of 100</span></h4>
+                                        <!--&lt;!&ndash; ngRepeat: type in ranks &ndash;&gt;<li ng-repeat="type in ranks" bindonce="" ng-class="{checked: applied_topn.val===type.name}" class="ng-scope">-->
+                                        <!--<a class="serp_graphics sorter ng-binding" ng-click="Apply(type.name); Sort('TOPN', top_ns[type.name]); ClosePanel();" log-on="click" log-category="Top N" log-action="Category Selected" log-data-topn="{ranks: ranks, applied: applied_topn, topn: top_ns}" log-any-source="&quot;dropdown&quot;" log-any-categoryposition="$index + 1" log-ga-label="{top: applied_topn.val, name: top_ns[applied_topn.val].category, position: $index+1}">-->
+                                            <!--Luxury-->
+                                        <!--</a>-->
+                                    <!--</li><li ng-repeat="type in ranks" bindonce="" ng-class="{checked: applied_topn.val===type.name}" class="ng-scope">-->
+                                        <!--<a class="serp_graphics sorter ng-binding" ng-click="Apply(type.name); Sort('TOPN', top_ns[type.name]); ClosePanel();" log-on="click" log-category="Top N" log-action="Category Selected" log-data-topn="{ranks: ranks, applied: applied_topn, topn: top_ns}" log-any-source="&quot;dropdown&quot;" log-any-categoryposition="$index + 1" log-ga-label="{top: applied_topn.val, name: top_ns[applied_topn.val].category, position: $index+1}">-->
+                                            <!--Family-->
+                                        <!--</a>-->
+                                    <!--</li>-->
+                                    <!--</ul>-->
+                                    <!--<span class="close_toggle dropdown-toggle"></span>-->
+                                <!--</div>-->
+                            <!--</li>-->
+                        <!--</ul>-->
+                    <!--</div>-->
+                <!--</li>-->
+            <!--</ul>-->
+            <!--&lt;!&ndash; r77RenderIf: !dateless &ndash;&gt;-->
+            <!--<ul class="sort_list slider_panel">-->
+                <!--<li bindonce="" class="">-->
+                    <!--<a class="serp_graphics dropdown-toggle" data-toggle="dropdown" href="javascript:void(0);" dropdown-multiselect="true" ng-class="{selected: filters.StarMin.text || filters.RatingMin.text}" ng-click="build_ratings_dropdown=true">-->
+                        <!--Rating-->
+                    <!--</a>-->
+                    <!--<ul class="dropdown-menu sort_ul" style="width:280px;">-->
+                        <!--<li log-when="filters.StarMin.text" log-category="Filter" log-action="Star Rating" log-data-filter="{name: &quot;StarMin&quot;}" log-data-all_filters="" log-ga-label="filters.StarMin.selected">-->
+                            <!--<div style="padding:0 8px;">-->
+                                <!--<h4>Star-Rating <span class="ng-binding">0-Star minimum</span></h4>-->
+                                <!--<span slider="" class="slider hotel_classes ng-isolate-scope ng-scope ng-pristine ng-valid" floor="0" ceiling="5" step="1" precision="0" ng-model="filters.StarMin.selected" slide-update="Filter();"><span class="bar" style="background-size: 0% 100%;"></span><span class="pointer" style="left: 0px;"></span><span ng-bind-html-unsafe="translate({value: floor})" class="bubble limit ng-binding" style="opacity: 0;">0</span><span ng-bind-html-unsafe="translate({value: ceiling})" class="bubble limit ng-binding" style="left: 244px; opacity: 1;">5</span><span class="bubble ng-binding" ng-bind-html-unsafe="translate({value: ngModel})" style="left: 10px;">0</span></span>-->
+                                <!--<div class="rating_scale">-->
+                                    <!--<span>0-Star</span>-->
+                                    <!--<span>1-Star</span>-->
+                                    <!--<span>2-Star</span>-->
+                                    <!--<span>3-Star</span>-->
+                                    <!--<span>4-Star</span>-->
+                                    <!--<span>5-Star</span>-->
+                                <!--</div>-->
+                                <!--<div class="filter_div"></div>-->
+                                <!--<h4>Minimum Guest Rating <span class="ng-binding">0 out of 100</span></h4>-->
 
-                                <span slider="" class="slider ng-isolate-scope ng-scope ng-pristine ng-valid" floor="0" ceiling="100" step="10" precision="0" ng-model="filters.RatingMin.selected" slide-update="Filter();"><span class="bar" style="background-size: 0% 100%;"></span><span class="pointer" style="left: 0px;"></span><span ng-bind-html-unsafe="translate({value: floor})" class="bubble limit ng-binding" style="opacity: 0;">0</span><span ng-bind-html-unsafe="translate({value: ceiling})" class="bubble limit ng-binding" style="left: 231px; opacity: 1;">100</span><span class="bubble ng-binding" ng-bind-html-unsafe="translate({value: ngModel})" style="left: 10px;">0</span></span>
-                                <div class="review_scale">
-                                    <span>0</span>
-                                    <span>•</span>
-                                    <span>20</span>
-                                    <span>•</span>
-                                    <span>40</span>
-                                    <span>•</span>
-                                    <span>60</span>
-                                    <span>•</span>
-                                    <span>80</span>
-                                    <span>•</span>
-                                    <span>100</span>
-                                </div>
-                            </div>
-                            <span class="close_toggle dropdown-toggle"></span>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
+                                <!--<span slider="" class="slider ng-isolate-scope ng-scope ng-pristine ng-valid" floor="0" ceiling="100" step="10" precision="0" ng-model="filters.RatingMin.selected" slide-update="Filter();"><span class="bar" style="background-size: 0% 100%;"></span><span class="pointer" style="left: 0px;"></span><span ng-bind-html-unsafe="translate({value: floor})" class="bubble limit ng-binding" style="opacity: 0;">0</span><span ng-bind-html-unsafe="translate({value: ceiling})" class="bubble limit ng-binding" style="left: 231px; opacity: 1;">100</span><span class="bubble ng-binding" ng-bind-html-unsafe="translate({value: ngModel})" style="left: 10px;">0</span></span>-->
+                                <!--<div class="review_scale">-->
+                                    <!--<span>0</span>-->
+                                    <!--<span>•</span>-->
+                                    <!--<span>20</span>-->
+                                    <!--<span>•</span>-->
+                                    <!--<span>40</span>-->
+                                    <!--<span>•</span>-->
+                                    <!--<span>60</span>-->
+                                    <!--<span>•</span>-->
+                                    <!--<span>80</span>-->
+                                    <!--<span>•</span>-->
+                                    <!--<span>100</span>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                            <!--<span class="close_toggle dropdown-toggle"></span>-->
+                        <!--</li>-->
+                    <!--</ul>-->
+                <!--</li>-->
+            <!--</ul>-->
 
-            <ul class="sort_list special_filters">
-                <li class="">
-                    <a class="serp_graphics dropdown-toggle" href="javascript:void(0);" data-toggle="dropdown" dropdown-open="SpecialFilterToggle('amenities')" dropdown-close="SpecialFilterToggle()" dropdown-multiselect="true" ng-class="{selected: filters.Amenities.text.length}" ng-click="build_amenities_dropdown=true">
-                        Amenities
-                    </a>
-                    <!-- ngIf: build_amenities_dropdown --><ul ng-if="build_amenities_dropdown" class="ng-scope">
-                    <li>
-                        <!-- ngIf: special_filter.val==='amenities' -->
-                    </li>
-                </ul>
-                </li>
-            </ul>
+            <!--<ul class="sort_list special_filters">-->
+                <!--<li class="">-->
+                    <!--<a class="serp_graphics dropdown-toggle" href="javascript:void(0);" data-toggle="dropdown" dropdown-open="SpecialFilterToggle('amenities')" dropdown-close="SpecialFilterToggle()" dropdown-multiselect="true" ng-class="{selected: filters.Amenities.text.length}" ng-click="build_amenities_dropdown=true">-->
+                        <!--Amenities-->
+                    <!--</a>-->
+                    <!--&lt;!&ndash; ngIf: build_amenities_dropdown &ndash;&gt;<ul ng-if="build_amenities_dropdown" class="ng-scope">-->
+                    <!--<li>-->
+                        <!--&lt;!&ndash; ngIf: special_filter.val==='amenities' &ndash;&gt;-->
+                    <!--</li>-->
+                <!--</ul>-->
+                <!--</li>-->
+            <!--</ul>-->
 
-            <ul class="sort_list special_filters">
-                <li class="">
-                    <a href="javascript:void(0);" data-toggle="dropdown" dropdown-open="SpecialFilterToggle('brands')" class="serp_graphics dropdown-toggle" dropdown-close="SpecialFilterToggle()" dropdown-multiselect="true" ng-class="{selected: filters.Chains.text.length}" ng-click="build_brands_dropdown=true">
-                        Brands
-                    </a>
-                    <!-- ngIf: build_brands_dropdown --><ul ng-if="build_brands_dropdown" class="ng-scope">
-                    <li>
-                        <!-- ngIf: special_filter.val==='brands' -->
-                    </li>
-                </ul>
-                </li>
-            </ul>
+            <!--<ul class="sort_list special_filters">-->
+                <!--<li class="">-->
+                    <!--<a href="javascript:void(0);" data-toggle="dropdown" dropdown-open="SpecialFilterToggle('brands')" class="serp_graphics dropdown-toggle" dropdown-close="SpecialFilterToggle()" dropdown-multiselect="true" ng-class="{selected: filters.Chains.text.length}" ng-click="build_brands_dropdown=true">-->
+                        <!--Brands-->
+                    <!--</a>-->
+                    <!--&lt;!&ndash; ngIf: build_brands_dropdown &ndash;&gt;<ul ng-if="build_brands_dropdown" class="ng-scope">-->
+                    <!--<li>-->
+                        <!--&lt;!&ndash; ngIf: special_filter.val==='brands' &ndash;&gt;-->
+                    <!--</li>-->
+                <!--</ul>-->
+                <!--</li>-->
+            <!--</ul>-->
 
-            <ul class="sort_list special_filters location_filter">
-                <li r77-tourtip="location" r77-tourtip-condition="!show_search_form &amp;&amp; !(suggest.visibility &amp;&amp; suggest.suggestions.length)" class="">
-                    <a href="javascript:void(0);" data-toggle="dropdown" dropdown-open="SpecialFilterToggle('location')" class="serp_graphics dropdown-toggle" dropdown-close="SpecialFilterToggle()" dropdown-multiselect="true" ng-class="{selected: filters.Neighborhoods.text.length}" ng-click="build_location_dropdown=true">
-                        Location / Area
-                    </a>
-                    <!-- ngIf: build_location_dropdown --><ul ng-controller="LocationCtrl" ng-if="build_location_dropdown" class="ng-scope">
-                    <li>
-                        <!-- ngIf: special_filter.val==='location' -->
-                    </li>
-                </ul>   </li>
-            </ul>
+            <!--<ul class="sort_list special_filters location_filter">-->
+                <!--<li r77-tourtip="location" r77-tourtip-condition="!show_search_form &amp;&amp; !(suggest.visibility &amp;&amp; suggest.suggestions.length)" class="">-->
+                    <!--<a href="javascript:void(0);" data-toggle="dropdown" dropdown-open="SpecialFilterToggle('location')" class="serp_graphics dropdown-toggle" dropdown-close="SpecialFilterToggle()" dropdown-multiselect="true" ng-class="{selected: filters.Neighborhoods.text.length}" ng-click="build_location_dropdown=true">-->
+                        <!--Location / Area-->
+                    <!--</a>-->
+                    <!--&lt;!&ndash; ngIf: build_location_dropdown &ndash;&gt;<ul ng-controller="LocationCtrl" ng-if="build_location_dropdown" class="ng-scope">-->
+                    <!--<li>-->
+                        <!--&lt;!&ndash; ngIf: special_filter.val==='location' &ndash;&gt;-->
+                    <!--</li>-->
+                <!--</ul>   </li>-->
+            <!--</ul>-->
 
-        </div>
-        <div class="content_out"></div>
-    </div></div>
+        <!--</div>-->
+        <!--<div class="content_out"></div>-->
+    <!--</div></div>-->
 <!--<div ng-controller="TwitterCtrl">-->
     <!--<form class="form-horizontal">-->
         <!--<input type="text" ng-model="searchTerm">-->
