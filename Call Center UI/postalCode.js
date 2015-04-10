@@ -77,5 +77,18 @@ $(document).ready(function () {
         'BuildProfessional'];
     $('#postalCode').autocomplete({
         source: postalCode,
+		select: function(event, ui) {
+            var url = ui.item.id;
+            /*if(url != '#') {
+                location.href = '/blog/' + url;
+            }*/
+        },
+ 
+        html: true, // optional (jquery.ui.autocomplete.html.js required)
+ 
+      // optional (if other layers overlap autocomplete list)
+        open: function(event, ui) {
+            $(".ui-autocomplete").css("z-index", 1000);
+        }
     });
 });
