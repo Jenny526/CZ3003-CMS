@@ -34,7 +34,7 @@ public class PublicViewController {
         file.write("[");
        while (i < events.size()) {
 
-           file.write(ControllerUtil.getEventJsonNode(events.get(i)).toString());
+           file.write(events.get(i).toString());
            if (i<events.size()-1)
                file.write(",");
            System.out.println("Successfully Copied JSON Object to File...");

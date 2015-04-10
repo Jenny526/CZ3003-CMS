@@ -1,4 +1,4 @@
-@(message: String){
+@( eventTypeList: List[EventType]){
 
 <!doctype html>
 <html>
@@ -63,14 +63,22 @@
                 <p><label for="postalCode">Postal Code:</label>
                     <input type="text" name="postalCode" id="postalCode" placeholder="eg: 666666" value="" /><br /></p>
 
+                </select>
                 <p><label for="type">Type:</label>
-                    <select class="form-control" name = "ETID">
+                   <!-- <select class="form-control" name = "ETID">
                         <option value = "" selected="selected">Select Event Type</option>
                         <option value = "1">Emergency Ambulance</option>
                         <option value = "2">Rescue and Evacuation</option>
                         <option value = "Fire-Fighting">Fire-Fighting</option>
                         <option value = "Gas Leak Control">Gas Leak Control</option>
-                    </select><br />
+                    </select><br />-->
+                    <select class = "selectone">
+                        @for(eventType <- eventTypeList){
+                        <option value = @eventType.id>
+                            @eventType.getEventName()
+                        </option>
+                        }
+                    </select><br/>
 
                 <p><label for="description">Description:</label>
                     <textarea cols="60" rows="11" name="description" id="description"></textarea><br /></p>
