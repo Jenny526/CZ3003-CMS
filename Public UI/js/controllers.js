@@ -10,7 +10,7 @@ cmsControllers.controller('CrisisListCtrl', ['$scope','Crisis',
 
         $scope.crises = Crisis.query();
 
-        $scope.orderProp = 'age';
+        $scope.orderProp = '-id';
     }]);
 
 

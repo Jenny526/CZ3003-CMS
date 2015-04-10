@@ -19,8 +19,8 @@ mapControllers.controller('mapInstanceCtrl',['$scope','$log','$filter','Crisis',
 
         $scope.map = {
             center: {
-                latitude: 1.3447,
-                longitude: 103.6814
+                latitude: 1.3000,
+                longitude: 103.8000
             },
             zoom: 12,
             options: {
@@ -38,25 +38,25 @@ mapControllers.controller('mapInstanceCtrl',['$scope','$log','$filter','Crisis',
         $scope.filterCrisis = function(items) {
             var filtered = [];
             angular.forEach(items, function(item) {
-                if(item.eventType == "fire" && $scope.types_fire == true){
+                if(item.eventType.eventName == "fire" && $scope.types_fire == true){
                     filtered.push(item);
                 }
-                else if(item.eventType == "other" && $scope.types_other == true){
+                else if(item.eventType.eventName == "other" && $scope.types_other == true){
                     filtered.push(item);
                 }
-                else if(item.eventType == "dengue" && $scope.types_dengue == true){
+                else if(item.eventType.eventName == "dengue" && $scope.types_dengue == true){
                     filtered.push(item);
                 }
-                else if(item.eventType == "flu" && $scope.types_flu == true){
+                else if(item.eventType.eventName == "flu" && $scope.types_flu == true){
                     filtered.push(item);
                 }
-                else if(item.eventType == "gas" && $scope.types_gas == true){
+                else if(item.eventType.eventName == "gas" && $scope.types_gas == true){
                     filtered.push(item);
                 }
-                else if(item.eventType == "shelter" && $scope.types_rescue == true){
+                else if(item.eventType.eventName == "rescue" && $scope.types_rescue == true){
                     filtered.push(item);
                 }
-                else if(item.eventType == "rescue" && $scope.types_shelter == true){
+                else if(item.eventType.eventName == "shelter" && $scope.types_shelter == true){
                     filtered.push(item);
                 }
             });
@@ -69,7 +69,7 @@ mapControllers.controller('mapInstanceCtrl',['$scope','$log','$filter','Crisis',
         //console.log($scope.map.markers);
         $scope.map.markersEvents = {
             click: function (marker, eventName, model, args) {
-                $scope.currentDisplay = marker.eventType;
+                $scope.currentDisplay = marker.model.eventType;
                 $scope.$apply();
             }
         };
