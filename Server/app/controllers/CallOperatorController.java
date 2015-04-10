@@ -49,7 +49,7 @@ public class  CallOperatorController extends Controller{
         session("connected","COID"); // create new session for call operator
         return ok("Logged in as Call Operator " + id + "!");
     }
-    public static Result index() {return ok(index.render("yes"));}
+   // public static Result index(List<EventType> eventTypes) {return ok();}
 
 
     public static Result addEvent(){
@@ -96,9 +96,9 @@ public class  CallOperatorController extends Controller{
         newEvent.save();
         reporter.save();
        // return ok(newEvent.size());
-        return redirect(routes.CallOperatorController.index());
+        //return redirect(routes.CallOperatorController.index());
        // return ok(ControllerUtil.jsonNodeForSuccess("Uploading succeeded..."));
-       // return ok(ControllerUtil.getEventJsonNode(newEvent));
+       return ok(ControllerUtil.getEventJsonNode(newEvent));
 
     }
 /*
@@ -210,7 +210,7 @@ public class  CallOperatorController extends Controller{
     public static Result getEventTypes()
     {
         List <EventType> eventTypes = Ebean.find(EventType.class).orderBy("id").findList();
-        return ok(views.html.index.render("ok",eventTypes));
+        return ok(views.html.index.render(eventTypes));
     }
 }
 
