@@ -6,8 +6,8 @@ angular.module('mapApp', ['mapControllers','cmsServices']);
 var mapControllers = angular.module('mapControllers',['uiGmapgoogle-maps', 'cmsServices']);
 
 
-mapControllers.controller('mapInstanceCtrl',['$scope','$log','$filter','Crisis',
-    function ($scope, $log, $filter,Crisis) {
+mapControllers.controller('mapInstanceCtrl',['$scope','$log','$filter','Crisis','$interval',
+    function ($scope, $log, $filter,Crisis, $interval) {
 
         $scope.types_fire = true;
         $scope.types_other = true;
@@ -76,5 +76,13 @@ mapControllers.controller('mapInstanceCtrl',['$scope','$log','$filter','Crisis',
         $scope.map.markers = Crisis.query({}, function (result) {
             $scope.updateCrisis();
         });
+
+
+        var refresh = $interval(function(){
+                $scope.map.markers = Crisis.query({}, function (result) {
+                    console.log("update");
+                    $scope.updateCrisis();
+                });
+        }, 1000)
     }
 ]);

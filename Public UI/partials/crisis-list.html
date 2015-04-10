@@ -1,3 +1,4 @@
+<!--<meta http-equiv="refresh" content="5" >-->
 <div class="content-wrapper" ng-controller="mapInstanceCtrl">
     <aside class="main-sidebar">
         <!-- sidebar: style can be found in sidebar.less -->
@@ -23,7 +24,7 @@
             </div>
 
             <ul class="crises">
-                <li ng-repeat="crisis in map.markersForDisplay | orderBy:orderProp"
+                <li ng-repeat="crisis in map.markersForDisplay | orderBy:orderProp track by crisis.id"
                     class="thumbnail crisis-listing">
                     <a class="thumb"><img ng-src="{{crisis.iconUrl}}"> </a>
                     Type: {{crisis.eventType.eventName}} &nbsp;|&nbsp; Priority: {{crisis.priority}}
