@@ -21,7 +21,7 @@ html {
     width:80px;
     height:50px;
     background-color: #000000;
-    color: #00ca6d;
+    color: #f9c015;
 }
 .label{
     background-color: #000000;
@@ -57,7 +57,7 @@ body {
     margin: 0cm 0cm 0cm -10%;
 }
 .crises-data{
-    background-color: #000000;
+    background-color: #00ca6d;
     color: #ffffff;
 }
 .thumb {
@@ -69,7 +69,8 @@ body {
 }
 .thumbnail{
     background-color: #ffffff;
-    color: #00ca6d;
+    opacity: 0.5;
+    color: #f9c015;
 }
 .crises li {
     clear: both;
