@@ -36,7 +36,6 @@ mapControllers.controller('mapInstanceCtrl',['$scope','$log','$filter','Crisis',
         };
 
         $scope.filterCrisis = function(items) {
-            console.log(items);
             var filtered = [];
             angular.forEach(items, function(item) {
                 if(item.eventType == "fire" && $scope.types_fire == true){
@@ -61,6 +60,8 @@ mapControllers.controller('mapInstanceCtrl',['$scope','$log','$filter','Crisis',
                     filtered.push(item);
                 }
             });
+            $scope.toBeFiltered = filtered;
+            filtered = $scope.$eval("toBeFiltered | filter:query");
             return filtered;
         };
 
@@ -75,7 +76,5 @@ mapControllers.controller('mapInstanceCtrl',['$scope','$log','$filter','Crisis',
         $scope.map.markers = Crisis.query({}, function (result) {
             $scope.updateCrisis();
         });
-
-        //$scope.updateCrisis();
     }
 ]);

@@ -8,7 +8,9 @@
     "location": "NTU",
     "postalCode": null,
     "reporter": null,
-    "eventType": "fire",
+    "eventType": {
+      "type":"fire"
+    },
     "coords":
     {
       "latitude": 1.3447,
@@ -30,7 +32,9 @@
     "location": "NTU",
     "postalCode": null,
     "reporter": null,
-    "eventType": "dengue",
+    "eventType": {
+      "type":"dengue"
+    },
     "coords":
     {
       "latitude": 1.35,
@@ -52,7 +56,9 @@
     "location": "NTU",
     "postalCode": null,
     "reporter": null,
-    "eventType": "flu",
+    "eventType": {
+      "type":"flu"
+    },
     "coords":
     {
       "latitude": 1.33,
