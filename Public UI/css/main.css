@@ -54,10 +54,11 @@ body {
 
 .crises {
     list-style: none;
-    margin: 0cm 0cm 0cm 0%;
+    margin: 0cm 0cm 0cm -10%;
 }
 .crises-data{
-    background-color: #b2dba1;
+    background-color: #000000;
+    color: #ffffff;
 }
 .thumb {
     float: left;
@@ -67,7 +68,8 @@ body {
     width: 40px;
 }
 .thumbnail{
-    background-color: #f5e79e;
+    background-color: #ffffff;
+    color: #00ca6d;
 }
 .crises li {
     clear: both;
