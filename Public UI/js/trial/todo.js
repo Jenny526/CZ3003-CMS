@@ -18,17 +18,107 @@ function TodoCtrl($scope) {
             return !todo.done;
         })
     };
-    //$scope.map = {center:{latitude:45,longitude:-73}, zoom:8};
 }
+mapControllers.controller('mapInstanceCtrl',['$scope','$log','$filter',
+    function ($scope, $log, $filter) {
 
+        $scope.types_fire = true;
+        $scope.types_other = true;
 
-//gapi.load('auth:client,drive-realtime,drive-share',function(){
-//    //Runs once the Realtime API is loaded
-//    wireUpUi();
-//})
-//var bindString = gapi.drive.realtime.databinding.bindString;
-//bindString(root.get('TopText'),document.getElementById('TopText'));
-//bindString(root.get('MiddleText'),document.getElementById('MiddleText'));
-//bindString(root.get('ButtomText'),document.getElementById('ButtomText'));
-//
-//root.addEventListener(gapi.drive.realtime.EventType.Object.update);
+        $scope.map = {
+            center: {
+                latitude: 1.3447,
+                longitude: 103.6814
+            },
+            zoom: 12,
+            options: {
+                streetViewControl: false,
+                panControl: false,
+                maxZoom: 20,
+                minZoom: 3
+            }
+        };
+
+        $scope.updateCrisis = function(){
+            $scope.map.markersForDisplay = $scope.filterCrisis($scope.map.markers);
+        }
+
+        $scope.filterCrisis = function(items) {
+            var filtered = [];
+            angular.forEach(items, function(item) {
+                if($scope.types_fire == true && $scope.types_other == true) {
+                    filtered.push(item);
+                }
+                else if($scope.types_fire == true && $scope.types_other == false && item.type == 'fire'){
+                    filtered.push(item);
+                }
+                else if($scope.types_other == true && $scope.types_fire == false && item.type == 'other'){
+                    filtered.push(item);
+                }
+            });
+            return filtered;
+        };
+
+        $scope.map.markers = [{
+            id: 0,
+            coords:{
+                latitude: 1.3447,
+                longitude: 103.6814
+            },
+            title: 'sb',
+            showWindow: false,
+            options: {
+                draggable: false
+            },
+            iconUrl : "//localhost:63342/CZ3003-CMS/Public%20UI/image/fire.png",
+
+            type: 'fire'
+        }, {
+            id: 2,
+            coords:{
+                latitude: 1.34,
+                longitude: 103.6814
+            },
+            title: 'sb',
+            showWindow: false,
+            options: {
+                draggable: false
+            },
+            iconUrl : "//localhost:63342/CZ3003-CMS/Public%20UI/image/fire.png",
+
+            type: 'fire'
+        }, {
+            id: 3,
+            coords:{
+                latitude: 1.35,
+                longitude: 103.6814
+            },
+            title: 'sb',
+            showWindow: false,
+            options: {
+                draggable: true
+            },
+            type: 'other'
+        }, {
+            id: 4,
+            coords:{
+                latitude: 1.34,
+                longitude: 103.70
+            },
+            title: 'sb',
+            showWindow: false,
+            options: {
+                draggable: true
+            },
+            type: 'other'
+        }];
+        $scope.map.markersEvents = {
+            click: function (marker, eventName, model, args) {
+                $scope.currentDisplay = marker.title;
+                $scope.$apply();
+            }
+        };
+
+        $scope.updateCrisis();
+    }
+]);

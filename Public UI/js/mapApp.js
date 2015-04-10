@@ -1,15 +1,21 @@
 /**
  * Created by Boss on 9/4/15.
  */
-angular.module('mapApp', ['mapControllers']);
+angular.module('mapApp', ['mapControllers','cmsServices']);
 
-var mapControllers = angular.module('mapControllers',['uiGmapgoogle-maps']);
+var mapControllers = angular.module('mapControllers',['uiGmapgoogle-maps', 'cmsServices']);
 
-mapControllers.controller('mapInstanceCtrl',['$scope','$log','$filter',
-    function ($scope, $log, $filter) {
+
+mapControllers.controller('mapInstanceCtrl',['$scope','$log','$filter','Crisis',
+    function ($scope, $log, $filter,Crisis) {
 
         $scope.types_fire = true;
         $scope.types_other = true;
+        $scope.types_dengue = true;
+        $scope.types_flu = true;
+        $scope.types_gas = true;
+        $scope.types_rescue = true;
+        $scope.types_shelter = true;
 
         $scope.map = {
             center: {
@@ -27,84 +33,49 @@ mapControllers.controller('mapInstanceCtrl',['$scope','$log','$filter',
 
         $scope.updateCrisis = function(){
             $scope.map.markersForDisplay = $scope.filterCrisis($scope.map.markers);
-        }
+        };
 
         $scope.filterCrisis = function(items) {
+            console.log(items);
             var filtered = [];
             angular.forEach(items, function(item) {
-                if($scope.types_fire == true && $scope.types_other == true) {
+                if(item.eventType == "fire" && $scope.types_fire == true){
                     filtered.push(item);
                 }
-                else if($scope.types_fire == true && $scope.types_other == false && item.type == 'fire'){
+                else if(item.eventType == "other" && $scope.types_other == true){
                     filtered.push(item);
                 }
-                else if($scope.types_other == true && $scope.types_fire == false && item.type == 'other'){
+                else if(item.eventType == "dengue" && $scope.types_dengue == true){
+                    filtered.push(item);
+                }
+                else if(item.eventType == "flu" && $scope.types_flu == true){
+                    filtered.push(item);
+                }
+                else if(item.eventType == "gas" && $scope.types_gas == true){
+                    filtered.push(item);
+                }
+                else if(item.eventType == "shelter" && $scope.types_rescue == true){
+                    filtered.push(item);
+                }
+                else if(item.eventType == "rescue" && $scope.types_shelter == true){
                     filtered.push(item);
                 }
             });
             return filtered;
         };
 
-        $scope.map.markers = [{
-            id: 0,
-            coords:{
-                latitude: 1.3447,
-                longitude: 103.6814
-            },
-            title: 'sb',
-            showWindow: false,
-            options: {
-                draggable: false
-            },
-            iconUrl : "//localhost:63342/CZ3003-CMS/Public%20UI/image/fire.png",
 
-            type: 'fire'
-        }, {
-            id: 2,
-            coords:{
-                latitude: 1.34,
-                longitude: 103.6814
-            },
-            title: 'sb',
-            showWindow: false,
-            options: {
-                draggable: false
-            },
-            iconUrl : "//localhost:63342/CZ3003-CMS/Public%20UI/image/fire.png",
-
-            type: 'fire'
-        }, {
-            id: 3,
-            coords:{
-                latitude: 1.35,
-                longitude: 103.6814
-            },
-            title: 'sb',
-            showWindow: false,
-            options: {
-                draggable: true
-            },
-            type: 'other'
-        }, {
-            id: 4,
-            coords:{
-                latitude: 1.34,
-                longitude: 103.70
-            },
-            title: 'sb',
-            showWindow: false,
-            options: {
-                draggable: true
-            },
-            type: 'other'
-        }];
+        //console.log($scope.map.markers);
         $scope.map.markersEvents = {
             click: function (marker, eventName, model, args) {
-                $scope.currentDisplay = marker.title;
+                $scope.currentDisplay = marker.eventType;
                 $scope.$apply();
             }
         };
+        $scope.map.markers = Crisis.query({}, function (result) {
+            $scope.updateCrisis();
+        });
 
-        $scope.updateCrisis();
+        //$scope.updateCrisis();
     }
 ]);

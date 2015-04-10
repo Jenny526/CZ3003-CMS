@@ -1,4 +1,3 @@
-
 [
   {
     "id": 1,
@@ -9,7 +8,18 @@
     "location": "NTU",
     "postalCode": null,
     "reporter": null,
-    "eventType": null
+    "eventType": "fire",
+    "coords":
+    {
+      "latitude": 1.3447,
+      "longitude": 103.6814
+    },
+    "showWindow": false,
+    "options":
+    {
+      "draggable": false
+    },
+    "iconUrl": "//localhost:63342/CZ3003-CMS/Public%20UI/image/fire.png"
   },
   {
     "id": 2,
@@ -20,6 +30,128 @@
     "location": "NTU",
     "postalCode": null,
     "reporter": null,
-    "eventType": null
+    "eventType": "dengue",
+    "coords":
+    {
+      "latitude": 1.35,
+      "longitude": 103.69
+    },
+    "showWindow": false,
+    "options":
+    {
+      "draggable": false
+    },
+    "iconUrl": "//localhost:63342/CZ3003-CMS/Public%20UI/image/dengue.png"
+  },
+  {
+    "id": 3,
+    "callerNumber": null,
+    "description": "test type",
+    "priority": 1,
+    "callingTime": null,
+    "location": "NTU",
+    "postalCode": null,
+    "reporter": null,
+    "eventType": "flu",
+    "coords":
+    {
+      "latitude": 1.33,
+      "longitude": 103.67
+    },
+    "showWindow": false,
+    "options":
+    {
+      "draggable": false
+    },
+    "iconUrl": "//localhost:63342/CZ3003-CMS/Public%20UI/image/flu.png"
+  },
+  {
+    "id": 4,
+    "callerNumber": null,
+    "description": "test type",
+    "priority": 2,
+    "callingTime": null,
+    "location": "NTU",
+    "postalCode": null,
+    "reporter": null,
+    "eventType": "gas",
+    "coords":
+    {
+      "latitude": 1.32,
+      "longitude": 103.66
+    },
+    "showWindow": false,
+    "options":
+    {
+      "draggable": false
+    },
+    "iconUrl": "//localhost:63342/CZ3003-CMS/Public%20UI/image/gas.png"
+  },
+  {
+    "id": 5,
+    "callerNumber": null,
+    "description": "test type",
+    "priority": 2,
+    "callingTime": null,
+    "location": "NTU",
+    "postalCode": null,
+    "reporter": null,
+    "eventType": "rescue",
+    "coords":
+    {
+      "latitude": 1.36,
+      "longitude": 103.7
+    },
+    "showWindow": false,
+    "options":
+    {
+      "draggable": false
+    },
+    "iconUrl": "//localhost:63342/CZ3003-CMS/Public%20UI/image/rescue.png"
+  },
+  {
+    "id": 6,
+    "callerNumber": null,
+    "description": "test type",
+    "priority": 3,
+    "callingTime": null,
+    "location": "NTU",
+    "postalCode": null,
+    "reporter": null,
+    "eventType": "shelter",
+    "coords":
+    {
+      "latitude": 1.31,
+      "longitude": 103.6
+    },
+    "showWindow": false,
+    "options":
+    {
+      "draggable": false
+    },
+    "iconUrl": "//localhost:63342/CZ3003-CMS/Public%20UI/image/shelter.png"
+  },
+  {
+    "id": 7,
+    "callerNumber": null,
+    "description": "test type",
+    "priority": 3,
+    "callingTime": null,
+    "location": "NTU",
+    "postalCode": null,
+    "reporter": null,
+    "eventType": "other",
+    "coords":
+    {
+      "latitude": 1.32,
+      "longitude": 103.65
+    },
+    "showWindow": false,
+    "options":
+    {
+      "draggable": false
+    },
+    "iconUrl": "//localhost:63342/CZ3003-CMS/Public%20UI/image/flag.png"
   }
-  ]
+
+]
