@@ -1,21 +1,21 @@
 
     <p><label for="name">Reporter Name:</label>
-        <input type="text" ng-model="crisis.title" id="name" placeholder="eg: John Lee (Last name)" value="" /><br /></p>
+        <input type="text" ng-model="crisis.reporterName" id="name" placeholder="eg: John Lee (Last name)" value="" /><br /></p>
 
     <p><label for="NRIC">NRIC:</label>
-        <input type="text" ng-model="crisis.userId" id="NRIC" placeholder="eg: S1111111A" value="" /><br /></p>
+        <input type="text" ng-model="crisis.NRIC" id="NRIC" placeholder="eg: S1111111A" value="" /><br /></p>
 
     <p><label for="number">Contact Number:</label>
-        <input type="text" id="contactNumber" placeholder="eg: 88888888" value="" /><br /></p>
+        <input type="text" ng-model="crisis.contactNumber" id="contactNumber" placeholder="eg: 88888888" value="" /><br /></p>
 
     <p><label for="location">Location:</label>
-        <input type="text" id="location" placeholder="eg: Jurong Point" value="" /><br /></p>
+        <input type="text" ng-model="crisis.location" id="location" placeholder="eg: Jurong Point" value="" /><br /></p>
 
     <p><label for="postalCode">Postal Code:</label>
-        <input type="text" ng-model="crisis.body" id="postalCode" placeholder="eg: 666666" value="" /><br /></p>
+        <input type="text" ng-model="crisis.postalCode" id="postalCode" placeholder="eg: 666666" value="" /><br /></p>
 
     <p><label for="type">Type:</label>
-        <select class="form-control" >
+        <select class="form-control" ng-model="crisis.type">
             <option value = "" selected="selected">Select Event Type</option>
             <option value = "Emergency Ambulance">Emergency Ambulance</option>
             <option value = "Rescue and Evacuation">Rescue and Evacuation</option>
@@ -24,5 +24,5 @@
         </select><br />
 
     <p><label for="description">Description:</label>
-        <textarea cols="60" rows="11" id="description"></textarea><br /></p>
+        <textarea cols="60" rows="11" ng-model="crisis.description" id="description"></textarea><br /></p>
     <p><input type="submit" class="formbutton" value="Submit" onclick='return window.confirm("Confirm submit?");'/></p>
