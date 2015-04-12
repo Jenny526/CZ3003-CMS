@@ -6,10 +6,14 @@
 
 GET    /            controllers.CallOperatorController.index()
 
+GET     /calloperator/login				controllers.CallOperatorController.LogIn()
 
 POST    /event                     controllers.CallOperatorController.addEvent()
 
 GET     /events                    controllers.PublicViewController.postEvents()
+
+
+
 
 #POST /api/weather controllers.WeatherController.addEvent()
 #POST /api/psi controllers.PSIController.addEvent()

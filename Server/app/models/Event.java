@@ -44,7 +44,9 @@ public class Event extends Model {
     @JoinColumn(name="eventType_id")
     private EventType eventType;
 
-//    private String[] coords;
+    private String coords;
+    private String lantitude;
+    private String longtitude;
 //    private Timestamp solvedTime;
     /*@OneToMany(mappedBy="event",cascade = CascadeType.REMOVE)
     private List<Dispatch> dispatches;
@@ -107,13 +109,24 @@ public class Event extends Model {
         this.postalCode = postalCode;
     }
 
-//    public String[] getCoords() {
-//        return coords;
-//    }
-//
-//    public void setCoords(String coords) {
-//        this.coords = coords.split(" ");
-//    }
+    public String getCoords() {
+        return coords;
+    }
+
+    public void setCoords(String coords) {
+        this.coords = coords;
+        String[] coordsSplit = coords.split(" ");
+        this.lantitude = coordsSplit[0];
+        this.longtitude = coordsSplit[1];
+    }
+
+    public String getLantitude() {
+        return lantitude;
+    }
+
+    public String getLongtitude() {
+        return longtitude;
+    }
 }
 
 
