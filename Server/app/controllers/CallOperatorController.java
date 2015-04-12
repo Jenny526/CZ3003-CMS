@@ -33,11 +33,11 @@ import java.io.OutputStream;
 import static play.libs.Json.toJson;
 import org.json.JSONArray;
 import org.json.JSONObject;
-import play.mvc.http.*;
 
 public class  CallOperatorController extends Controller{
-
-
+        public static Result index(){
+            return ok(index.render("ok"));
+        }
 
     // Call Operator Log In Method
     public static Result LogIn(){
@@ -54,7 +54,7 @@ public class  CallOperatorController extends Controller{
     }
    // public static Result index(List<EventType> eventTypes) {return ok();}
 
-
+    @Security.Authenticated(CallOperatorSecured.class) //check whether a particular CO has logged in
     public static Result addEvent(){
        // Event postedEvent = Form.form(Event.class).bindFromRequest().get();
 
@@ -94,7 +94,8 @@ public class  CallOperatorController extends Controller{
         //newEvent.setCallingTime();// unfinished, to get current time
         newEvent.setDescription(description);
         newEvent.setLocation(location);
-       // newEvent.setPostalCode(postalCode);
+       newEvent.setPostalCode(postalCode);
+       // newEvent.setCoords(geoConverter(postalCode));
         //newEvent.setPriority(Integer.parseInt(priority));
         newEvent.save();
         reporter.save();
@@ -105,7 +106,7 @@ public class  CallOperatorController extends Controller{
        return ok(ControllerUtil.getEventJsonNode(newEvent));
 
     }
-/*
+
  //country = "Singapore"
     public static String geoConverter(String zipcode) {
 
@@ -151,13 +152,9 @@ public class  CallOperatorController extends Controller{
 
         return data;
     }
-*/
 
-    //get event
-    public static Result getEvents(){
-        List<Event> events = new Model.Finder(String.class, Event.class).all();
-        return ok(toJson(events));
-    }
+
+
 
    /*@Security.Authenticated(CallOperatorSecured.class) //check whether a particular CO has logged in
     public static Result addEvent(){
@@ -190,32 +187,32 @@ public class  CallOperatorController extends Controller{
             newEvent.setPriority(Integer.parseInt(priority));
 
         return ok("Uploading succeeded!");
-    }
-
-    @Security.Authenticated(CallOperatorSecured.class) //check whether a particular CO has logged in
-    public static Result updateEvent(){
-        DynamicForm requestData = Form.form().bindFromRequest();
-            EventType eventType = Ebean.find(EventType.class,Long.parseLong(requestData.get("eventTypeID")));
-            EventID eventID = Ebean.find(EventID.class, Long.parseLong(requestData.get("eventID")));
-            CallOperator callOperator = Ebean.find(CallOperator.class,Long.parseLong(requestData.get("callOperatorID")));
-
-            String status = requestData.get("status");
-            String description = requestData.get("description");
-            uploadedEvent.setStatus(Integer.parseInt(status));
-            uploadedEvent.setDescription(description);
-            if (status == "2"){
-                createdEvent.setSolvedTime();// unfinished, to set solve time
-            }
-
-        return ok("Event " + eventID + " has been successfully updated.");
     }*/
 
-    //for call operator UI dropdown list
-    public static Result getEventTypes()
-    {
-        List <EventType> eventTypes = Ebean.find(EventType.class).orderBy("id").findList();
-        return ok(views.html.index.render(eventTypes));
-    }
+//    @Security.Authenticated(CallOperatorSecured.class) //check whether a particular CO has logged in
+//    public static Result updateEvent(){
+//        DynamicForm requestData = Form.form().bindFromRequest();
+//            EventType eventType = Ebean.find(EventType.class,Long.parseLong(requestData.get("eventTypeID")));
+//            Event updatedEvent = Ebean.find(Event.class, Long.parseLong(requestData.get("eventID")));
+//            CallOperator callOperator = Ebean.find(CallOperator.class,Long.parseLong(requestData.get("callOperatorID")));
+//
+//            String status = requestData.get("status");
+//            String description = requestData.get("description");
+//            updatedEvent.setStatus(status);
+//            updatedEvent.setDescription(description);
+//            if (status == "2"){
+//               // updatedEvent.setSolvedTime();// unfinished, to set solve time
+//            }
+//
+//        return ok("Event " + updatedEvent.getId() + " has been successfully updated.");
+//    }
+
+//    //for call operator UI dropdown list
+//    public static Result getEventTypes()
+//    {
+//        List <EventType> eventTypes = Ebean.find(EventType.class).orderBy("id").findList();
+//        return ok(views.html.index.render(eventTypes));
+//    }
 
 }
 

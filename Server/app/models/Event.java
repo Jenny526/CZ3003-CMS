@@ -2,14 +2,18 @@ package models;
 
 import play.data.validation.Constraints;
 import play.db.ebean.Model;
+//import sun.util.calendar.BaseCalendar;
 
 
 import javax.persistence.*;
+import java.security.Timestamp;
+import java.util.List;
 
 /**
  * Created by Yiko on 2015-03-20.
  */
 @Entity
+@MappedSuperclass
 public class Event extends Model {
     @Id
     @Column(name = "event_id")
@@ -19,25 +23,29 @@ public class Event extends Model {
     //@Constraints.Required
     //public String reporterName;
     @Constraints.Required
-    public String callerNumber;
-    public String description;
+    private String callerNumber;
+    private String description;
     @Constraints.Required
-    public int priority;
+    private int priority;
+//    @Constraints.Required
+//    private Timestamp callingTime;
     @Constraints.Required
-    public String callingTime;
+    private String location;
     @Constraints.Required
-    public String location;
-    @Constraints.Required
-    public String postalCode;
+    private String postalCode;
+    private String status;
     @OneToOne
     @JoinColumn(name = "reporter_id")
-    public Reporter reporter;
+    private Reporter reporter;
     @ManyToOne
     @JoinColumn(name="callOperator_id")
     private CallOperator callOperator;
     @ManyToOne
     @JoinColumn(name="eventType_id")
     private EventType eventType;
+
+//    private String[] coords;
+//    private Timestamp solvedTime;
     /*@OneToMany(mappedBy="event",cascade = CascadeType.REMOVE)
     private List<Dispatch> dispatches;
 
@@ -84,13 +92,28 @@ public class Event extends Model {
         return this.location;
     }
 
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
     public String getPostalCode() {
         return postalCode;
     }
-
     public void setPostalCode(String postalCode) {
         this.postalCode = postalCode;
     }
+
+//    public String[] getCoords() {
+//        return coords;
+//    }
+//
+//    public void setCoords(String coords) {
+//        this.coords = coords.split(" ");
+//    }
 }
 
 

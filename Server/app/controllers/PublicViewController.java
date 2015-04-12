@@ -27,7 +27,7 @@ import org.json.simple.JSONObject;
 import play.mvc.Controller;
 
 public class PublicViewController {
-    public static Result getEvents() throws IOException {
+    public static Result postEvents() throws IOException {
         List<Event> events = new Model.Finder(String.class, Event.class).all();
         FileWriter file = new FileWriter("C:/Users/Yiko/Documents/GitHub/CZ3003-CMS/test.json");
         int i =0;

@@ -4,16 +4,16 @@
 
 # Home page
 
-GET    /            controllers.CallOperatorController.getEventTypes()
+GET    /            controllers.CallOperatorController.index()
 
 
 POST    /event                     controllers.CallOperatorController.addEvent()
 
-GET     /events                    controllers.PublicViewController.getEvents()
+GET     /events                    controllers.PublicViewController.postEvents()
 
-POST /api/weather controllers.WeatherController.addEvent()
-POST /api/psi controllers.PSIController.addEvent()
-POST /api/dengue controllers.DengueController.addEvent()
+#POST /api/weather controllers.WeatherController.addEvent()
+#POST /api/psi controllers.PSIController.addEvent()
+#POST /api/dengue controllers.DengueController.addEvent()
 POST /subscribe controllers.SubscribeController.addEvent()
 
 # Map static resources from the /public folder to the /assets URL path
