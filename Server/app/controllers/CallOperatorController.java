@@ -35,10 +35,21 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 public class  CallOperatorController extends Controller{
-        public static Result index(){
-            return ok(index.render("ok"));
-        }
+//    private static EventHandlerPool eventHandlerPool;
+//
+//    public static void setEventHandlerPool
+//            (EventHandlerPool eventHandlerPool){
+//        CallOperatorController.eventHandlerPool = eventHandlerPool;
+//    }
 
+
+    public static Result index(){
+        return ok(index.render("ok"));
+    }
+
+    public static Result login(){
+        return ok(index.render("ok"));
+    }
     // Call Operator Log In Method
     public static Result LogIn(){
         DynamicForm requestData = Form.form().bindFromRequest();
@@ -50,11 +61,11 @@ public class  CallOperatorController extends Controller{
             return ok("Login Failure: Call Operator ID or Password is not correct.");
         }
         session("connected","COID"); // create new session for call operator
-        return ok("Logged in as Call Operator " + id + "!");
+        return ok(ControllerUtil.jsonNodeForSuccess("login succeeded..."));
     }
    // public static Result index(List<EventType> eventTypes) {return ok();}
 
-    @Security.Authenticated(CallOperatorSecured.class) //check whether a particular CO has logged in
+   // @Security.Authenticated(CallOperatorSecured.class) //check whether a particular CO has logged in
     public static Result addEvent(){
        // Event postedEvent = Form.form(Event.class).bindFromRequest().get();
 
@@ -95,7 +106,7 @@ public class  CallOperatorController extends Controller{
         newEvent.setDescription(description);
         newEvent.setLocation(location);
        newEvent.setPostalCode(postalCode);
-       // newEvent.setCoords(geoConverter(postalCode));
+       newEvent.setCoords(geoConverter(postalCode));
         //newEvent.setPriority(Integer.parseInt(priority));
         newEvent.save();
         reporter.save();
@@ -103,7 +114,7 @@ public class  CallOperatorController extends Controller{
         //return redirect(routes.CallOperatorController.index());
        // return ok(ControllerUtil.jsonNodeForSuccess("Uploading succeeded..."));
 
-       return ok(ControllerUtil.getEventJsonNode(newEvent));
+       return ok(toJson(newEvent));
 
     }
 

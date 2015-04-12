@@ -41,6 +41,9 @@ create table event (
   reporter_id               integer,
   callOperator_id           varchar(255),
   eventType_id              integer,
+  coords                    varchar(255),
+  lantitude                 varchar(255),
+  longtitude                varchar(255),
   constraint pk_event primary key (event_id))
 ;
 
