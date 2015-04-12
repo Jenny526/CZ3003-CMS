@@ -10,11 +10,15 @@
 
 <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
 <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <script src="js/angular.js"></script>
+    <script src="js/eventApp.js"></script>
+    <script src="js/services.js"></script>
+    <script src="js/angular-resource.js"></script>
 <script src="postalCode.js"></script>
   
 </head>
 
-<body>
+<body ng-app="eventApp">
 	<br/>
 	<div id="sitename">
 		<h1>Crisis Management System</h1>
@@ -49,37 +53,10 @@
 			<h3>Create New Event</h3>
 				<fieldset>
 					<legend>Crisis Information:</legend>
-					
-					<form action="#" method="post" >
-						<p><label for="name">Reporter Name:</label>
-						<input type="text" name="name" id="name" placeholder="eg: John Lee (Last name)" value="" /><br /></p>
-						
-						<p><label for="NRIC">NRIC:</label>
-						<input type="text" name="NRIC" id="NRIC" placeholder="eg: S1111111A" value="" /><br /></p>
-						
-						<p><label for="number">Contact Number:</label>
-						<input type="text" name="contactNumber" id="contactNumber" placeholder="eg: 88888888" value="" /><br /></p>
-						
-						<p><label for="location">Location:</label>
-						<input type="text" name="location" id="location" placeholder="eg: Jurong Point" value="" /><br /></p>
-						
-						<p><label for="postalCode">Postal Code:</label>
-						<input type="text" name="postalCode" id="postalCode" placeholder="eg: 666666" value="" /><br /></p>
-						
-						<p><label for="type">Type:</label>	
-							<select class="form-control" name = "type">
-								<option value = "" selected="selected">Select Event Type</option>
-                            	<option value = "Emergency Ambulance">Emergency Ambulance</option>
-                            	<option value = "Rescue and Evacuation">Rescue and Evacuation</option>
-                            	<option value = "Fire-Fighting">Fire-Fighting</option>
-                            	<option value = "Gas Leak Control">Gas Leak Control</option>
-                        	</select><br />
-                        	
-						<p><label for="description">Description:</label>
-						<textarea cols="60" rows="11" name="description" id="description"></textarea><br /></p>
-						<p><input type="submit" name="submit" class="formbutton" value="Submit" onclick='return window.confirm("Confirm submit?");'/></p>
-						
-					</form>
+
+                    <form class="form-horizontal" role="form" ng-submit="addEvent()">
+                        <div ng-include="'partials/_event.html'"></div>
+                    </form>
 	
 				</fieldset>
 		
