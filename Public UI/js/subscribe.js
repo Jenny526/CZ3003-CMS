@@ -13,7 +13,7 @@ function postData(){
 }
 
 function post(data){
-	$.post('server url', null, data)
+	$.post('http://10.27.151.19', null, data)
 		.success(function(data, status, headers, config){
 			console.log("data posted successfully!!!");
 		})
