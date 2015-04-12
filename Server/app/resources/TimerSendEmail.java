@@ -1,4 +1,4 @@
-package Resource;
+package resources;
 
 import java.io.File;
 import java.text.DateFormat;
@@ -9,8 +9,8 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Timer;
 import java.util.TimerTask;
-import Resource.EmailSender;
-import Resource.pdfGenerate;
+import resources.EmailSender;
+//import resources.pdfGenerate;
 
 //import java.sql.Time;
 //import java.sql.Timestamp;
@@ -38,7 +38,7 @@ public class TimerSendEmail {
 		
 		private EmailSender emailSender = new EmailSender();
 		String reportPath = System.getProperty("user.dir");
-		private pdfGenerate PDFGenerator = new pdfGenerate(reportPath);
+	//	private pdfGenerate PDFGenerator = new pdfGenerate(reportPath);
 	
 		public void run() {
 			System.out.println(reportPath);
@@ -58,16 +58,16 @@ public class TimerSendEmail {
 						+ ". Refer to the attachment for details."; 
 			
 			String reportName = "SummaryReportAt" + time + ".pdf";
-			File report = PDFGenerator.generateReport(reportName);
-			String reportFilePath = PDFGenerator.getReportDirectory() + File.separator + report.getName();
+		//	File report = PDFGenerator.generateReport(reportName);
+		//	String reportFilePath = PDFGenerator.getReportDirectory() + File.separator + report.getName();
 			
 			
-			if(emailSender.sendMail(email,subject,text,reportFilePath)){
-				System.out.println("Sending succeeded...");
-			}else{
-				System.out.println("Sending failed...");
-				
-			}	
+//			if(emailSender.sendMail(email,subject,text,reportFilePath)){
+//				System.out.println("Sending succeeded...");
+//			}else{
+//				System.out.println("Sending failed...");
+//
+//			}
 		}
 		
 	}
