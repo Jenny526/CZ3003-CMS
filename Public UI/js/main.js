@@ -9,6 +9,11 @@ var cmsApp = angular.module('cmsApp', [
     'cmsServices',
     'mapApp'
 ]);
+cmsApp.controller('timeCtrl', ['$scope',
+        function ($scope) {
+            $scope.time=Date.now()
+        }]
+);
 
 cmsApp.config(['$routeProvider',
     function($routeProvider) {
@@ -20,6 +25,14 @@ cmsApp.config(['$routeProvider',
             when('/crises/:crisisId', {
                 templateUrl: 'partials/crisis-detail.html',
                 controller: 'CrisisDetailCtrl'
+            }).
+            when('/report',{
+                templateUrl:'partials/report.html'
+                //controller:'reportCtrl'
+            }).
+            when('/about',{
+                templateUrl:'partials/aboutUs.html'
+                //controller:'aboutCtrl'
             }).
             otherwise({
                 redirectTo: '/crises'
