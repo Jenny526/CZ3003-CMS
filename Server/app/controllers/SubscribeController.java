@@ -22,7 +22,8 @@ public class SubscribeController extends Controller{
 
     public static Result addEvent(){
        JsonNode json = request().body().asJson();
-       
+
+       System.out.println(json.toString());
 
     }
 }
