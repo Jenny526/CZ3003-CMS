@@ -33,10 +33,8 @@ public class PublicViewController {
         int i =0;
         file.write("[");
        while (i < events.size()) {
-
-           file.write(events.get(i).toString());
-           if (i<events.size()-1)
-               file.write(",");
+           file.write(toJson(events.get(i)).toString());
+           file.write(",");
            System.out.println("Successfully Copied JSON Object to File...");
            System.out.println("\nJSON Object: " + events.get(i));
            i++;

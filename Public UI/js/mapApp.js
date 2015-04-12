@@ -5,60 +5,106 @@ angular.module('mapApp', ['mapControllers']);
 
 var mapControllers = angular.module('mapControllers',['uiGmapgoogle-maps']);
 
-mapControllers.controller('mapInstanceCtrl',['$scope','$log','$timeout',
-    function ($scope, $log, $timeout) {
-        $scope.map={
-            center:{
-                latitude:1.3447,
-                longitude:103.6814
-            },
-            zoom: 12
-        };
-        $scope.options = {scrollwheel:true};
-        $scope.coordsUpdates = 0;
-        $scope.dynamicMoveCtr = 0;
-        $scope.marker = {
-            id: 0,
-            coords: {
-                latitude:1.3447,
-                longitude:103.6814
-            },
-            options: { draggable: true },
-            events: {
-                dragend: function (marker, eventName, args) {
-                    $log.log('marker dragend');
-                    var lat = marker.getPosition().lat();
-                    var lon = marker.getPosition().lng();
-                    $log.log(lat);
-                    $log.log(lon);
+mapControllers.controller('mapInstanceCtrl',['$scope','$log','$filter',
+    function ($scope, $log, $filter) {
 
-                    $scope.marker.options = {
-                        draggable: true,
-                        labelContent: "lat: " + $scope.marker.coords.latitude + ' ' + 'lon: ' + $scope.marker.coords.longitude,
-                        labelAnchor: "100 0",
-                        labelClass: "marker-labels"
-                    };
-                }
+        $scope.types_fire = true;
+        $scope.types_other = true;
+
+        $scope.map = {
+            center: {
+                latitude: 1.3447,
+                longitude: 103.6814
+            },
+            zoom: 12,
+            options: {
+                streetViewControl: false,
+                panControl: false,
+                maxZoom: 20,
+                minZoom: 3
             }
         };
-        $scope.$watchCollection("marker.coords", function (newVal, oldVal) {
-            if (_.isEqual(newVal, oldVal))
-                return;
-            $scope.coordsUpdates++;
-        });
-        //$timeout(function () {
-        //    $scope.marker.coords = {
-        //        latitude:2.3447,
-        //        longitude:103.6814
-        //    };
-        //    $scope.dynamicMoveCtr++;
-        //    $timeout(function () {
-        //        $scope.marker.coords = {
-        //            latitude:3.3447,
-        //            longitude:103.6814
-        //        };
-        //        $scope.dynamicMoveCtr++;
-        //    }, 2000);
-        //}, 1000);
-    }]);
 
+        $scope.updateCrisis = function(){
+            $scope.map.markersForDisplay = $scope.filterCrisis($scope.map.markers);
+        }
+
+        $scope.filterCrisis = function(items) {
+            var filtered = [];
+            angular.forEach(items, function(item) {
+                if($scope.types_fire == true && $scope.types_other == true) {
+                    filtered.push(item);
+                }
+                else if($scope.types_fire == true && $scope.types_other == false && item.type == 'fire'){
+                    filtered.push(item);
+                }
+                else if($scope.types_other == true && $scope.types_fire == false && item.type == 'other'){
+                    filtered.push(item);
+                }
+            });
+            return filtered;
+        };
+
+        $scope.map.markers = [{
+            id: 0,
+            coords:{
+                latitude: 1.3447,
+                longitude: 103.6814
+            },
+            title: 'sb',
+            showWindow: false,
+            options: {
+                draggable: false
+            },
+            iconUrl : "//localhost:63342/CZ3003-CMS/Public%20UI/image/fire.png",
+
+            type: 'fire'
+        }, {
+            id: 2,
+            coords:{
+                latitude: 1.34,
+                longitude: 103.6814
+            },
+            title: 'sb',
+            showWindow: false,
+            options: {
+                draggable: false
+            },
+            iconUrl : "//localhost:63342/CZ3003-CMS/Public%20UI/image/fire.png",
+
+            type: 'fire'
+        }, {
+            id: 3,
+            coords:{
+                latitude: 1.35,
+                longitude: 103.6814
+            },
+            title: 'sb',
+            showWindow: false,
+            options: {
+                draggable: true
+            },
+            type: 'other'
+        }, {
+            id: 4,
+            coords:{
+                latitude: 1.34,
+                longitude: 103.70
+            },
+            title: 'sb',
+            showWindow: false,
+            options: {
+                draggable: true
+            },
+            type: 'other'
+        }];
+        $scope.map.markersEvents = {
+            click: function (marker, eventName, model, args) {
+                $scope.currentDisplay = marker.title;
+                $scope.$apply();
+            }
+        };
+
+        $scope.updateCrisis();
+    }
+]);

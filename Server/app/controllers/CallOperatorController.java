@@ -57,7 +57,7 @@ public class  CallOperatorController extends Controller{
 
         DynamicForm requestData = Form.form().bindFromRequest();
 
-      EventType eventType = Ebean.find(EventType.class,Integer.parseInt(requestData.get("ETID"))); //get event type ID
+      EventType eventType = Ebean.find(EventType.class,1); //get event type ID
 
         //CallOperator callOperator = Ebean.find(CallOperator.class,Long.parseLong(requestData.get("COID")));// get call operator ID
 
@@ -98,6 +98,7 @@ public class  CallOperatorController extends Controller{
        // return ok(newEvent.size());
         //return redirect(routes.CallOperatorController.index());
        // return ok(ControllerUtil.jsonNodeForSuccess("Uploading succeeded..."));
+
        return ok(ControllerUtil.getEventJsonNode(newEvent));
 
     }
@@ -212,6 +213,7 @@ public class  CallOperatorController extends Controller{
         List <EventType> eventTypes = Ebean.find(EventType.class).orderBy("id").findList();
         return ok(views.html.index.render(eventTypes));
     }
+
 }
 
 
