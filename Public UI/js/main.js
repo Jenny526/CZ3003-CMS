@@ -18,7 +18,7 @@ cmsApp.controller('timeCtrl', ['$scope',
 cmsApp.config(['$routeProvider',
     function($routeProvider) {
         $routeProvider.
-            when('/crises', {
+            when('/', {
                 templateUrl: 'partials/crisis-list.html',
                 controller: 'CrisisListCtrl'
             }).
@@ -35,6 +35,6 @@ cmsApp.config(['$routeProvider',
                 //controller:'aboutCtrl'
             }).
             otherwise({
-                redirectTo: '/crises'
+                redirectTo: '/'
             });
     }]);
