@@ -1,0 +1,89 @@
+<link rel="stylesheet" href="CSS/Main.css" type="text/css" />
+<br/>
+<div id="sitename">
+    <h1>Crisis Management System</h1>
+</div>
+<section id="body" class="width">
+    <aside id="sidebar" class="column-left">
+
+
+        <header>
+
+            <h1>CMS</h1>
+
+            <h2>Call Center</h2>
+
+        </header>
+
+
+        <nav id="mainnav">
+
+            <ul>
+                <li><a ui-sref="newCrisis">New Event</a></li>
+                <li><a ui-sref="crises">Current Event</a></li>
+                <li class="selected-item"><a ui-sref="oldCrisis">History Event</a></li>
+                <li><a ui-sref="login" onCLick="return confirm('Confirm LOGOUT?')">Logout</a></li>
+            </ul>
+
+        </nav>
+
+
+    </aside>
+    <section id="content" class="column-right">
+        <h3>History Events</h3>
+        <h4><label for="type">Select Event Type:</label>
+            <select name="one" class= "dropdown">
+                <option value="">All</option>
+                <option value="1">Fire-Fighting</option>
+                <option value="2">Gas Leak Control</option>
+                <option value="3">Rescue and Evacuation</option>
+                <option value="4">Emergency Ambulance</option>
+            </select>
+        </h4>
+
+        <div >
+            <table>
+                <tbody>
+                <tr>
+                    <th width="350" align = "left" scope="row">&nbsp; Total Events Solved:</th>
+                    <th width="50" align = "center">&nbsp;{{getTotalEvents()}}</th>
+                </tr>
+                </tbody>
+            </table>
+
+            <table>
+                <tbody>
+                <tr>
+                    <th width="60" align = "center" scope="row">&nbsp; Serial</th>
+                    <th width="140" align = "left" scope="row">&nbsp; Type</th>
+                    <th width="140" align = "left" scope="row">&nbsp; Location</th>
+                    <th width="80" align = "center" scope="row">&nbsp; Status</th>
+                    <th width="80" align = "center" scope="row">&nbsp; Option</th>
+                </tr>
+                </tbody>
+            </table>
+            <table>
+                <tr ng-repeat="crisis in crises">
+                    <td width="60" align = "center" scope="row">{{crisis.id}}</td>
+                    <td width="140" align = "left" scope="row"> &nbsp; {{crisis.title}}</a></td>
+                    <td width="140" align = "left" scope="row"> &nbsp; {{crisis.userId}}</a></td>
+                    <td width="80" align = "center" scope="row">&nbsp; {{crisis.body}}</td>
+                    <td width="80" align = "center" scope="row">&nbsp; <a class = "button" ui-sref="viewCrisis({id:crisis.id})">Review</a></td>
+
+                </tr>
+            </table>
+        </div>
+
+        <br/>
+        <footer class="clear">
+            <p>&copy; 2015 CZ3003. by <a href="http://zypopwebtemplates.com/">Lemon Tea</a></p>
+        </footer>
+
+    </section>
+
+
+    <div class="clear"></div>
+
+
+</section>
+<br/>

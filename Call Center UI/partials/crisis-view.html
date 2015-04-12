@@ -1,0 +1,31 @@
+<div id="detail" style="position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+  transition: opacity 500ms">
+    <div class="popup">
+        <h2>Event Detail</h2>
+        <a class="close" ui-sref="oldCrisis">&times;</a>
+        <div class="content">
+            <fieldset>
+                <legend>Crisis Information:</legend>
+                <p><label for="name">Reporter Name:{{crisis.userId}}</label><br />
+
+                <p><label for="NRIC">NRIC:{{crisis.title}}</label><br />
+
+                <p><label for="number">Contact Number:{{crisis.body}}</label><br />
+
+                <p><label for="location">Location:</label><br />
+
+                <p><label for="postalCode">Postal Code:</label><br />
+
+                <p><label for="type">Type:</label>	<br />
+
+                <p><label for="description">Description:</label>
+            </fieldset>
+
+        </div>
+    </div>
+</div>
