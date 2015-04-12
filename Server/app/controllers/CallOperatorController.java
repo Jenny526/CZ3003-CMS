@@ -5,6 +5,7 @@ package controllers;
  */
 
 import com.avaje.ebean.Ebean;
+import com.fasterxml.jackson.databind.JsonNode;
 import models.*;
 import play.*;
 import play.data.DynamicForm;
@@ -67,30 +68,30 @@ public class  CallOperatorController extends Controller{
 
    // @Security.Authenticated(CallOperatorSecured.class) //check whether a particular CO has logged in
     public static Result addEvent(){
-       // Event postedEvent = Form.form(Event.class).bindFromRequest().get();
-
-        DynamicForm requestData = Form.form().bindFromRequest();
-
-      EventType eventType = Ebean.find(EventType.class,1); //get event type ID
 
         //CallOperator callOperator = Ebean.find(CallOperator.class,Long.parseLong(requestData.get("COID")));// get call operator ID
-
-       String reporterName = requestData.get("reporterName");
+        JsonNode json = request().body().asJson();
+       String reporterName = json.get("reporterName").toString();
         //String priority = requestData.get("priority");
 
-        String postalCode = requestData.get("postalCode");
+       String postalCode = json.get("postalCode").toString();
+        //String postalCode = json.findPath("postalCode").getTextValue();
+        String location = json.get("location").toString();
 
-        String location = requestData.get("location");
+        String callerPhone = json.get("callerPhone").toString();
 
-        String callerPhone = requestData.get("mobileNumber");
+        String description = json.get("description").toString();
+        String NRIC = json.get("NRIC").toString();
 
-        String description = requestData.get("description");
-        String NRIC = requestData.get("NRIC");
+
+
+       // Event newEvent = new Event(json.get("id").toString(),json.get("postalCode").toString(),json.get("phone").toString());
+
 
         Event newEvent = new Event();
         Reporter reporter =  new Reporter();
 
-        newEvent.setEventType(eventType);
+       // newEvent.setEventType(eventType);
 
         reporter.setContactNumber(callerPhone);
         reporter.setName(reporterName);
@@ -98,7 +99,7 @@ public class  CallOperatorController extends Controller{
 
 
         //newEvent.setId();// unfinished, to generate eventID
-        newEvent.setEventType(eventType);
+      //  newEvent.setEventType(eventType);
         //newEvent.setCallOperator(callOperator);
 
         //newEvent.setCallerNumber(callerPhone);
