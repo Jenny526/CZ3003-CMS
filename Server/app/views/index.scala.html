@@ -1,5 +1,5 @@
-
-@(eventTypeList: List[EventType]){
+@(message: String)
+{
 
 <!doctype html>
 <html>
@@ -48,7 +48,7 @@
         <fieldset>
             <legend>Crisis Information:</legend>
 
-            <form action="onSubmit" method="post" >
+            <form action="@routes.CallOperatorController.addEvent()" method="post" >
                 <p><label for="name">Reporter Name:</label>
                     <input type="text" name="name" id="name" placeholder="eg: John Lee (Last name)" value="" /><br /></p>
 
