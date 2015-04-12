@@ -77,6 +77,11 @@ public class ControllerUtil {
         return eventNode;
     }
 
+    static Event getEventFromJsonNode(ObjectNode eventNode){
+        eventNode.get
+
+        return event;
+    }
 
 
 }
