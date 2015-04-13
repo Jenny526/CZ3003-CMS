@@ -7,7 +7,7 @@
 
 angular.module('crisisApp.services', []).factory('Crisis', ['$resource',
     function($resource){
-        return $resource('http://jsonplaceholder.typicode.com/posts/:id',
+        return $resource('http://10.27.163.216:9000/event/:id',
             { id: '@id' }, {
             update: {
                 method: 'PUT'
