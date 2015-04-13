@@ -44,15 +44,8 @@ app.get("/publicView", function(req, res) {
 });
 
 app.get("/getEvent/:id", function(req, res){
-    var id = req.param('id');
-	var query;
-	
-	if(id == null){
-		query = "SELECT * FROM event";
-	}else{
-		query = "SELECT * FROM event WHERE event_id='" + id + "'";
-	}
-    
+    var id = req.params.id;
+	var query = query = "SELECT * FROM event WHERE event_id='" + id + "'";
     //connection.connect();
     connection.query(query, function(err, rows, fields){
         if(err){
