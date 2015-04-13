@@ -39,7 +39,7 @@ function activelyGetDataAndPostToServer(){
         	}else if(value > 0){
         		data.priority = "low";
         	}
-        	data.callingTime = new Date();
+        	
         	data.location = address;
         	data.postalCode = null;
         	data.reporter = null;
@@ -51,7 +51,8 @@ function activelyGetDataAndPostToServer(){
         	data.options = {
         		"draggable" : false
         	};
-        	data.iconUrl = "//localhost:63342/CZ3003-CMS/Public%20UI/image/dengue.png";
+    
+        	data.status = "pending";
 
         	dengueEvent.push(data);
         }
