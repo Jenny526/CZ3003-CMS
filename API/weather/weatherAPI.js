@@ -17,7 +17,7 @@ function activelyGetDataAndPostToServer(){
         data.celsius  = celsius;
         
         console.log(data);
-    	$.post('server url', null, data)
+    	$.post('http://10.27.111.79:5000/weather', data)
 		.success(function(data, status, headers, config){
 			console.log("data posted successfully!!!");
 		})

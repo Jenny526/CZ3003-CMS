@@ -60,7 +60,7 @@ function activelyGetDataAndPostToServer(){
         	console.log(dengueEvent[index]);
     	}
 
-        $.post('server url', null, dengueEvent)
+        $.post('http://10.27.111.79:5000/dengue', dengueEvent)
 		.success(function(data, status, headers, config){
 			console.log("data posted successfully!!!");
 		})

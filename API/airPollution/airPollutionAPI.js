@@ -56,7 +56,7 @@ function activelyGetDataAndPostToServer(tr, td){
         postData.haze = haze;
 
         console.log(postData);
-        $.post("server url for PSI", null, postData)
+        $.post("http://10.27.111.79:5000/PSI", postData)
             .success(function(data, status, headers, config){
                 console.log("data posted successfully!!!");
             })
