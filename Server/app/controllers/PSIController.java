@@ -25,13 +25,13 @@ public class PSIController extends Controller {
         JsonNode json = request().body().asJson();
 
         JsonNode PSI = json.get("PSI");
-        JsonNode haze = json.get("haze");
+        JsonNode hazeData = json.get("haze");
         
-        boolean hasHaze = haze.get("hasHaze");
+        boolean hasHaze = hazeData.get("hasHaze").booleanValue();
 
-        String hour = PSI.get("hour");
-        String value = PSI.get("PSIValue");
-        String descriptor = PSI.get("descriptor");
+        String hour = PSI.get("hour").toString();
+        String value = PSI.get("PSIValue").toString();
+        String descriptor = PSI.get("descriptor").toString();
 
         PSI psi = new PSI();
         Haze haze = new Haze();

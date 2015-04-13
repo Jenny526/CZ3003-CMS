@@ -5,6 +5,7 @@ package controllers;
  */
 
 import com.fasterxml.jackson.databind.JsonNode;
+import com.restfb.json.JsonObject;
 import models.*;
 
 import play.data.DynamicForm;
@@ -23,26 +24,23 @@ public class SubscribeController extends Controller {
 
     public static Result addEvent() {
 
-        response().setHeader("Access-Control-Allow-Origin", "*");
-        response().setHeader("Allow", "*");
-        response().setHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-        response().setHeader("Access-Control-Allow-Methods", "POST, GET");
-        JsonNode json = request().body().asJson();
-
-        String name = json.get("name");
-        String mobile = json.get("mobile");
-        String location = json.get("location");
-        String email = json.get("email");
-
-        Subscriber subscriber =  new Subscriber();
-
-        subscriber.setSubscriberName(name);
-        subscriber.setSubscriberPhoneNumber(mobile);
-        subscriber.setSubscriberLocation(location);
-        subscriber.setSubscriberEmail(email);
-
-        subscriber.save();
-
-       	return ok();
+      JsonNode json = request().body().asJson();
+        System.out.println(json);
+        System.out.println("test connection");
+//        String name = json.get("name").toString();
+//        String mobile = json.get("mobile").toString();
+//        String location = json.get("location").toString();
+//        String email = json.get("email").toString();
+//
+//        Subscriber subscriber =  new Subscriber();
+//
+//        subscriber.setSubscriberName(name);
+//        subscriber.setSubscriberPhoneNumber(mobile);
+//        subscriber.setSubscriberLocation(location);
+//        subscriber.setSubscriberEmail(email);
+//
+//        subscriber.save();
+        //response().setHeader("Access-Control-Allow-Origin", "*");
+       	return ok("true");
     }
 }
