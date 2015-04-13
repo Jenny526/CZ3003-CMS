@@ -4,23 +4,12 @@ var mysql = require("mysql");
 var request = require('request');
 
 var connection = mysql.createConnection({
-  host : 'http://10.27.163.216',
+  host : '127.0.0.1',
   port: '3306',
   user : 'yikolyk',
   password : '0323',
   database: 'cms'
 });
-
-connection.connect();
-
-    connection.query('SELECT * FROM subscriber', function(err, rows, fields){
-        if(err){
-          throw err;
-        }
-        console.log('The solution is: ', rows[0].subscriber_name);
-    });
-    
-    connection.end();
 
 var app = express();
 var port = process.env.PORT || 5000;
@@ -40,7 +29,7 @@ app.use(function(req, res, next) {
 
 app.get("/publicView", function(req, res) {
 
-    var query = 'SELECT * from event';
+    var query = 'SELECT * FROM event';
 
     connection.query(query, function(err, rows, fields){
         if(err){
@@ -56,7 +45,7 @@ app.get("/publicView", function(req, res) {
 
 app.get("/getEvent/:id", function(req, res){
     var id = req.param('id');
-    var query = 'SELECT * from event where event_id=' + id;
+    var query = "SELECT * FROM event WHERE event_id='" + id + "'";
     
     connection.query(query, function(err, rows, fields){
         if(err){
@@ -81,9 +70,9 @@ app.post("/callOperator", function(req, res){
     var type = req.body.type;
     var status = req.body.status;
     var callOperatorId = req.body.callOperatorId;
-
+	var id = 'NULL';
     // need to modify!!!
-    var query = 'INSERT INTO table reporter VALUES(NULL,' + callerPhone + ',' + description + ',' + priority + ',' +
+    var query = 'INSERT INTO event VALUES(NULL,' + callerPhone + ',' + description + ',' + priority + ',' +
                 location + ',' + status + ',' +  NRIC + ',' + type + ',' + lat + ',' + lng +  ')';
     connection.query(query, function(err, rows, fields){
         if(err){

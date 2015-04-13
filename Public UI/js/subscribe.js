@@ -15,7 +15,7 @@ function postData(){
 function post(data){
 	console.log(data);
 	
-	$.post('http://10.27.111.79:5000/subscribe', data)
+	$.post('http://10.27.163.216:5000/subscribe', data)
 		.success(function(data, status, headers, config){
 			console.log(data);
 			console.log(status);
