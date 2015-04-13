@@ -68,20 +68,20 @@ public class  CallOperatorController extends Controller{
 
    // @Security.Authenticated(CallOperatorSecured.class) //check whether a particular CO has logged in
     public static Result addEvent(){
-
+        DynamicForm requestData = Form.form().bindFromRequest();
         //CallOperator callOperator = Ebean.find(CallOperator.class,Long.parseLong(requestData.get("COID")));// get call operator ID
-        JsonNode json = request().body().asJson();
-       String reporterName = json.get("reporterName").toString();
+        //JsonNode json = request().body().asJson();
+       String reporterName = requestData.get("reporterName");
         //String priority = requestData.get("priority");
 
-       String postalCode = json.get("postalCode").toString();
+       String postalCode = requestData.get("postalCode");
         //String postalCode = json.findPath("postalCode").getTextValue();
-        String location = json.get("location").toString();
+        String location = requestData.get("location");
 
-        String callerPhone = json.get("callerPhone").toString();
+        String callerPhone = requestData.get("callerPhone");
 
-        String description = json.get("description").toString();
-        String NRIC = json.get("NRIC").toString();
+        String description = requestData.get("description");
+        String NRIC = requestData.get("NRIC");
 
 
 
@@ -219,12 +219,13 @@ public class  CallOperatorController extends Controller{
 //        return ok("Event " + updatedEvent.getId() + " has been successfully updated.");
 //    }
 
-//    //for call operator UI dropdown list
-//    public static Result getEventTypes()
-//    {
+    //for call operator UI dropdown list
+    public static String getEventTypes()
+    {
 //        List <EventType> eventTypes = Ebean.find(EventType.class).orderBy("id").findList();
-//        return ok(views.html.index.render(eventTypes));
-//    }
+//        return ok("hello");
+        return "yes";
+    }
 
 }
 
