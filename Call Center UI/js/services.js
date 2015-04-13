@@ -7,12 +7,15 @@
 
 angular.module('crisisApp.services', []).factory('Crisis', ['$resource',
     function($resource){
-        return $resource('http://jsonplaceholder.typicode.com/posts/:id',
+        return $resource('http://10.27.111.79:5000/:id',
             { id: '@id' }, {
             update: {
                 method: 'PUT'
-            }
-        });
+            },
+                save: {method:'POST', params:{id:'subscribe'}}
+        }
+
+        );
     }])
     .service('popupService',function($window){
     this.showPopup=function(message){
