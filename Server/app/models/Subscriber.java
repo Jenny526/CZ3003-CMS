@@ -5,7 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 
 /**
- * Created by mersin on 5/4/15.
+ * Created by jintao on 5/4/15.
  */
 @Entity
 public class Subscriber extends Model{
