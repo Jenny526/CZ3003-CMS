@@ -15,6 +15,7 @@ import play.mvc.Controller;
 import play.mvc.Result;
 import views.html.index;
 
+import java.util.Iterator;
 import java.util.List;
 
 import static play.libs.Json.toJson;
@@ -32,22 +33,22 @@ public class DengueController extends Controller {
             JsonNode dengueData = it.next();
             Dengue dengue = new Dengue();
 
-            dengue.setCallingNumber(dengueData.get("callingNumber"));
-            dengue.setDescription(dengueData.get("description"));
-            dengue.setPriority(dengueData.get("priority"));
-            dengue.setCallingTime(dengueData.get("callingTime"));
-            dengue.setLocation(dengueData.get("location"));
-            dengue.setPostalCode(dengueData.get("postalCode"));
-            dengue.setReporter(dengueData.get("reporter"));
+            dengue.setCallingNumber(dengueData.get("callingNumber").toString());
+            dengue.setDescription(dengueData.get("description").toString());
+            dengue.setPriority(dengueData.get("priority").toString());
+            dengue.setCallingTime(dengueData.get("callingTime").toString());
+            dengue.setLocation(dengueData.get("location").toString());
+            dengue.setPostalCode(dengueData.get("postalCode").toString());
+            dengue.setReporter(dengueData.get("reporter").toString());
             JsonNode eventType = dengueData.get("eventType");
-            dengue.setEventName(eventType.get("eventName"));
+            dengue.setEventName(eventType.get("eventName").toString());
             JsonNode coords = dengueData.get("coords");
-            dengue.setLat(coords.get("lat"));
-            dengue.setLng(coords.get("lng"));
-            dengue.setShowWindow(dengueData.get("showWindow"));
+            dengue.setLat(coords.get("lat").toString());
+            dengue.setLng(coords.get("lng").toString());
+            dengue.setShowWindow(dengueData.get("showWindow").toString());
             JsonNode options = dengueData.get("options");
-            dengue.setDraggable(options.get("draggable"));
-            dengue.setIconUrl(dengueData.get("iconUrl"));
+            dengue.setDraggable(options.get("draggable").toString());
+            dengue.setIconUrl(dengueData.get("iconUrl").toString());
 
             dengue.save();
         }
