@@ -8,7 +8,7 @@ var connection = mysql.createConnection({
   port: '3306',
   user : 'yikolyk',
   password : '0323',
-  database: 'cms'
+  database: 'cms2'
 });
 
 var app = express();
@@ -28,52 +28,46 @@ app.use(function(req, res, next) {
 });
 
 app.get("/publicView", function(req, res) {
-
+	
+	//connection.connect();
     var query = "SELECT * FROM event";
 
     connection.query(query, function(err, rows, fields){
         if(err){
           throw err;
         }
-
-        var dataList = [];
-        rows.forEach(function(rowValue){
-            var data = rowValue;
-            data.eventType = {};
-            data.eventType.eventName = data.eventName;
-
-            data.options = {};
-            data.options.draggable = data.draggable;
-
-            dataList.add(data);
-        });
-        res.send(dataList);
+        res.send(rows);
         
     });
-    connection.end();
+   // connection.end();
 
 });
 
 app.get("/getEvent/:id", function(req, res){
     var id = req.param('id');
-    var query = "SELECT * FROM event WHERE event_id='" + id + "'";
+	var query;
+	
+	if(id == null){
+		query = "SELECT * FROM event";
+	}else{
+		query = "SELECT * FROM event WHERE event_id='" + id + "'";
+	}
     
+    //connection.connect();
     connection.query(query, function(err, rows, fields){
         if(err){
           throw err;
         }
-
         res.send(rows);
     });
-    connection.end();
+    //connection.end();
 });
 
 app.post("/callOperator", function(req, res){
     var reporterName = req.body.reporterName;
-    var coords = req.body.coords;
     var priority = req.body.priority;
-    var lat = coords.lat;
-    var lng = coords.lng;
+    var lat = req.body.lat;
+    var lng = req.body.lng;
     var location = req.body.location;
     var callerPhone = req.body.callerPhone;
     var description = req.body.description;
@@ -85,6 +79,7 @@ app.post("/callOperator", function(req, res){
     var showWindow = false;
     var draggable = false;
     // insert into event
+	//connection.connect();
     var query = "INSERT INTO event VALUES('" + id + "','" + description + "','" + priority + "','" + location + "','" +
                 status + "','" + NRIC + "','"  + type + "','" + lat + "','" + lng + "','" + showWindow + "','" + draggable + "')";
     connection.query(query, function(err, rows, fields){
@@ -94,7 +89,7 @@ app.post("/callOperator", function(req, res){
         
     });
 
-    query = "INSERT INTO reporter VALUES('" + id + "','" + callerPhone + "','" + reporterName + "','" + NRIC +  "'')";
+    query = "INSERT INTO reporter VALUES('" + id + "','" + callerPhone + "','" + reporterName + "','" + NRIC +  "')";
     connection.query(query, function(err, rows, fields){
         if(err){
           throw err;
@@ -126,26 +121,27 @@ app.post("/callOperator", function(req, res){
         
     });
 
-    connection.end();
+    var data = {
+		'body' : eventDescription
+	};
 
     postToFacebookServer(data);
     postToTwitterServer(data);
-
+	//connection.end();
     res.send("OK");
 });
  
 app.post("/subscribe", function(req, res) {
     console.log(req.body);
-
     var name = req.body.name;
     var mobile = req.body.mobile;
     var location = req.body.location;
     var email = req.body.email;
     var id = 'NULL';
 
-    var query = "INSERT INTO table subscriber VALUES(NULL,'" + id + "','" + name + "','" + mobile + "','" + location + "','" + email + "')";
+    var query = "INSERT INTO subscriber VALUES('" + id + "','" + name + "','" + mobile + "','" + location + "','" + email + "')";
 
-    connection.connect();
+    //connection.connect();
 
     connection.query(query, function(err, rows, fields){
         if(err){
@@ -154,7 +150,7 @@ app.post("/subscribe", function(req, res) {
         //console.log('The solution is: ', rows[0].solution);
     });
     
-    connection.end();
+    //connection.end();
     res.send("OK");
 });
 
@@ -170,7 +166,7 @@ app.post("/PSI", function(req, res){
     var queryForPSI = "INSERT INTO table psi VALUES('" + id + "','" + hour + "','" + value + "','" + descriptor + "')";
     var queryForHaze = "INSERT INTO table haze VALUES('" + id + "','" + hour + "','" + hasHaze + "')";
 
-    connection.connect();
+    //connection.connect();
 
     connection.query(queryForPSI, function(err, rows, fields){
         if(err){
@@ -186,7 +182,7 @@ app.post("/PSI", function(req, res){
       });
     }
 
-    connection.end();
+    //connection.end();
     res.send("OK");
 });
 
@@ -197,7 +193,7 @@ app.post("/weather", function(req, res){
     
     var query = "INSERT INTO table weather VALUES('" + id + "','" + text + "','" + celsius + "')";
    
-    connection.connect();
+    //connection.connect();
 
     connection.query(query, function(err, rows, fields){
         if(err){
@@ -205,7 +201,7 @@ app.post("/weather", function(req, res){
         }
         //console.log('The solution is: ', rows[0].solution);
     });
-    connection.end();
+    //connection.end();
     res.send("OK");
 });
 
@@ -227,7 +223,7 @@ app.post("/dengue", function(req, res){
         var options = dengueItem.options;
         var draggable = options.draggable;
         var id = 'NULL';
-        
+        //connection.connect();
         var query = "INSERT INTO event VALUES('" + id + "','" + description + "','" + priority + "','" + location + "','" +
                 status + "','" + NRIC + "','"  + type + "','" + lat + "','" + lng + "','" + showWindow + "','" + draggable + "')";
         connection.query(query, function(err, rows, fields){
@@ -237,7 +233,7 @@ app.post("/dengue", function(req, res){
         
         });
     });
-    connection.end();
+   // connection.end();
     res.send("OK");
 });
 
@@ -254,6 +250,11 @@ function postToFacebookServer(data){
 function postToTwitterServer(data){
   var url = "http://172.27.121.20:5002/post";
   post(data, url); 
+}
+
+function postToEmailServer(data){
+  var url = "http://172.27.121.20:5004/post";
+  post(data, url);
 }
 
 function post(data, url){
