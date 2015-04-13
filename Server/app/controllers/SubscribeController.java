@@ -24,33 +24,20 @@ public class SubscribeController extends Controller {
     public static Result addEvent() {
         JsonNode json = request().body().asJson();
 
-        System.out.println(json.toString());
-        return ok();
+        String name = json.get("name");
+        String mobile = json.get("mobile");
+        String location = json.get("location");
+        String email = json.get("email");
+
+        Subscriber subscriber =  new Subscriber();
+
+        subscriber.setSubscriberName(name);
+        subscriber.setSubscriberPhoneNumber(mobile);
+        subscriber.setSubscriberLocation(location);
+        subscriber.setSubscriberEmail(email);
+
+        subscriber.save();
+
+       	return ok();
     }
 }
-//    public boolean report(){
-//
-//            String url = getUrl("/calloperator/report");
-//            //POST request with above parameters in the method arguments;
-//            //The server will return a json object with two nodes.
-//            //POST request with parameters id and password;
-//            HttpPost httppost = new HttpPost(url);
-//
-//            List<NameValuePair> params = new ArrayList<NameValuePair>(1);
-//            params.add(new BasicNameValuePair("subscriberMobileNumber",name ));
-//            httppost.setEntity(new UrlEncodedFormEntity(params, "UTF-8"));
-//
-//            HttpResponse response = httpclient.execute(httppost);
-//            HttpEntity entity = response.getEntity();
-//            //{"error": 0/1 (error = 0 if successful, 1 if not)
-//            //"message": *****		(The message explaining the reason)
-//            //}
-//            if (entity != null){
-//                InputStream instream = entity.getContent();
-//                String result = getStringFromInputStream(instream);
-//                return parseErrorMessage(result);
-//
-//            }
-
-
-

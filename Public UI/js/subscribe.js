@@ -13,7 +13,7 @@ function postData(){
 }
 
 function post(data){
-	$.post('http://10.27.151.19', null, data)
+	$.post('http://10.27.111.79:9000/subscribe', null, data)
 		.success(function(data, status, headers, config){
 			console.log("data posted successfully!!!");
 		})
