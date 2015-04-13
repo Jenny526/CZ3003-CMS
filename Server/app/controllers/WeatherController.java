@@ -24,8 +24,8 @@ public class WeatherController extends Controller {
     public static Result addEvent() {
         JsonNode json = request().body().asJson();
 
-        String text = json.get("text").toString();
-        String celsius = json.get("celsius").toString();
+        String text = json.get("text");
+        String celsius = json.get("celsius");
 
         Weather weather = new Weather();
 
