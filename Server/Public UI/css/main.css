@@ -1,0 +1,169 @@
+#facebookIcon, #twitterIcon{
+	min-height:50px;
+	height:50px;
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+.logo{
+    width:80px;
+    height:50px;
+    background-color: #000000;
+    color: #f9c015;
+}
+.label{
+    background-color: #000000;
+    color:#ffffff;
+}
+
+body {
+    /* Margin bottom by footer height */
+    margin-bottom: 0px;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    height: 40px;
+    background-color: #f5f5f5;
+}
+.filter{
+    padding-left: 10px;
+    padding-top: -15px;
+}
+.sidebar{
+    background-color: #f9c015;
+    height: 910px;
+    margin-top: -60px
+}
+.container {
+    width: auto;
+    max-width: 100%;
+    padding: 0 0 0 0;
+}
+
+.container.text-muted {
+    margin: 0px;
+}
+/* app css stylesheet */
+
+.crises {
+    list-style: none;
+    margin: 0cm 0cm 0cm -10%;
+}
+.crises-data{
+    padding-top: 10px;
+    padding-left: 10px;
+    /*background-color: #000000;*/
+    color: #000000;
+}
+.thumb {
+    float: left;
+    margin: 0px 7px 0px 0px;
+    height: 40px;
+    width: 40px;
+}
+.thumbnail{
+    background-color: #ffffff;
+    margin-left: -10px;
+    margin-right: 10px;
+    color: #f9c015;
+    margin-bottom: 5px;
+}
+.crises li {
+    clear: both;
+    height: 50px;
+    padding-top: 5px;
+}
+/*for animation purpose*/
+.crisis-images {
+  background-color: white;
+  width: 450px;
+  height: 450px;
+  overflow: hidden;
+  position: relative;
+  float: left;
+}
+
+/** Detail View **/
+img.crisis {
+    float: left;
+    /*border: 1px solid black;*/
+    margin-right: 3em;
+    margin-bottom: 2em;
+    background-color: white;
+    padding: 2em;
+    height: 400px;
+    width: 400px;
+    display: none;
+}
+
+img.crisis:first-child{
+    display: block;
+}
+
+ul.crisis-thumbs {
+    margin: 0;
+    list-style: none;
+}
+
+ul.crisis-thumbs li {
+    border: 1px solid black;
+    display: inline-block;
+    margin: 1em;
+    background-color: white;
+}
+
+ul.crisis-thumbs img {
+    height: 100px;
+    width: 100px;
+    padding: 1em;
+}
+
+ul.crisis-thumbs img:hover {
+    cursor: pointer;
+}
+
+
+ul.specs {
+    clear: both;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+ul.specs > li{
+    display: inline-block;
+    width: 200px;
+    vertical-align: top;
+}
+
+ul.specs > li > span{
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+ul.specs dt {
+    font-weight: bold;
+}
+
+h1 {
+    border-bottom: 1px solid gray;
+}
+
+.page-header{
+    color:white;
+}
+
+/*for testing*/
+.done-true {
+    text-decoration: line-through;
+    color: green;
+}
+
+.done-false {
+    color: red;
+}

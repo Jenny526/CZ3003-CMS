@@ -10,11 +10,15 @@ GET     /calloperator/login				controllers.CallOperatorController.LogIn()
 
 POST    /event                     controllers.CallOperatorController.addEvent()
 
-GET     /events                    controllers.PublicViewController.postEvents()
+#GET     /event                             controllers.CallOperatorController.getEventTypes()
+
+#GET     /events                    controllers.PublicViewController.postEvents()
 
 POST /subscribe controllers.SubscribeController.addEvent()
 
+OPTIONS /subscribe controllers.SubscribeController.addEvent()
 
+OPTIONS /subscribe controllers.SubscribeController.check()
 
 #POST /api/weather controllers.WeatherController.addEvent()
 #POST /api/psi controllers.PSIController.addEvent()
