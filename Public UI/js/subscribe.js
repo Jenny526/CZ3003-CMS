@@ -13,11 +13,17 @@ function postData(){
 }
 
 function post(data){
-	$.post('http://10.27.111.79:9000/subscribe', null, data)
+	console.log(data);
+	
+	$.post('http://10.27.111.79:5000/subscribe', data)
 		.success(function(data, status, headers, config){
+			console.log(data);
+			console.log(status);
 			console.log("data posted successfully!!!");
 		})
 		.error(function(data, status, headers, config){
+			console.log(data);
+			console.log(status);
 			console.log("submit error");
 		});
 }
