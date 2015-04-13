@@ -22,6 +22,11 @@ public class SubscribeController extends Controller {
     private static Result redirect;
 
     public static Result addEvent() {
+
+        response().setHeader("Access-Control-Allow-Origin", "*");
+        response().setHeader("Allow", "*");
+        response().setHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+        response().setHeader("Access-Control-Allow-Methods", "POST, GET");
         JsonNode json = request().body().asJson();
 
         System.out.println(json.toString());
