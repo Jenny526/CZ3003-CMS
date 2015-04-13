@@ -33,6 +33,21 @@ app.get("/publicView", function(req, res) {
     res.send("ok");
 });
  
+app.get("/getEvent/:id", function(req, res){
+    var id = req.param('id');
+    var query = "SELECT * FROM event WHERE event_id='" + id + "'";
+    
+    connection.query(query, function(err, rows, fields){
+        if(err){
+          throw err;
+        }
+
+        res.send(rows);
+    });
+    connection.end();
+});
+ 
+ 
 app.post("/subscribe", function(req, res) { 
     var name = req.body.name;
     var mobile = req.body.mobile;

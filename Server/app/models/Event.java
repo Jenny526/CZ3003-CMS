@@ -38,9 +38,6 @@ public class Event extends Model {
     @JoinColumn(name = "reporter_id")
     private Reporter reporter;
     @ManyToOne
-    @JoinColumn(name="callOperator_id")
-    private CallOperator callOperator;
-    @ManyToOne
     @JoinColumn(name="eventType_id")
     private EventType eventType;
 
