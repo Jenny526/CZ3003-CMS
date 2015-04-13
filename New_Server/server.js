@@ -56,6 +56,32 @@ app.get("/getEvent/:id", function(req, res){
     //connection.end();
 });
 
+app.get("/report", function(){
+    var query = "SELECT * FROM event";
+
+    var reportTable = "<html><title>All Recent Events</title><body><table><tr><th>Event Type</th><th>Description</th><th>Location></th><th>Latitude</th><th>Longitude</th><th>Priority</th>";
+    connection.query(query, function(err, rows, fields){
+        if(err){
+          throw err;
+        }
+        rows.forEach(function(rowData){
+            var description = rowData.description;
+            var priority = rowData.priority;
+            var location = rowData.location;
+            var type = rowData.type;
+            var lat = rowData.latitude;
+            var lng = rowData.longitude;
+
+            var htmlRow = "<tr><td>" + type + "</td><td>" + description + "</td><td>" + location + "</td><td>" + lat + "</td><td>" + lng + "</td><td>" + priority + "</td></tr>"; 
+            reportTable += htmlRow;
+        });
+
+        reportTable += "</body></html>"
+
+        res.send(htmlRow);
+    });
+});
+
 app.post("/callOperator", function(req, res){
     var reporterName = req.body.reporterName;
     var priority = req.body.priority;
@@ -243,11 +269,6 @@ function postToFacebookServer(data){
 function postToTwitterServer(data){
   var url = "http://172.27.121.20:5002/post";
   post(data, url); 
-}
-
-function postToEmailServer(data){
-  var url = "http://172.27.121.20:5004/post";
-  post(data, url);
 }
 
 function post(data, url){
