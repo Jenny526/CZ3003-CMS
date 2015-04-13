@@ -36,7 +36,18 @@ app.get("/publicView", function(req, res) {
           throw err;
         }
 
-        res.send(rows);
+        var dataList = [];
+        rows.forEach(function(rowValue){
+            var data = rowValue;
+            data.eventType = {};
+            data.eventType.eventName = data.eventName;
+
+            data.options = {};
+            data.options.draggable = data.draggable;
+
+            dataList.add(data);
+        });
+        res.send(dataList);
         
     });
     connection.end();
