@@ -12,8 +12,10 @@ function activelyGetDataAndPostToServer(){
     	var text = getWeatherText(data);
     	var celsius = getWeatherCelsiusTemperature(data);
     	           
-        var data = text + " " + celsius + " degree"; 
-
+        var data = {};
+        data.text = text;
+        data.celsius  = celsius;
+        
         console.log(data);
     	$.post('server url', null, data)
 		.success(function(data, status, headers, config){
