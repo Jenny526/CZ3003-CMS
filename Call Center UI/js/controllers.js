@@ -33,23 +33,37 @@ angular.module('crisisApp.controllers',[])
         console.log($scope.crisis);
 
     })
-    .controller('CrisisCreateController',function($scope,$state,$stateParams,Crisis){
+    .controller('CrisisCreateController',function($scope,$state,$stateParams,$http,Crisis){
+        console.log("posting");
 
         $scope.crisis=new Crisis();
 
         $scope.addCrisis=function(){
-            $scope.crisis.$save({},function(data){
-                console.log("saving");
-                console.log($scope.crisis);
+            var url = "http://maps.googleapis.com/maps/api/geocode/json?address=santa+cruz&components=postal_code:"
+                +$scope.crisis.location+"&sensor=false";
+            console.log(url);
 
-                console.log("here is returned from saving");
-                console.log(data);
-                $state.go('crises');
+            $http.get(url).
+                success(function(data, status, headers, config) {
+                    console.log(data);
+                    $scope.crisis.lat = data.results[0].geometry.location.lat;
+                    $scope.crisis.lng = data.results[0].geometry.location.lng;
+                    console.log("posting now");
+                    console.log($scope.crisis);
+                    $scope.crisis.$save({},function(data2){
+                        console.log("saving");
+                        console.log($scope.crisis);
 
-            });
+                        console.log("here is returned from saving");
+                        console.log(data2);
+                        $state.go('crises');
+
+                        });
+                    }
+                );
             $state.go('crises');
 
-        }
+        };
 
     })
     .controller('CrisisEditController',function($scope,$state,$stateParams,Crisis){
