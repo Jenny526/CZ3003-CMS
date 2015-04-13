@@ -19,24 +19,6 @@ create table call_operator (
   constraint pk_call_operator primary key (callOperator_id))
 ;
 
-create table dengue (
-  id                        integer auto_increment not null,
-  calling_number            varchar(255),
-  description               varchar(255),
-  priority                  varchar(255),
-  calling_time              varchar(255),
-  location                  varchar(255),
-  postal_code               varchar(255),
-  reporter                  varchar(255),
-  event_name                varchar(255),
-  lat                       varchar(255),
-  lng                       varchar(255),
-  show_window               varchar(255),
-  draggable                 varchar(255),
-  icon_url                  varchar(255),
-  constraint pk_dengue primary key (id))
-;
-
 create table dispatch (
   dispatch_id               integer auto_increment not null,
   status                    varchar(255),
@@ -72,27 +54,12 @@ create table event_type (
   constraint pk_event_type primary key (eventType_id))
 ;
 
-create table haze (
-  id                        integer auto_increment not null,
-  hour                      varchar(255),
-  has_haze                  tinyint(1) default 0,
-  constraint pk_haze primary key (id))
-;
-
 create table notification (
   notification_id           integer auto_increment not null,
   media_type                varchar(255),
   send_time                 datetime,
   event_id                  integer,
   constraint pk_notification primary key (notification_id))
-;
-
-create table psi (
-  id                        integer auto_increment not null,
-  hour                      varchar(255),
-  value                     varchar(255),
-  descriptor                varchar(255),
-  constraint pk_psi primary key (id))
 ;
 
 create table reporter (
@@ -120,13 +87,6 @@ create table subscriber (
   constraint pk_subscriber primary key (id))
 ;
 
-create table weather (
-  id                        integer auto_increment not null,
-  text                      varchar(255),
-  celsius                   varchar(255),
-  constraint pk_weather primary key (id))
-;
-
 alter table event add constraint fk_event_reporter_1 foreign key (reporter_id) references reporter (reporter_id) on delete restrict on update restrict;
 create index ix_event_reporter_1 on event (reporter_id);
 alter table event add constraint fk_event_callOperator_2 foreign key (callOperator_id) references call_operator (callOperator_id) on delete restrict on update restrict;
@@ -144,27 +104,19 @@ drop table agency;
 
 drop table call_operator;
 
-drop table dengue;
-
 drop table dispatch;
 
 drop table event;
 
 drop table event_type;
 
-drop table haze;
-
 drop table notification;
-
-drop table psi;
 
 drop table reporter;
 
 drop table service_operator;
 
 drop table subscriber;
-
-drop table weather;
 
 SET FOREIGN_KEY_CHECKS=1;
 
