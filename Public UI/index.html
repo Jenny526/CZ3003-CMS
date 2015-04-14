@@ -67,7 +67,7 @@
                         <li class="active"><a href="#crises">Home</a></li>
                         <li><a href="#report">Report</a></li>
                         <li><a href="#about">About</a></li>
-                        <li class="dropdown">
+                        <!-- <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
                             <ul class="dropdown-menu" role="menu">
                                 <li><a href="#">Action</a></li>
@@ -78,7 +78,7 @@
                                 <li><a href="#">Separated link</a></li>
                                 <li><a href="#">One more separated link</a></li>
                             </ul>
-                        </li>
+                        </li> -->
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <li><a href="#/crises" id="weather"></a></li>
@@ -122,10 +122,7 @@
                         <div class="form-group">
                             <label class="col-sm-4 control-label">Mobile Number:</label>
                             <div class="col-sm-10 col-md-5">
-                                <input type="text" name="subscriberMobileNumber" class="form-control" id="mobileNumber" ng-pattern="/^(\d)+$/" placeholder="Mobile Number" ng-minlength="8" ng-maxlength="8" required>
-                                <span class="error" ng-show="subscribeForm.subscriberMobileNumber.$error.pattern">Not valid mobile Number</span>
-                                <span class="error" ng-show="subscribeForm.subscriberMobileNumber.$error.minlength">Not valid mobile Number</span>
-                                <span class="error" ng-show="subscribeForm.subscriberMobileNumber.$error.maxlength">Not valid mobile Number</span>
+                                <input type="text" name="subscriberMobileNumber" class="form-control" id="mobileNumber" ng-pattern="/^(\d)+$/" placeholder="Mobile Number" ng-minlength="8" ng-maxlength="8" require>
                             </div>
                         </div>
 
@@ -140,7 +137,6 @@
                             <label class="col-sm-4 control-label">Email address:</label>
                             <div class="col-sm-10 col-md-5">
                                 <input type="email" name="subscriberEmail" class="form-control" id="email" placeholder="Email Address" required>
-                                <span class="error" ng-show="subscribeForm.subscriberEmail.$error.email">Input email is not valid!</span>
                             </div>
                         </div>
 
@@ -151,7 +147,7 @@
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary" ng-disabled="subscribeForm.$invalid" onClick=postData()>Submit</button>
+                            <button type="button" href="#/" class="btn btn-primary" onClick=postData()>Submit</button>
                         </div>
                     </form>
                 </div>

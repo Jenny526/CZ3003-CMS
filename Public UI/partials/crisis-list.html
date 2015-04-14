@@ -24,11 +24,11 @@
             </div>
 
             <ul class="crises">
-                <li ng-repeat="crisis in map.markersForDisplay | orderBy:orderProp track by crisis.id"
+                <li ng-repeat="crisis in map.markersForDisplay | orderBy:orderProp track by crisis.event_id"
                     class="thumbnail crisis-listing">
                     <a class="thumb"><img ng-src="{{crisis.iconUrl}}"> </a>
-                    Type: {{crisis.eventType.eventName}} &nbsp;|&nbsp; Priority: {{crisis.priority}}
-                    Location: {{crisis.location}}
+                    Type: {{crisis.event_Type}} &nbsp;|&nbsp; Priority: {{crisis.priority}}
+                    Status: {{crisis.status}}
 
 
 
@@ -46,7 +46,7 @@
 
                 <!--<ui-gmap-marker ng-repeat="marker in map.markersForDisplay"> idKey='{{marker.id}}' coords='{{marker.coords}}' options='{{marker.options}}' icon='{{marker.iconUrl}}'>-->
                 <!--</ui-gmap-marker>-->
-                <ui-gmap-markers models="map.markersForDisplay" idkey="'id'" coords="'coords'"
+                <ui-gmap-markers models="map.markersForDisplay" idkey="'event_id'" coords="'self'"
                                  events="map.markersEvents" options="'options'" icon="'iconUrl'">
                     <ui-gmap-windows ng-show="showWindow" ng-cloak>
                         <div>

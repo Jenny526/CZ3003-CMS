@@ -11,17 +11,13 @@
     "eventType": {
       "eventName":"fire"
     },
-    "coords":
-    {
-      "latitude": 1.3447,
-      "longitude": 103.6814
-    },
+    "latitude": 1.3447,
+    "longitude": 103.6814,
     "showWindow": false,
     "options":
     {
       "draggable": false
-    },
-    "iconUrl": "http://lemon-tea-cms.cz3003.project.10.27.151.19.xip.io/image/fire.png"
+    }
   },
   {
     "id": 2,
@@ -44,8 +40,7 @@
     "options":
     {
       "draggable": false
-    },
-    "iconUrl": "http://lemon-tea-cms.cz3003.project.10.27.151.19.xip.io/dengue.png"
+    }
   },
   {
     "id": 3,
@@ -68,8 +63,7 @@
     "options":
     {
       "draggable": false
-    },
-    "iconUrl": "http://lemon-tea-cms.cz3003.project.10.27.151.19.xip.io/image/flu.png"
+    }
   },
   {
     "id": 4,
@@ -92,8 +86,7 @@
     "options":
     {
       "draggable": false
-    },
-    "iconUrl": "http://lemon-tea-cms.cz3003.project.10.27.151.19.xip.io/image/gas.png"
+    }
   },
   {
     "id": 5,
@@ -116,8 +109,7 @@
     "options":
     {
       "draggable": false
-    },
-    "iconUrl": "http://lemon-tea-cms.cz3003.project.10.27.151.19.xip.io/image/rescue.png"
+    }
   },
   {
     "id": 6,
@@ -140,8 +132,7 @@
     "options":
     {
       "draggable": false
-    },
-    "iconUrl": "http://lemon-tea-cms.cz3003.project.10.27.151.19.xip.io/image/shelter.png"
+    }
   },
   {
     "id": 7,
@@ -164,8 +155,7 @@
     "options":
     {
       "draggable": false
-    },
-    "iconUrl": "http://lemon-tea-cms.cz3003.project.10.27.151.19.xip.io/simage/flag.png"
+    }
   }
 
 ]

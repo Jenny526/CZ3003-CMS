@@ -7,23 +7,27 @@
   transition: opacity 500ms">
     <div class="popup">
         <h2>Event Detail</h2>
-        <a class="close" ui-sref="oldCrisis">&times;</a>
+        <a class="close" type="submit" value = "submit" ui-sref="oldCrisis">&times;</a>
         <div class="content">
             <fieldset>
                 <legend>Crisis Information:</legend>
-                <p><label for="name">Reporter Name:{{crisis.userId}}</label><br />
+                <p><label for="name">Event ID:{{crisis.event_id}}</label><br />
 
-                <p><label for="NRIC">NRIC:{{crisis.title}}</label><br />
+                <p><label for="name">Reporter NRIC:{{crisis.reporter_id}}</label><br />
 
-                <p><label for="number">Contact Number:{{crisis.body}}</label><br />
+                <p><label for="priority">Priority:{{crisis.priority}}</label><br />
 
-                <p><label for="location">Location:</label><br />
+                <!--<p><label for="number">Contact Number:{{crisis.body}}</label><br />-->
 
-                <p><label for="postalCode">Postal Code:</label><br />
+                <p><label for="location">Location:{{crisis.location}}</label><br />
 
-                <p><label for="type">Type:</label>	<br />
+                <!--<p><label for="postalCode">Postal Code:</label><br />-->
 
-                <p><label for="description">Description:</label>
+                <p><label for="type">Type:{{crisis.event_Type}}</label>	<br />
+                <p><label for="status">Status:{{crisis.status}}</label>	<br />
+
+
+                <p><label for="description">Description:{{crisis.description}}</label>
             </fieldset>
 
         </div>

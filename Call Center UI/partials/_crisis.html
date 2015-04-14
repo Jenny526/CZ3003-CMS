@@ -1,26 +1,35 @@
 
-    <p><label for="name">Reporter Name:</label>
-        <input type="text" ng-model="crisis.reporterName" id="name" placeholder="eg: John Lee (Last name)" value="" /><br /></p>
+    <p><label for="name">Reporter NRIC:</label>
+        <input type="text" ng-model="crisis.reporter_id" id="name" placeholder="eg: S1111111A" value="" /><br /></p>
 
-    <p><label for="NRIC">NRIC:</label>
-        <input type="text" ng-model="crisis.NRIC" id="NRIC" placeholder="eg: S1111111A" value="" /><br /></p>
+    <!--<p><label for="NRIC">NRIC:</label>-->
+        <!--<input type="text" ng-model="crisis.NRIC" id="NRIC" placeholder="eg: S1111111A" value="" /><br /></p>-->
 
-    <p><label for="number">Contact Number:</label>
-        <input type="text" ng-model="crisis.callerPhone" id="contactNumber" placeholder="eg: 88888888" value="" /><br /></p>
+    <!--<p><label for="number">Contact Number:</label>-->
+        <!--<input type="text" ng-model="crisis.report_id" id="contactNumber" placeholder="eg: 88888888" value="" /><br /></p>-->
 
     <p><label for="location">Priority:</label>
-        <input type="text" ng-model="crisis.priority" id="location" placeholder="eg: Jurong Point" value="" /><br /></p>
+        <input type="text" ng-model="crisis.priority" id="location" placeholder="eg: 1" value="" /><br /></p>
 
     <p><label for="postalCode">Crisis Location:</label>
         <input type="text" ng-model="crisis.location" id="postalCode" placeholder="eg: 666666" value="" /><br /></p>
 
     <p><label for="type">Type:</label>
-        <select class="form-control" ng-model="crisis.type">
+        <select class="form-control" ng-model="crisis.event_Type">
             <option value = "" selected="selected">Select Event Type</option>
-            <option value = "Emergency Ambulance">Emergency Ambulance</option>
-            <option value = "Rescue and Evacuation">Rescue and Evacuation</option>
-            <option value = "Fire-Fighting">Fire-Fighting</option>
-            <option value = "Gas Leak Control">Gas Leak Control</option>
+            <option value = "dengue">Dengue</option>
+            <option value = "flu">Flu</option>
+            <option value = "rescue">Rescue and Evacuation</option>
+            <option value = "fire">Fire-Fighting</option>
+            <option value = "gas">Gas Leak Control</option>
+            <option value = "shelter">New Shelter</option>
+            <option value = "other">Other</option>
+        </select><br />
+    <p><label for="type">Status:</label>
+        <select class="form-control" ng-model="crisis.status">
+            <option value = "" selected="selected">Select Event Status</option>
+            <option value = "pending">Pending</option>
+            <option value = "resolved">Resolved</option>
         </select><br />
 
     <p><label for="description">Description:</label>

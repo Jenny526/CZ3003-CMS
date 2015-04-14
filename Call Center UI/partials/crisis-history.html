@@ -31,25 +31,25 @@
     </aside>
     <section id="content" class="column-right">
         <h3>History Events</h3>
-        <h4><label for="type">Select Event Type:</label>
-            <select name="one" class= "dropdown">
-                <option value="">All</option>
-                <option value="1">Fire-Fighting</option>
-                <option value="2">Gas Leak Control</option>
-                <option value="3">Rescue and Evacuation</option>
-                <option value="4">Emergency Ambulance</option>
-            </select>
-        </h4>
+        <!--<h4><label for="type">Select Event Type:</label>-->
+            <!--<select name="one" class= "dropdown">-->
+                <!--<option value="">All</option>-->
+                <!--<option value="1">Fire-Fighting</option>-->
+                <!--<option value="2">Gas Leak Control</option>-->
+                <!--<option value="3">Rescue and Evacuation</option>-->
+                <!--<option value="4">Emergency Ambulance</option>-->
+            <!--</select>-->
+        <!--</h4>-->
 
         <div >
-            <table>
-                <tbody>
-                <tr>
-                    <th width="350" align = "left" scope="row">&nbsp; Total Events Solved:</th>
-                    <th width="50" align = "center">&nbsp;{{getTotalEvents()}}</th>
-                </tr>
-                </tbody>
-            </table>
+            <!--<table>-->
+                <!--<tbody>-->
+                <!--<tr>-->
+                    <!--<th width="350" align = "left" scope="row">&nbsp; Total Events Solved:</th>-->
+                    <!--<th width="50" align = "center">&nbsp;{{getTotalEvents()}}</th>-->
+                <!--</tr>-->
+                <!--</tbody>-->
+            <!--</table>-->
 
             <table>
                 <tbody>
@@ -63,13 +63,16 @@
                 </tbody>
             </table>
             <table>
-                <tr ng-repeat="crisis in crises">
-                    <td width="60" align = "center" scope="row">{{crisis.id}}</td>
-                    <td width="140" align = "left" scope="row"> &nbsp; {{crisis.title}}</a></td>
-                    <td width="140" align = "left" scope="row"> &nbsp; {{crisis.userId}}</a></td>
-                    <td width="80" align = "center" scope="row">&nbsp; {{crisis.body}}</td>
-                    <td width="80" align = "center" scope="row">&nbsp; <a class = "button" ui-sref="viewCrisis({id:crisis.id})">Review</a></td>
+                <tr ng-repeat="crisis in crises | filter: historyonly">
+                    <td width="60" align = "center" scope="row">{{crisis.event_id}}</td>
+                    <td width="140" align = "left" scope="row"> &nbsp; {{crisis.event_Type}}</a></td>
+                    <td width="140" align = "left" scope="row"> &nbsp; {{crisis.location}}</a></td>
+                    <td width="80" align = "center" scope="row">&nbsp; {{crisis.status}}</td>
+                    <td width="80" align = "center" scope="row">&nbsp; <a class = "button" ui-sref="viewCrisis({id:crisis.event_id})">Review</a></td>
 
+                    <form ng-submit="loadCrisis()">
+                    <div ng-show="toshow" ng-include="'http://lemon-tea-call-center.cz3003.10.27.151.19.xip.io/partials/crisis-view.html'"></div>
+                        </form>
                 </tr>
             </table>
         </div>

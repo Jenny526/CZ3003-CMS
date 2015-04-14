@@ -3,10 +3,11 @@
  */
 angular.module('crisisApp.controllers',[])
 
-    .controller('CrisisListController',function($scope,$state,popupService,$window,Crisis,$log){
+    .controller('CrisisListController',function($scope,$state,popupService,$window,Crisis,Crisis2,$log){
 
         $scope.crises=Crisis.query(
             {}, function(data){
+                $scope.pendingonly = "pending";
                 console.log("here is returned from query");
                 console.log(data);
             }
@@ -21,16 +22,22 @@ angular.module('crisisApp.controllers',[])
         //}
 
     })
-    .controller('CrisisViewController',function($scope,$stateParams,Crisis){
+    .controller('CrisisViewController',function($scope,$stateParams,Crisis,Crisis2){
         console.log("crisis viewing");
         console.log($stateParams.id);
         console.log($stateParams);
-
-        $scope.crisis=Crisis.get({id:$stateParams.id},function(data){
-            console.log("here is returned from view");
-            console.log(data);
-        });
+        console.log("under crisis edit controller");
+        $scope.loadCrisis=function(){
+            $scope.crisis=Crisis2.get({id:$stateParams.id});
+        };
+        $scope.loadCrisis();
+        //console.log($scope.crisis);
+        //$scope.crisis=Crisis2.get({id:$stateParams.id},function(data){
+        //    console.log("here is returned from view");
+        //    console.log(data);
+        //});
         console.log($scope.crisis);
+        $scope.toshow=false;
 
     })
     .controller('CrisisCreateController',function($scope,$state,$stateParams,$http,Crisis){
@@ -66,8 +73,12 @@ angular.module('crisisApp.controllers',[])
         };
 
     })
-    .controller('CrisisEditController',function($scope,$state,$stateParams,Crisis){
+    .controller('CrisisEditController',function($scope,$state,$stateParams,Crisis2){
         console.log("under crisis edit controller");
+        $scope.loadCrisis=function(){
+            $scope.crisis=Crisis2.get({id:$stateParams.id});
+        };
+        $scope.loadCrisis();
         console.log($scope.crisis);
 
         //$scope.movie=Movie.get({id:$stateParams.id});
@@ -76,7 +87,11 @@ angular.module('crisisApp.controllers',[])
             console.log($stateParams.id);
             console.log("show scope.crisis");
             console.log($scope.crisis);
-            console.log($scope.crisis.$update({},function(data){
+            //var container1 = [];
+            //container1.push($scope.crisis);
+            //$scope.crisis = container1;
+            console.log($scope.crisis);
+            console.log($scope.crisis.$update({id:$scope.crisis.event_id},function(data){
                 console.log("here is the returned from update");
                 console.log(data);
                 $state.go('crises');
@@ -85,14 +100,13 @@ angular.module('crisisApp.controllers',[])
 
         };
 
-        $scope.loadCrisis=function(){
-            $scope.crisis=Crisis.get({id:$stateParams.id});
-        };
 
-        $scope.loadCrisis();
+
+
     })
     .controller('CrisisHistoryController',function($scope,$state,$stateParams, Crisis){
         console.log("under crisis history controller");
+        $scope.historyonly = "resolved";
         $scope.crises=Crisis.query(
             {}, function(data){
                 console.log("here is returned from query");
