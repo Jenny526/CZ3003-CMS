@@ -33,32 +33,52 @@ mapControllers.controller('mapInstanceCtrl',['$scope','$log','$filter','Crisis',
 
         $scope.updateCrisis = function(){
             $scope.map.markersForDisplay = $scope.filterCrisis($scope.map.markers);
+            console.log($scope.map.markersForDisplay)
+            $scope.map.markersForDisplay.forEach(function (mk){
+                    if (mk.event_Type == "fire") {
+                        mk.iconUrl = "http://lemon-tea-cms.cz3003.project.10.27.151.19.xip.io/image/fire.png";
+                    } else if (mk.event_Type == "dengue") {
+                        mk.iconUrl = "http://lemon-tea-cms.cz3003.project.10.27.151.19.xip.io/image/dengue.png";
+                    } else if (mk.event_Type == "flu") {
+                        mk.iconUrl = "http://lemon-tea-cms.cz3003.project.10.27.151.19.xip.io/image/flu.png";
+                    } else if (mk.event_Type == "gas") {
+                        mk.iconUrl = "http://lemon-tea-cms.cz3003.project.10.27.151.19.xip.io/image/gas.png";
+                    } else if (mk.event_Type == "rescue") {
+                        mk.iconUrl = "http://lemon-tea-cms.cz3003.project.10.27.151.19.xip.io/image/rescue.png";
+                    } else if (mk.event_Type == "shelter") {
+                        mk.iconUrl = "http://lemon-tea-cms.cz3003.project.10.27.151.19.xip.io/image/shelter.png";
+                    } else if (mk.event_Type == "other") {
+                        mk.iconUrl = "http://lemon-tea-cms.cz3003.project.10.27.151.19.xip.io/image/flag.png";
+                    }
+
+            });
         };
 
         $scope.filterCrisis = function(items) {
             var filtered = [];
             angular.forEach(items, function(item) {
-                if(item.eventType.eventName == "fire" && $scope.types_fire == true){
+                if (item.status == "pending"){
+                if(item.event_Type == "fire" && $scope.types_fire == true){
                     filtered.push(item);
                 }
-                else if(item.eventType.eventName == "other" && $scope.types_other == true){
+                else if(item.event_Type == "other" && $scope.types_other == true){
                     filtered.push(item);
                 }
-                else if(item.eventType.eventName == "dengue" && $scope.types_dengue == true){
+                else if(item.event_Type == "dengue" && $scope.types_dengue == true){
                     filtered.push(item);
                 }
-                else if(item.eventType.eventName == "flu" && $scope.types_flu == true){
+                else if(item.event_Type == "flu" && $scope.types_flu == true){
                     filtered.push(item);
                 }
-                else if(item.eventType.eventName == "gas" && $scope.types_gas == true){
+                else if(item.event_Type == "gas" && $scope.types_gas == true){
                     filtered.push(item);
                 }
-                else if(item.eventType.eventName == "rescue" && $scope.types_rescue == true){
+                else if(item.event_Type == "rescue" && $scope.types_rescue == true){
                     filtered.push(item);
                 }
-                else if(item.eventType.eventName == "shelter" && $scope.types_shelter == true){
+                else if(item.event_Type == "shelter" && $scope.types_shelter == true){
                     filtered.push(item);
-                }
+                }}
             });
             $scope.toBeFiltered = filtered;
             filtered = $scope.$eval("toBeFiltered | filter:query");
@@ -69,7 +89,7 @@ mapControllers.controller('mapInstanceCtrl',['$scope','$log','$filter','Crisis',
         //console.log($scope.map.markers);
         $scope.map.markersEvents = {
             click: function (marker, eventName, model, args) {
-                $scope.currentDisplay = marker.model.eventType;
+                $scope.currentDisplay = marker.model.description;
                 $scope.$apply();
             }
         };
@@ -81,6 +101,7 @@ mapControllers.controller('mapInstanceCtrl',['$scope','$log','$filter','Crisis',
         var refresh = $interval(function(){
                 $scope.map.markers = Crisis.query({}, function (result) {
                     console.log("update");
+                    console.log($scope.map.markers);
                     $scope.updateCrisis();
                 });
         }, 1000)

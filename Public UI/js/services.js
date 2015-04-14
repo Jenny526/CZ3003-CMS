@@ -9,7 +9,7 @@ var cmsServices = angular.module('cmsServices', ['ngResource']);
 
 cmsServices.factory('Crisis', ['$resource',
     function($resource){
-        return $resource('http://lemon-tea-cms.cz3003.project.10.27.151.19.xip.io/:crisisId.json', {}, {
-            query: {method:'GET', params:{crisisId:'test'}, isArray:true}
+        return $resource('http://10.27.163.216:5000/publicView', {}, {
+            query: {method:'GET', params:{}, isArray:true}
         });
     }]);
