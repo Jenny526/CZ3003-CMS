@@ -12,7 +12,7 @@ exports.postWeatherHandler = function(req, res){
 	var celsius = req.body.celsius;
 	var id = 'NULL';
 	    
-	var query = "INSERT INTO table weather VALUES('" + id + "','" + text + "','" + celsius + "')";
+	var query = "INSERT INTO weather VALUES('" + id + "','" + text + "','" + celsius + "')";
 	 
 	connection.query(query, function(err, rows, fields){
 	    if(err){

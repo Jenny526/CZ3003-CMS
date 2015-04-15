@@ -16,7 +16,7 @@ exports.postPSIHandler = function(req, res){
 	
 	var id = 'NULL';
 
-	var queryForPSI = "INSERT INTO table psi VALUES('" + id + "','" + hour + "','" + value + "','" + descriptor + "')";
+	var queryForPSI = "INSERT INTO psi VALUES('" + id + "','" + hour + "','" + value + "','" + descriptor + "')";
 
 	connection.query(queryForPSI, function(err, rows, fields){
 	    if(err){
