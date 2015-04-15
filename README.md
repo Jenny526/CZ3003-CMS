@@ -39,16 +39,17 @@ Public Web/            --> Component to show the real-time crises, weather, PSI 
 
 Central control        --> Component as the central unit to handle requests from dengue/weather/PSI/Call Center/Public Web and post information to Public Web/facebook/twitter/sms/email
 
-facebook               --> Component to update crisis information on Facebook account [https://www.facebook.com/pages/Crisis-Management-System/823016391097525](https://www.facebook.com/pages/Crisis-Management-System/823016391097525)
+facebook               --> Component to update crisis information on Facebook account 
 twitter                --> Component to update crisis information on Twitter account [https://twitter.com/system_cm](https://twitter.com/system_cm)
 
 sms                    --> Component to send sms to related agents/subscribed user when new crisis received
 email                  --> Component to send email to the Prime Minister office every half hour
 
 Database               --> Component to store all related data
+```
 
 ## Contact
 
-For more information on [Crisis Management System by Lemon Tea](https://github.com/Rhteo/CZ3003-CMS) please check out https://twitter.com/system_cm
+For more information on [Crisis Management System by Lemon Tea](https://github.com/Rhteo/CZ3003-CMS) please check out [Facebook](https://www.facebook.com/pages/Crisis-Management-System/823016391097525) or [Twitter](https://twitter.com/system_cm)
 
 [git]: http://git-scm.com/
