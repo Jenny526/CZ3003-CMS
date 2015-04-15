@@ -14,32 +14,32 @@ crisisApp.config(function($stateProvider,$httpProvider){
     $stateProvider.state('crises',
         {
             url:'/crises',
-            templateUrl:'http://lemon-tea-call-center.cz3003.10.27.151.19.xip.io/partials/crises.html',
+            templateUrl:'partials/crises.html',
             controller:'CrisisListController'
         }).state('viewCrisis',
         {
             url:'/crises/:id/view',
-            templateUrl:'http://lemon-tea-call-center.cz3003.10.27.151.19.xip.io/partials/crisis-view.html',
+            templateUrl:'partials/crisis-view.html',
             controller:'CrisisViewController'
         }).state('newCrisis',
         {
             url:'/crises/new',
-            templateUrl:'http://lemon-tea-call-center.cz3003.10.27.151.19.xip.io/partials/crisis-add.html',
+            templateUrl:'partials/crisis-add.html',
             controller:'CrisisCreateController'
         }).state('editCrisis',
         {
             url:'/crises/:id/edit',
-            templateUrl:'http://lemon-tea-call-center.cz3003.10.27.151.19.xip.io/partials/crisis-edit.html',
+            templateUrl:'partials/crisis-edit.html',
             controller:'CrisisEditController'
         }).state('oldCrisis',
         {
             url:'/crises/history',
-            templateUrl:'http://lemon-tea-call-center.cz3003.10.27.151.19.xip.io/partials/crisis-history.html',
+            templateUrl:'partials/crisis-history.html',
             controller:'CrisisHistoryController'
         }).state('login',
         {
             url:'/crises/login',
-            templateUrl:'http://lemon-tea-call-center.cz3003.10.27.151.19.xip.io/partials/login.html',
+            templateUrl:'partials/login.html',
             controller:'LoginController'
         });
 }).run(function($state){
