@@ -15,10 +15,10 @@ cmsApp.config(['$routeProvider',
                 templateUrl: 'partials/crisis-list.html',
                 controller: 'CrisisListCtrl'
             }).
-            when('/crises/:crisisId', {
-                templateUrl: 'partials/crisis-detail.html',
-                controller: 'CrisisDetailCtrl'
-            }).
+            //when('/crises/:crisisId', {
+            //    templateUrl: 'partials/crisis-detail.html',
+            //    controller: 'CrisisDetailCtrl'
+            //}).
             when('/report',{
                 templateUrl:'partials/report.html'
                 //controller:'reportCtrl'
