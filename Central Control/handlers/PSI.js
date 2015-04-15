@@ -13,11 +13,10 @@ exports.postPSIHandler = function(req, res){
 	var hour = PSI.hour;
 	var value = PSI.value;
 	var descriptor = PSI.value;
-	var hasHaze = haze.hasHaze;
+	
 	var id = 'NULL';
 
 	var queryForPSI = "INSERT INTO table psi VALUES('" + id + "','" + hour + "','" + value + "','" + descriptor + "')";
-	var queryForHaze = "INSERT INTO table haze VALUES('" + id + "','" + hour + "','" + hasHaze + "')";
 
 	connection.query(queryForPSI, function(err, rows, fields){
 	    if(err){
@@ -25,13 +24,26 @@ exports.postPSIHandler = function(req, res){
 	    }
 	});
 
-	if(hasHaze){
-	   	connection.query(queryForHaze, function(err, rows, fields){
+	haze.forEach(function(hazeData){
+		var id = 'NULL';
+		var description = hazeData.description;
+		var priority = haze.priority;
+		var location = haze.location;
+		var status = haze.status;
+		var NRIC = 'NULL';
+		var type = haze.type;
+		var lat = haze.coords.lat;
+		var lng = haze.coords.lng;
+		var showWindow = haze.showWindow;
+		var draggable = haze.draggable;
+		var query = "INSERT INTO event VALUES('" + id + "','" + description + "','" + priority + "','" + location + "','" +
+	           status + "','" + NRIC + "','"  + type + "','" + lat + "','" + lng + "','" + showWindow + "','" + draggable + "')";
+	   	connection.query(query, function(err, rows, fields){
 	     	if(err){
 	          throw err;
 	        }
 	    });
-	}
+	});
 
 	res.send("OK");
 }
