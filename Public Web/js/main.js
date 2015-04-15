@@ -8,12 +8,6 @@ var cmsApp = angular.module('cmsApp', [
     'cmsServices',
     'mapApp'
 ]);
-cmsApp.controller('timeCtrl', ['$scope',
-        function ($scope) {
-            $scope.time=Date.now()
-        }]
-);
-
 cmsApp.config(['$routeProvider',
     function($routeProvider) {
         $routeProvider.

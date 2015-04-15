@@ -4,9 +4,25 @@
 
 var cmsControllers = angular.module('cmsControllers', []);
 
+cmsControllers.controller('timeCtrl', ['$scope',
+        function ($scope) {
+            $scope.time=Date.now()
+        }]
+);
+cmsControllers.controller('weatherCtrl',['$scope','Weather',
+    function ($scope, Weather) {
+        $scope.weather = Weather.get();
+    }
+]);
+cmsControllers.controller('PSICtrl',['$scope','PSI',
+    function ($scope, PSI) {
+        $scope.PSI = PSI.get();
+    }
+]);
+
 //RESTful client
-cmsControllers.controller('CrisisListCtrl', ['$scope','Crisis',
-    function ($scope, Crisis) {
+cmsControllers.controller('CrisisListCtrl', ['$scope','Crisis','Weather','PSI',
+    function ($scope, Crisis, Weather, PSI) {
 
         $scope.crises = Crisis.query();
 
