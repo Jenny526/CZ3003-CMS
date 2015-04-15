@@ -1,6 +1,5 @@
 var express = require("express");
 var bodyParser = require("body-parser");
-var request = require('request');
 
 var subscribe = require('./handlers/subscribe.js');
 var callOperator = require('./handlers/callOperator.js');
