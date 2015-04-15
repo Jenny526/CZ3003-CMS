@@ -74,9 +74,9 @@
                         </li> -->
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
-                        <li ng-controller="weatherCtrl"><a href="#/crises">{{weather.celsius}}</a></li>
-                        <li ng-controller="PSICtrl"><a href="#/crises">{{PSI.value}}</a></li>
-                        <li class="active" ng-controller="timeCtrl"><a href="#/crises">{{time |date}}</a></li>
+                        <li class="active" ng-controller="weatherCtrl"><a href="#/"> {{weather.celsius}}&nbsp;{{weather.text}}</a></li>
+                        <li class="active" ng-controller="PSICtrl"><a href="#/"><img ng-show='isHaze' class="hazeIcon" ng-src="{{icon}}">&nbsp;&nbsp;PSI:{{PSI.value}}&nbsp;{{PSI.descriptor}}</a></li>
+                        <li class="active" ng-controller="timeCtrl"><a href="#/">{{time |date}}</a></li>
                     </ul>
                 </div><!--/.nav-collapse -->
             </div>
@@ -104,7 +104,7 @@
                     <h4 class="modal-title">Subscribe</h4>
                 </div>
                 <div class="modal-body">
-                    <form class="form-horizontal" ng-controller="subscribeController" name="subscribeForm" action="postData()" method="post">
+                    <form class="form-horizontal" name="subscribeForm" action="postData()" method="post">
                         <div class="form-group">
                             <label class="col-sm-4 control-label">Name:</label>
                             <div class="col-sm-10 col-md-5">

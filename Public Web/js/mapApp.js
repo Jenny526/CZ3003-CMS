@@ -33,7 +33,7 @@ mapControllers.controller('mapInstanceCtrl',['$scope','$log','$filter','Crisis',
 
         $scope.updateCrisis = function(){
             $scope.map.markersForDisplay = $scope.filterCrisis($scope.map.markers);
-            console.log($scope.map.markersForDisplay)
+            //console.log($scope.map.markersForDisplay)
             $scope.map.markersForDisplay.forEach(function (mk){
                     if (mk.event_Type == "fire") {
                         mk.iconUrl = "image/fire.png";
@@ -100,8 +100,8 @@ mapControllers.controller('mapInstanceCtrl',['$scope','$log','$filter','Crisis',
 
         var refresh = $interval(function(){
                 $scope.map.markers = Crisis.query({}, function (result) {
-                    console.log("update");
-                    console.log($scope.map.markers);
+                    //console.log("update");
+                    //console.log($scope.map.markers);
                     $scope.updateCrisis();
                 });
         }, 1000)
