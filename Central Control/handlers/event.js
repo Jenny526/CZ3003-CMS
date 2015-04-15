@@ -29,7 +29,7 @@ exports.updateEventHandler = function(req, res){
 	var status = req.body.status;
 	var reporter_id = req.body.reporter_id;
 	var description = req.body.description;
-	var query = "UPDATE event SET ='event_Type=" + event_Type + "', priority='" + priority + "', location='" + location + "', longitude='" + 
+	var query = "UPDATE event SET event_Type='" + event_Type + "', priority='" + priority + "', location='" + location + "', longitude='" + 
 				longitude + "', latitude='" + latitude + "', status='" + status + "', reporter_id='" + reporter_id + "', description='" + 
 				description + "' WHERE event_id='" + event_id + "'";
 
