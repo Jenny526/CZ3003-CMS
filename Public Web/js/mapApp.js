@@ -36,19 +36,19 @@ mapControllers.controller('mapInstanceCtrl',['$scope','$log','$filter','Crisis',
             console.log($scope.map.markersForDisplay)
             $scope.map.markersForDisplay.forEach(function (mk){
                     if (mk.event_Type == "fire") {
-                        mk.iconUrl = "http://lemon-tea-cms.cz3003.project.10.27.151.19.xip.io/image/fire.png";
+                        mk.iconUrl = "image/fire.png";
                     } else if (mk.event_Type == "dengue") {
-                        mk.iconUrl = "http://lemon-tea-cms.cz3003.project.10.27.151.19.xip.io/image/dengue.png";
+                        mk.iconUrl = "image/dengue.png";
                     } else if (mk.event_Type == "flu") {
-                        mk.iconUrl = "http://lemon-tea-cms.cz3003.project.10.27.151.19.xip.io/image/flu.png";
+                        mk.iconUrl = "image/flu.png";
                     } else if (mk.event_Type == "gas") {
-                        mk.iconUrl = "http://lemon-tea-cms.cz3003.project.10.27.151.19.xip.io/image/gas.png";
+                        mk.iconUrl = "image/gas.png";
                     } else if (mk.event_Type == "rescue") {
-                        mk.iconUrl = "http://lemon-tea-cms.cz3003.project.10.27.151.19.xip.io/image/rescue.png";
+                        mk.iconUrl = "image/rescue.png";
                     } else if (mk.event_Type == "shelter") {
-                        mk.iconUrl = "http://lemon-tea-cms.cz3003.project.10.27.151.19.xip.io/image/shelter.png";
+                        mk.iconUrl = "image/shelter.png";
                     } else if (mk.event_Type == "other") {
-                        mk.iconUrl = "http://lemon-tea-cms.cz3003.project.10.27.151.19.xip.io/image/flag.png";
+                        mk.iconUrl = "image/flag.png";
                     }
 
             });
