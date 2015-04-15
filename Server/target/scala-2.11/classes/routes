@@ -1,0 +1,32 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+
+GET    /            controllers.CallOperatorController.index()
+
+GET     /calloperator/login				controllers.CallOperatorController.LogIn()
+
+POST    /event                     controllers.CallOperatorController.addEvent()
+
+#GET     /event                             controllers.CallOperatorController.getEventTypes()
+
+#GET     /events                    controllers.PublicViewController.postEvents()
+
+POST /subscribe controllers.SubscribeController.addEvent()
+
+OPTIONS /subscribe controllers.SubscribeController.addEvent()
+
+OPTIONS /subscribe controllers.SubscribeController.check()
+
+#POST /api/weather controllers.WeatherController.addEvent()
+#POST /api/psi controllers.PSIController.addEvent()
+#POST /api/dengue controllers.DengueController.addEvent()
+
+
+
+
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               controllers.Assets.at(path="/public", file)
