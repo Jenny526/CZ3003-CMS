@@ -24,7 +24,7 @@ exports.postWeatherHandler = function(req, res){
 };
 
 exports.getWeatherHandler = function(req, res){
-	var query = "SELECT * FROM psi ORDER BY id DESC LIMIT 1";
+	var query = "SELECT * FROM weather ORDER BY id DESC LIMIT 1";
 
 	connection.query(query, function(err, rows, fields){
 		if(err){

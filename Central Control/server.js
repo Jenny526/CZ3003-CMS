@@ -4,7 +4,7 @@ var bodyParser = require("body-parser");
 var subscribe = require('./handlers/subscribe.js');
 var callOperator = require('./handlers/callOperator.js');
 var dengue = require('./handlers/dengue.js');
-var getEvent = require('./handlers/getEvent.js');
+var events = require('./handlers/event.js');
 var PSI = require('./handlers/PSI.js');
 var publicView = require('./handlers/publicView.js');
 var report = require('./handlers/report.js');
@@ -24,13 +24,13 @@ app.use(bodyParser.json());
 app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-	res.header("Access-Control-Allow-Methods", "GET,POST,PUT,OPTIONS");
     next();
 });
 
 app.post('/subscribe', subscribe.subscribeHandler);
 app.get("/publicView", publicView.publicViewHandler);
-app.get("/getEvent/:id", getEvent.getEventHandler);
+app.get("/getEvent/:id", events.getEventHandler);
+app.put("/getEvent/:id", events.updateEventHandler);
 app.get("/report", report.reportHandlder);
 app.post("/callOperator", callOperator.callOperatorHandler);
 app.post("/PSI", PSI.postPSIHandler);
