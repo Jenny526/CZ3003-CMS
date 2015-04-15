@@ -184,6 +184,14 @@ function getAirQualityDescriptor(PSIValue){
         descriptor = "Very unhealthy";
     }else if(minPSI > 300 && maxPSI > 300){
         descriptor = "Hazardous";
+    }else if(minPSI <= 50 && maxPSI > 50){
+        descriptor = "Good to Moderate";
+    }else if(minPSI <=100 && maxPSI > 100){
+        descriptor = "Moderate to Unhealthy";
+    }else if(minPSI <=200 && maxPSi > 200){
+        descriptor = "Unhealthy to very unhealthy";
+    }else if(minPSI <=300 && maxPSI > 300){
+        descriptor = "very unhealthy to Hazardous";
     }
 
     return descriptor;
